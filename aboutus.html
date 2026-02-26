@@ -1,316 +1,1655 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About us Workwalaa</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/appicon.png" />
+  <title>About Us - Workwalaa</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
   <style>
-    html {
-  scroll-behavior: smooth;
-}
+    :root {
+      --bg-base: #030303;
+      --bg-surface: #0a0a0a;
 
-     body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
+      --brand-yellow: #f2ca00;
+
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.05);
+
+      --text-main: #ffffff;
+      --text-muted: #999999;
+
+      --transition-smooth: all 0.3s ease;
+    }
+
+    * {
       margin: 0;
-      padding: 2rem;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-  /* Responsive for tablets and up */
-  @media (min-width: 768px) {
-    .intro-section {
-      flex-direction: row;
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.8;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.1rem 5%;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      padding: 4rem 6rem;
+      background: rgba(3, 3, 3, 0.9);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--glass-border);
+      z-index: 1000;
     }
 
-    .intro-text {
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      height: 40px;
+    }
+
+    .logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-main);
+    }
+
+    .nav-links a.active {
+      border-bottom: 2px solid var(--brand-yellow);
+      padding-bottom: 4px;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: var(--brand-yellow);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .menu-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(3, 3, 3, 0.95);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .mobile-menu-overlay.active {
+      right: 0;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 5%;
+      font-size: 2.5rem;
+      color: var(--brand-yellow);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-menu-close:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    .mobile-nav-links a {
+      color: #fff;
+      font-size: 1.5rem;
+      font-family: 'Outfit', sans-serif;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    .mobile-menu-overlay.active .mobile-nav-links a {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .mobile-nav-links a:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+
+    .mobile-nav-links a:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+
+    .mobile-nav-links a:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+
+    .mobile-nav-links a:nth-child(4) {
+      transition-delay: 0.4s;
+    }
+
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active {
+      color: var(--brand-yellow);
+    }
+
+    /* Header */
+    .about-hero {
+      padding: 200px 5% 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 4rem;
+    }
+
+    .about-hero-text {
+      flex: 1;
       text-align: left;
     }
 
-    .intro-image {
-      margin-left: 3rem;
+    .about-hero h1 {
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
     }
 
-    .intro-text h2 {
-      font-size: 3rem;
+    .about-hero h1 span {
+      background: linear-gradient(135deg, var(--brand-yellow), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .intro-text p {
-      font-size: 1.125rem;
+    .about-hero p {
+      color: var(--text-muted);
+      font-size: 1.2rem;
     }
-  }
-</style>
 
-<style>
-/* Card layout */
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* reduced min width for smaller screens */
-  gap: 1.5rem;
-}
+    /* 3D Morphing Liquid Orb */
+    .about-hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      min-height: 400px;
+    }
 
-.card {
-  background: #ffe876;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
-  transition: transform 0.3s;
-}
+    .flowing-orb-container {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      filter: drop-shadow(0 0 50px rgba(242, 202, 0, 0.2));
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-}
+    /* The main organic liquid shape */
+    .flowing-orb {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(242, 202, 0, 0.8), rgba(242, 202, 0, 0.1));
+      box-shadow:
+        inset 20px 20px 40px rgba(255, 255, 255, 0.5),
+        inset -20px -20px 40px rgba(0, 0, 0, 0.8),
+        0 0 100px rgba(242, 202, 0, 0.4);
+      animation: morph 8s ease-in-out infinite, spin 20s linear infinite;
+      backdrop-filter: blur(10px);
+      /* Gives it a glass/water feel */
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
 
-.card img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 1.5rem;
-}
+    /* A darker inner layer to give depth */
+    .flowing-orb::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      right: 10%;
+      bottom: 10%;
+      background: linear-gradient(45deg, rgba(0, 0, 0, 0.6), transparent);
+      border-radius: inherit;
+      box-shadow: inset 10px 10px 20px rgba(0, 0, 0, 0.5);
+      animation: morph 10s ease-in-out infinite reverse;
+    }
 
-/* 📱 Mobile Optimization */
-@media (max-width: 768px) {
-  body {
-    padding: 1rem;
-  }
-  header {
+    /* The glowing core */
+    .flowing-orb-core {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 60px 20px var(--brand-yellow), 0 0 100px 40px #fff;
+      animation: pulseCore 4s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    @keyframes morph {
+      0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      }
+
+      25% {
+        border-radius: 40% 60% 70% 30% / 40% 60% 40% 70%;
+      }
+
+      50% {
+        border-radius: 70% 30% 50% 50% / 30% 50% 70% 50%;
+      }
+
+      75% {
+        border-radius: 30% 70% 40% 60% / 70% 40% 50% 60%;
+      }
+
+      100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulseCore {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none !important;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .about-hero {
         flex-direction: column;
-        gap: 1rem;
+        padding-top: 150px;
+        text-align: center;
+        gap: 3rem;
+      }
+
+      .about-hero-text {
         text-align: center;
       }
-.max-w-xl{
-text-align: center;
-}
-.py-16{
-  align-items: center;
-}
 
-  .card {
-    flex-direction: column; /* Stack content vertically */
-    text-align: center;
-  }
+      .flowing-orb-container {
+        width: 250px;
+        height: 250px;
+      }
+    }
 
-  .card img {
-    margin-right: 0;
-    margin-bottom: 1rem;
-
-  }
-  .flip-card {
-      perspective: 1000px;
+    /* 3D Neural Network Visual */
+    .about-hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
       align-items: center;
+      position: relative;
+      min-height: 400px;
     }
-    .flip-inner {
-      transition: transform 0.7s;
-      transform-style: preserve-3d;
-            align-items: center;
 
+    .network-visual-container {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      /* organic algorithmic core feel */
+      box-shadow: 0 0 50px rgba(242, 202, 0, 0.15), inset 0 0 30px rgba(242, 202, 0, 0.1);
+      border: 1px solid rgba(242, 202, 0, 0.3);
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-surface);
     }
-}
-</style>
-  <style>
-    .flip-card {
-      perspective: 1000px;
+
+    @media (max-width: 992px) {
+      .about-hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 150px;
+        gap: 3rem;
+      }
+
+      .about-hero-text {
+        text-align: center;
+      }
+
+      .network-visual-container {
+        width: 300px;
+        height: 300px;
+      }
     }
-    .flip-inner {
-      transition: transform 0.7s;
+
+    /* Content Layout */
+    .story-section {
+      max-width: 1000px;
+      margin: 0 auto 6rem;
+      padding: 0 5%;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 4rem;
+      position: relative;
+      margin-bottom: 3rem;
+      /* 3D Glassmorphism Interaction */
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
       transform-style: preserve-3d;
+      overflow: hidden;
+      /* keep the glow contained */
     }
-    .flip-card:hover .flip-inner {
-      transform: rotateY(180deg);
+
+    /* The glowing aura that follows the mouse */
+    .info-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          rgba(242, 202, 0, 0.08),
+          transparent 40%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+      z-index: 1;
     }
-    .flip-front, .flip-back {
-      backface-visibility: hidden;
+
+    .info-card:hover::after {
+      opacity: 1;
     }
-    .flip-back {
-      transform: rotateY(180deg);
+
+    /* Elevate text above the glow */
+    .info-card h2,
+    .info-card p {
+      position: relative;
+      z-index: 2;
+      transform: translateZ(30px);
+      /* 3D pop out effect on tilt */
+      transition: transform 0.3s ease;
+    }
+
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--brand-yellow);
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
+      z-index: 3;
+    }
+
+    .info-card h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .info-card p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Values Grid */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .value-item {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+    }
+
+    .value-icon {
+      font-size: 3rem;
+      color: var(--brand-yellow);
+      margin-bottom: 1rem;
+    }
+
+    .value-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .value-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* =========================================
+       PREMIUM ABOUT US STYLES 
+       ========================================= */
+    .section-title {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      margin-bottom: 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #fff, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-title span {
+      color: var(--brand-yellow);
+      -webkit-text-fill-color: var(--brand-yellow);
+      text-shadow: 0 0 20px rgba(242, 202, 0, 0.3);
+    }
+
+    .narrative-block {
+      max-width: 900px;
+      margin: 0 auto 6rem;
+      padding: 0 5%;
+      text-align: center;
+    }
+
+    .narrative-block p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Ecosystem Grid (Glassmorphism) */
+    .ecosystem-section {
+      padding: 6rem 5%;
+      background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%);
+    }
+
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 4rem auto 0;
+    }
+
+    .eco-card {
+      background: rgba(10, 10, 10, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eco-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--brand-yellow), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .eco-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: rgba(242, 202, 0, 0.3);
+    }
+
+    .eco-card:hover::before {
+      opacity: 1;
+    }
+
+    .eco-icon {
+      font-size: 3.5rem;
+      color: var(--brand-yellow);
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 10px rgba(242, 202, 0, 0.2));
+    }
+
+    /* Leadership Section */
+    .leadership-section {
+      padding: 6rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .leader-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 4rem;
+      margin-top: 4rem;
+    }
+
+    .leader-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .leader-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .leader-image-placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #111 0%, #000 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .leader-image-placeholder i {
+      font-size: 6rem;
+      color: rgba(255, 255, 255, 0.05);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Comet Border Animation for Leadership Text Box */
+    .comet-box {
+      position: relative;
+    }
+
+    .comet-border {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .comet-border::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent 70%, rgba(242, 202, 0, 0.8) 100%);
+      animation: rotateComet 4s linear infinite;
+    }
+
+    .comet-border::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      /* Background matches the container */
+      background: var(--bg-surface);
+    }
+
+    .leader-info>h3,
+    .leader-info>h4,
+    .leader-info>p,
+    .leader-info>br {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes rotateComet {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .leader-info {
+      padding: 2.5rem;
+    }
+
+    .leader-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .leader-info h4 {
+      color: var(--brand-yellow);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .leader-info p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Manifesto Section */
+    .manifesto-section {
+      background: #000;
+      padding: 8rem 5%;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .manifesto-bg-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(242, 202, 0, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .manifesto-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .manifesto-block {
+      margin-bottom: 5rem;
+    }
+
+    .manifesto-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .manifesto-block h3 {
+      color: var(--brand-yellow);
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+    }
+
+    .manifesto-block p {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: #fff;
+      line-height: 1.4;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+    }
+
+    .manifesto-block p strong {
+      font-weight: 600;
+    }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Lists */
+    .content-list {
+      list-style: none;
+      text-align: left;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 5%;
+    }
+
+    .content-list li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+    }
+
+    .content-list li i {
+      color: var(--brand-yellow);
+      font-size: 1.5rem;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    @media(max-width: 768px) {
+      .info-card {
+        padding: 2rem;
+      }
+
+      .values-grid,
+      .ecosystem-grid,
+      .leader-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content-list li {
+        white-space: normal;
+        /* Allow wrap on mobile */
+        align-items: flex-start;
+      }
+
+      .content-list li i {
+        margin-top: 3px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* =========================================
+       FOOTER 
+       ========================================= */
+    footer {
+      background: #000;
+      padding: 4rem 5% 2rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4rem;
+    }
+
+    .footer-brand {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      max-width: 320px;
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      flex: 2;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-col {
+      min-width: 150px;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      margin-bottom: 1.8rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-col a {
+      display: block;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover {
+      color: var(--brand-yellow);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      width: 100%;
+      margin: 4rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--brand-yellow);
+    }
+
+    @media (max-width: 768px) {
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-direction: column;
+      }
     }
   </style>
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* =========================================
+       THEME OVERRIDES & LIGHT MODE POLISH
+       ========================================= */
+    :root:has(body.light-theme),
+    body.light-theme {
+      --bg-base: #f4f6f8;
+      --bg-surface: #ffffff;
+      --bg-elevated: #fcfcfc;
 
+      --brand-yellow: #dca300;
+      /* Darker yellow for text/icon contrast */
+      --brand-yellow-glow: rgba(220, 163, 0, 0.15);
+      --brand-yellow-hvr: #b88800;
+
+      --text-main: #111111;
+      --text-muted: #555555;
+
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    /* THEME BUTTON - DEFAULT (DARK MODE) */
+    .theme-btn {
+      background: rgba(242, 202, 0, 0.1);
+      border: 1px solid rgba(242, 202, 0, 0.3);
+      color: var(--brand-yellow);
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      margin-left: 15px;
+      box-shadow: 0 0 15px rgba(242, 202, 0, 0.15);
+    }
+
+    .theme-btn:hover {
+      background: var(--brand-yellow);
+      color: #000;
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: 0 0 25px rgba(242, 202, 0, 0.4);
+    }
+
+    /* THEME BUTTON - LIGHT MODE */
+    body.light-theme .theme-btn {
+      background: #ffffff;
+      border: 1px solid var(--glass-border);
+      color: #111;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    body.light-theme .theme-btn:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    .theme-btn i {
+      transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    body.light-theme .theme-btn i {
+      transform: rotate(360deg);
+    }
+
+    /* LIGHT THEME AESTHETIC FIXES */
+    /* Typography Overrides */
+    body.light-theme .logo-text,
+    body.light-theme .hero-title,
+    body.light-theme .section-title,
+    body.light-theme .assist-header h2,
+    body.light-theme .assist-text p strong,
+    body.light-theme .assist-features h3,
+    body.light-theme .assist-feature-item-text h4,
+    body.light-theme .info-card h2,
+    body.light-theme .leader-info h3,
+    body.light-theme .manifesto-block p,
+    body.light-theme .manifesto-block h3,
+    body.light-theme .footer-col h4,
+    body.light-theme .contact-header h2,
+    body.light-theme .stat-card h3 {
+      color: var(--text-main);
+    }
+
+    /* Gradients for Text */
+    body.light-theme .hero-title span,
+    body.light-theme .assist-header h2 span,
+    body.light-theme .section-title span,
+    body.light-theme .about-hero h1 span,
+    body.light-theme .contact-header h2 span {
+      background: linear-gradient(135deg, var(--brand-yellow), #222);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    body.light-theme .about-hero p,
+    body.light-theme .hero-subtitle,
+    body.light-theme .footer-brand p {
+      color: var(--text-muted);
+    }
+
+    /* Backgrounds & Overlays */
+    body.light-theme .hero,
+    body.light-theme .about-hero {
+      background-color: rgba(244, 246, 248, 0.85);
+    }
+
+    body.light-theme nav {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Box Shadows & Glows */
+    body.light-theme .assist-section,
+    body.light-theme .ecosystem-section {
+      box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.03), 0 20px 50px rgba(0, 0, 0, 0.03);
+      background: var(--bg-surface);
+    }
+
+    /* The glowing orb in about us */
+    body.light-theme .flowing-orb {
+      background: linear-gradient(135deg, rgba(220, 163, 0, 0.8), rgba(220, 163, 0, 0.1));
+      box-shadow: inset 20px 20px 40px rgba(255, 255, 255, 0.5), inset -20px -20px 40px rgba(0, 0, 0, 0.2), 0 0 100px rgba(220, 163, 0, 0.4);
+    }
+
+    body.light-theme .flowing-orb::before {
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), transparent);
+      box-shadow: inset 10px 10px 20px rgba(255, 255, 255, 0.5);
+    }
+
+    body.light-theme .invite-card,
+    body.light-theme .eco-card,
+    body.light-theme .info-card {
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body.light-theme .invite-title {
+      color: var(--text-main);
+    }
+
+    body.light-theme .stat-card:hover,
+    body.light-theme .eco-card:hover,
+    body.light-theme .service-card:hover,
+    body.light-theme .leader-card:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      border-color: rgba(220, 163, 0, 0.3);
+    }
+
+    /* Specific Sections */
+    body.light-theme footer,
+    body.light-theme .manifesto-section {
+      background: #fdfdfd;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    body.light-theme .eco-card h3,
+    body.light-theme .value-item h3 {
+      color: var(--text-main) !important;
+    }
+
+    body.light-theme .narrative-block p[style*="#fff"] {
+      color: var(--text-main) !important;
+      text-shadow: none !important;
+    }
+
+    body.light-theme .content-list li {
+      color: var(--text-main);
+    }
+
+    body.light-theme .comet-border::after {
+      background: var(--bg-surface);
+    }
+
+    /* Closing Text Animation */
+    @keyframes shimmerText {
+      0% {
+        background-position: -200% center;
+        text-shadow: 0 0 10px rgba(242, 202, 0, 0);
+      }
+
+      50% {
+        text-shadow: 0 0 20px rgba(242, 202, 0, 0.3);
+      }
+
+      100% {
+        background-position: 200% center;
+        text-shadow: 0 0 10px rgba(242, 202, 0, 0);
+      }
+    }
+
+    .shimmering-closing-text {
+      background: linear-gradient(90deg,
+          #aaa 0%,
+          #fff 25%,
+          #ffea8c 50%,
+          #fff 75%,
+          #aaa 100%);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmerText 4s linear infinite;
+      font-weight: 400;
+    }
+
+    body.light-theme .shimmering-closing-text {
+      background: linear-gradient(90deg,
+          #555 0%,
+          #111 25%,
+          var(--brand-yellow) 50%,
+          #111 75%,
+          #555 100%);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmerText 4s linear infinite;
+      font-weight: 500;
+    }
+  </style>
+  <script>
+    // Apply theme immediately to prevent FOUC
+    const savedTheme = localStorage.getItem('workwalaa_theme');
+    if (savedTheme === 'light') {
+      document.documentElement.classList.add('light-theme');
+    }
+  </script>
 </head>
 
-<body class="bg-yellow-50 font-sans">
-  <div class="p-4">
-    <!-- 🔝 Header -->
-    <header class="flex justify-between items-center p-6 bg-white shadow rounded-3xl">
-      <!-- Logo -->
-      <a href="#" class="block">
-        <img src="https://i.ibb.co/XxcHTJxh/Copy-of-workwalaa-Photoroom.png" alt="Workwalaa Logo" class="h-16 w-auto" />
-      </a>
+<body>
 
-      <!-- Navigation -->
-     <nav class="flex flex-wrap justify-center gap-2 text-gray-700 text-base">
-  <a href="./index.html" class="px-2 py-1 hover:text-black">Home</a>
-  <a href="#team" class="px-2 py-1 hover:text-black">Team</a>
-  <a href="#mission" class="px-2 py-1 hover:text-black">Mission</a>
-  <a href="./careers.html" class="px-2 py-1 hover:text-black">Careers</a>
-</nav>
-      <!-- Contact Button -->
-      <div class="space-x-4">
-        <a href="https://wa.me/918156801024" target="_blank" rel="noopener noreferrer">
-  <button
-    style="background-color: #fdd835;"
-    class="text-black px-6 py-3 rounded shadow 
-           hover:shadow-lg 
-           active:shadow-inner active:bg-black 
-           focus:outline-none focus:ring-2 focus:ring-yellow-400 
-           transition duration-200">
-    Contact us
-  </button>
-</a>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="logo-container">
+      <span class="logo-text">Workwalaa</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="careers.html">Jobs</a>
+      <a href="aboutus.html" class="active">About Us</a>
+      <a href="blogs.html">Blogs</a>
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+        <i class='bx bx-sun' id="theme-icon"></i>
+      </button>
+    </div>
+    <i class='bx bx-menu menu-toggle' id="mobile-menu-open"></i>
+  </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <i class='bx bx-x mobile-menu-close' id="mobile-menu-close"></i>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="careers.html">Jobs</a>
+      <a href="aboutus.html" class="active">About Us</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="careers.html#post-vacancy" style="color: var(--brand-yellow); margin-top: 1rem;">Post Vacancy</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="about-hero">
+    <div class="about-hero-text reveal active">
+      <h1>Premium <span>Ecosystem</span></h1>
+      <p>Building a reliable workforce ecosystem that connects organizations with talent across operational and
+        professional roles. Making work more structured, trustworthy, and efficient at every level.</p>
+      <div style="margin-top: 2.5rem;">
+        <a href="careers.html#post-vacancy"
+          style="display: inline-block; padding: 1rem 2.5rem; background: var(--brand-yellow); color: #000; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.1rem; border-radius: 30px; text-decoration: none; box-shadow: 0 10px 30px rgba(242, 202, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+          onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(242, 202, 0, 0.4)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(242, 202, 0, 0.3)';">
+          Partner With Us
+        </a>
       </div>
-    </header>
+    </div>
+    <div class="about-hero-visual reveal active">
+      <div class="network-visual-container" id="about-network-core"></div>
+    </div>
+  </div>
 
-    <!-- 🎯 Hero Section -->
-    <section class="flex flex-col md:flex-row items-center justify-between px-4 py-12">
-      <!-- Text content -->
-      <div class="max-w-xl">
-        <h2 class="text-4xl font-bold mb-4">Workwalaa</h2>
-        <p class="text-black-600 mb-6">
-          Workwalaa unites migrant and local workers across India under a single online platform. 
-          We are creating a centralized system where workers can easily connect with job opportunities across India. 
-          We aim to streamline the process of finding and hiring these workers, benefiting both the workers and employers.
+  <!-- Narrative Block: Who We Are -->
+  <section class="narrative-block reveal">
+    <h2 class="section-title">Who <span>We Are</span></h2>
+    <p>Workwalaa exists to bridge the gap between ambitious organizations and ready-to-execute talent. We combine
+      technology, real-world operational insight, and evolving quality standards to help businesses build dependable
+      teams while enabling individuals to access meaningful opportunities.</p>
+    <p><strong>Our focus is simple: make work more structured, trustworthy, and efficient at every level.</strong></p>
+  </section>
+
+  <!-- Mission & Vision Cards -->
+  <section class="story-section" style="max-width: 1200px;">
+    <!-- Mission Card -->
+    <div class="info-card reveal">
+      <h2>Our Mission</h2>
+      <p>To create reliable pathways between people and organizations by simplifying workforce access, strengthening
+        trust, and ensuring every role is supported by clear systems and measurable quality.</p>
+    </div>
+
+    <!-- Vision Card -->
+    <div class="info-card reveal" style="border-right-color: transparent;">
+      <h2>Our Vision</h2>
+      <p>To be the defining standard for workforce reliability&mdash;empowering individuals with clear pathways and
+        giving organizations the infrastructure to scale with absolute confidence.
+      </p>
+    </div>
+  </section>
+
+  <!-- Narrative List: What We Do -->
+  <section class="narrative-block reveal" style="text-align: left; max-width: 1000px;">
+    <h2 class="section-title" style="text-align: left;">What <span>We Do</span></h2>
+    <ul class="content-list">
+      <li><i class='bx bx-check-shield'></i> Workforce solutions across operational and professional roles</li>
+      <li><i class='bx bx-briefcase-alt-2'></i> <strong>Workwalaa Hire</strong> &rarr; <span
+          style="color: var(--text-muted); font-size: 0.95rem;">for structured recruitment and talent solutions. <em
+            style="color: #aaa;">(e.g., sourcing specialized professionals rapidly and at scale)</em></span>
+      </li>
+      <li><i class='bx bx-hive'></i> <strong>Workwalaa Assist</strong> &rarr; <span
+          style="color: var(--text-muted); font-size: 0.95rem;">for coordinated on-ground workforce operations. <em
+            style="color: #aaa;">(e.g., deploying and managing field teams with high fulfillment)</em></span>
+      </li>
+      <li><i class='bx bx-bar-chart-alt-2'></i> Workforce verification, benchmarking, and quality frameworks</li>
+      <li><i class='bx bx-line-chart'></i> Continuous workforce engagement and performance support</li>
+    </ul>
+  </section>
+
+  <!-- Narrative List: Our Approach -->
+  <section class="narrative-block reveal" style="text-align: left; max-width: 1000px;">
+    <h2 class="section-title" style="text-align: left;">Our <span>Approach</span></h2>
+    <p>We believe workforce solutions should be built on long-term relationships and consistent execution. Our approach
+      is guided by:</p>
+    <ul class="content-list">
+      <li><i class='bx bx-target-lock'></i> Deep understanding of real operational environments</li>
+      <li><i class='bx bx-network-chart'></i> Technology-enabled coordination and visibility</li>
+      <li><i class='bx bx-group'></i> Continuous engagement with workers and clients</li>
+      <li><i class='bx bx-badge-check'></i> Focus on reliability, accountability, and improvement</li>
+      <li><i class='bx bx-trending-up'></i> Building systems that scale with evolving needs</li>
+    </ul>
+  </section>
+
+  <!-- Quote Block: Why We Exist -->
+  <section class="narrative-block reveal" style="margin: 8rem auto;">
+    <i class='bx bxs-quote-alt-left'
+      style="font-size: 4rem; color: var(--glass-border); margin-bottom: 2rem; display: block;"></i>
+    <p
+      style="font-family: 'Outfit', sans-serif; font-size: 1.8rem; color: #fff; line-height: 1.5; text-shadow: 0 0 30px rgba(255,255,255,0.1);">
+      "Hiring and workforce management are often fragmented, leaving organizations struggling with consistency and
+      individuals without stable pathways to opportunity. Workwalaa exists to bridge this gap by creating structured
+      systems that bring clarity, trust, and reliability into the way work happens."
+    </p>
+  </section>
+
+  <!-- Expanded Values Grid -->
+  <section class="narrative-block reveal" style="max-width: 1200px;">
+    <h2 class="section-title">Our <span>Values</span></h2>
+    <div class="values-grid">
+      <div class="value-item">
+        <i class='bx bx-lock-open-alt value-icon'></i>
+        <h3>Trust & Transparency</h3>
+      </div>
+      <div class="value-item">
+        <i class='bx bx-user-circle value-icon'></i>
+        <h3>Respect for every role</h3>
+      </div>
+      <div class="value-item">
+        <i class='bx bx-bolt-circle value-icon'></i>
+        <h3>Reliability in execution</h3>
+      </div>
+      <div class="value-item">
+        <i class='bx bx-book-open value-icon'></i>
+        <h3>Continuous learning</h3>
+      </div>
+      <div class="value-item">
+        <i class='bx bx-building-house value-icon'></i>
+        <h3>Building with long-term intent</h3>
+      </div>
+      <div class="value-item">
+        <i class='bx bx-award value-icon'></i>
+        <h3>Commitment to excellence</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecosystem Section -->
+  <section class="ecosystem-section reveal">
+    <h2 class="section-title">The Workwalaa <span>Ecosystem</span></h2>
+    <p style="text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1.2rem;">
+      Workwalaa operates through a growing ecosystem designed to support the full lifecycle of workforce engagement.
+      Together, these initiatives form a dependable foundation for the future of work.
+    </p>
+
+    <div class="ecosystem-grid">
+      <div class="eco-card">
+        <i class='bx bx-buildings eco-icon'></i>
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff;">Workwalaa Hire</h3>
+        <p style="color: var(--text-muted);">Enabling organizations to build strong professional teams with precision
+          and speed.</p>
+      </div>
+      <div class="eco-card">
+        <i class='bx bx-cog eco-icon'></i>
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff;">Workwalaa Assist</h3>
+        <p style="color: var(--text-muted);">Supporting operational workforce coordination and flawless on-ground
+          execution.</p>
+      </div>
+      <div class="eco-card">
+        <i class='bx bx-bar-chart-square eco-icon'></i>
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff;">Workforce Benchmarking</h3>
+        <p style="color: var(--text-muted);">Developing uncompromising standards for performance and ongoing
+          reliability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Section -->
+  <section class="leadership-section reveal">
+    <h2 class="section-title"><span>Leadership</span></h2>
+    <div class="leader-grid">
+
+      <!-- Leader 1 -->
+      <div class="leader-card">
+        <div class="leader-image-placeholder">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=600"
+            alt="Mohammed Nihal Mundoli" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="leader-info comet-box">
+          <div class="comet-border"></div>
+          <h3>Mohammed Nihal Mundoli</h3>
+          <h4>Founder & CEO</h4>
+          <p>Mohammed Nihal Mundoli founded Workwalaa with a vision to bring structure, trust, and reliability into
+            workforce ecosystems. Driven by a strong belief that opportunity should be accessible and dignified for
+            everyone, he focuses on building systems that solve real ground-level challenges through innovation,
+            transparency, and execution excellence.</p>
+          <br>
+          <p>Known for his hands-on leadership, problem-solving mindset, and commitment to creating long-term impact, he
+            continues to shape Workwalaa into a platform that empowers businesses and workers alike.</p>
+        </div>
+      </div>
+
+      <!-- Leader 2 -->
+      <div class="leader-card">
+        <div class="leader-image-placeholder">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600"
+            alt="Farhan K" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="leader-info comet-box">
+          <div class="comet-border"></div>
+          <h3>Farhan K</h3>
+          <h4>Co-Founder & COO</h4>
+          <p>Farhan K serves as Co-Founder and Chief Operating Officer, overseeing operations and ensuring that
+            Workwalaa’s solutions are executed with consistency and efficiency.</p>
+          <br>
+          <p>He plays a key role in building processes, strengthening coordination, and enabling the company to scale
+            its workforce systems reliably. His focus is on translating vision into operational excellence.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Narrative Block: Looking Ahead -->
+  <section class="narrative-block reveal" style="max-width: 900px; margin-top: 6rem;">
+    <h2 class="section-title">Looking <span>Ahead</span></h2>
+    <p>Workwalaa is evolving beyond traditional workforce services to become a foundational layer that organizations can
+      depend on, enabling reliable teams, improving workforce outcomes, and setting new benchmarks for how work is
+      organized and delivered.</p>
+  </section>
+
+  <!-- Manifesto Section (Dark, Dramatic) -->
+  <section class="manifesto-section reveal">
+    <div class="manifesto-bg-glow"></div>
+    <div class="manifesto-content">
+
+      <div class="manifesto-block reveal">
+        <h3>We Believe</h3>
+        <p>Work should be accessible, reliable, and respected, <strong>regardless of where it happens.</strong></p>
+        <br>
+        <p>We believe that when systems are clear and standards are strong, both organizations and individuals thrive.
         </p>
       </div>
 
-      <!-- Image -->
-     <div class="mt-8 md:mt-0 flex justify-center md:justify-end">
-  <img src="https://i.ibb.co/6hXS0FD/Copy-of-workwalaa-1-1.jpg" 
-       alt="Business owner" 
-       class="w-64 md:w-80 rounded-xl shadow-lg" />
-</div>
-
-    </section>
-
-
-    <!-- 🧾 Cards Section -->
-    <section id="mission" class="py-16 px-6 md:px-20">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold">Our Commitment to a Better Work Ecosystem</h2>
-      <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-700">
-    At Workwalaa, our purpose is rooted in creating a transparent, efficient, and human centered digital work ecosystem. We envision a future where access to trusted job opportunities is seamless, especially for migrant and local workers across India. Our mission and vision guide every step we take toward building a platform that connects people, empowers employers, and redefines how work happens in the modern world.      </p>
-    </div>
-      <div class="cards-container">
-        <!-- Mission Card -->
-<div class="card">
-  <div class="card-content">
-
-    <h2 class="text-2xl font-bold mb-4 text-center">Mission</h2>
-    <p class="text-center">
-      Our mission is to create a centralized digital platform that seamlessly connects migrant and local workers across India.
-      We aim to provide employers with real time access to verified and trusted workers while ensuring that workers can easily find Jobs tailored to their skills and location.
-      By simplifying the hiring process and enhancing transparency, we strive to build a reliable and efficient labour ecosystem for all.
-    </p>
-  </div>
-</div>
-
-<!-- Vision Card -->
-<div class="card">
-  <div class="card-content">
-    <h2 class="text-2xl font-bold mb-4 text-center">Vision</h2>
-    <p class="text-center">
-      Our vision is to establish Workwalaa as Kerala’s most trusted and efficient digital platform for accessing work instantly where opportunity naturally meets technology.
-      We aspire to become the first name that comes to mind when anyone thinks about work.
-      By leveraging our verified worker system and intelligent job-matching technology, we aim to build a transparent, reliable, and inclusive digital work ecosystem that benefits both employers and workers across the state.
-    </p>
-  </div>
-</div>
-</div>
-</section>
- <!-- Glass Card -->
-  <section id="team" class="py-16 px-6 md:px-20 bg-white">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold">People Who Turn Vision into Reality</h2>
-      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-700">
-        Meet the core team of Conecxia who bring passion, strategy, and dedication to everything we build. Each member plays a vital role in driving our mission forward and shaping the future of local and migrant work connections.
-      </p>
-    </div>
-
-    <div class="flex flex-wrap justify-center gap-8 relative z-10">
-
-    <!-- Card 1 -->
-    <div class="flip-card w-[360px] h-[200px] relative">
-      <div class="flip-inner w-full h-full">
-
-        <!-- Front -->
-        <div class="flip-front absolute w-full h-full bg-white/30 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl p-6 flex justify-between items-center text-black">
-  
-  <!-- Left Side: Image instead of icon -->
-  <div class="flex flex-col items-center text-center">
-    <!-- Image -->
-    <div class="mb-4">
-      <img src="https://i.ibb.co/5XnHGrbR/Copy-of-Untitled-Design-2-1.png" alt="Profile" class="w-21 h-21" />
-    </div>
-  </div>
-  
-  <!-- Right Side: Name & Info -->
-  <div class="text-right">
-    <h2 class="text-xl font-semibold">Nihal Mundoli</h2>
-    <p class="text-sm text-black/70">CEO</p>
-    <p class="text-xs text-black/50">Calicut, Kerala</p>
-    <p class="text-xs text-black/50">nihal@workwalaa.com</p>
-  </div>
-  
-</div>
-
-
-        <!-- Back -->
-        <div class="flip-back absolute w-full h-full bg-gray-800 text-white rounded-2xl shadow-2xl p-6 flex flex-col justify-center items-center">
-        <h2 class="text-xl text-center font-semibold">Nihal Mundoli</h2>
-          <p class="text-[10px] text-white/70 text-center">Mohammed Nihal Mundoli, Founder and CEO of Workwalaa, founded Workwalaa at 21 to make it easier for businesses to find trusted workers. While working closely with workers and people on the ground, he saw the challenges both sides faced in accessing reliable jobs and help when needed. That insight sparked the idea for Workwalaa. Nihal believes in using technology to solve real world problems, especially for those left out of the formal job market.</p>
-        </div>
+      <div class="manifesto-block reveal">
+        <h3>We Are Building</h3>
+        <p
+          style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--brand-yellow); text-shadow: 0 0 20px rgba(242,202,0,0.4);">
+          Not just services, but systems.<br>
+          Not just placements, but pathways.<br>
+          Not just coordination, but confidence.
+        </p>
+        <br><br>
+        <p>We are building the reliability layer for the world of work.</p>
       </div>
-    </div>
 
-    <!-- Card 2 -->
-     <div class="flip-card w-[360px] h-[200px] relative">
-      <div class="flip-inner w-full h-full">
-
-        <!-- Front -->
-        <div class="flip-front absolute w-full h-full bg-white/70 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl p-6 flex justify-between items-center text-black">
-  
-  <!-- Left Side: Image instead of icon -->
-  <div class="flex flex-col items-center text-center">
-    <!-- Image -->
-    <div class="mb-4">
-      <img src="https://i.ibb.co/V0Vyq6Lx/Copy-of-Untitled-Design-4.png" alt="Profile" class="w-21 h-21" />
-    </div>
-  </div>
-
-  <!-- Right Side: Name & Info -->
-  <div class="text-right">
-    <h2 class="text-xl font-semibold">Farhan K</h2>
-    <p class="text-sm text-black/70">COO</p>
-    <p class="text-xs text-black/50">Malappuram, Kerala</p>
-    <p class="text-xs text-black/50">farhan@workwalaa.com</p>
-  </div>
-  
-</div>
-
-
-        <!-- Back -->
-        <div class="flip-back absolute w-full h-full bg-gray-800 text-white rounded-2xl shadow-2xl p-6 flex flex-col justify-center items-center">
-          <h2 class="text-xl text-center font-semibold animate-text">Farhan K</h2>
-         <p class="text-[10px] text-white/70 text-center animate-text">As the Co-founder and Chief Operating Officer at Workwalaa, Farhan K plays a pivotal role in overseeing the company’s IT infrastructure and daily operations. With a strong focus on efficiency and execution, he ensures seamless workflow management by delegating tasks and assigning responsibilities to the right team members. His strategic approach to operations helps drive Workwalaa’s mission of transforming workforce connectivity through technology and innovation.</p>
-        </a>
-        </div>
+      <div class="manifesto-block reveal">
+        <h3>Our Commitment</h3>
+        <p>To continuously improve how work connects people and organizations through better systems, better
+          standards, and a deeper understanding of real needs.</p>
       </div>
-    </div>
- 
-  </div>
 
+      <div class="manifesto-block reveal">
+        <h3>Our Direction</h3>
+        <p>From the field to the boardroom, we are shaping a future where workforce ecosystems are structured,
+          transparent, and built to last.</p>
+      </div>
+
+    </div>
   </section>
+
+  <!-- Closing Line -->
+  <div style="background: var(--bg-surface); padding: 4rem 5%; text-align: center;">
+    <p class="reveal shimmering-closing-text"
+      style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin: 0; display: inline-block;">
+      Workwalaa is committed to making work more reliable, accessible, and future ready for everyone.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo-container" style="margin-bottom: 0.25rem;">
+          <span class="logo-text" style="font-size: 1.2rem;">Workwalaa</span>
+        </div>
+        <p style="margin-top: 0;">Connecting Work To Worth.</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="index.html#job-seekers">Job Seekers</a>
+          <a href="index.html#employers">Employers</a>
+          <a href="aboutus.html">About Us</a>
+          <a href="blogs.html">Blogs</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="careers.html">Job Search</a>
+          <a href="https://wa.me/919061362656?text=I%20need%20Resume%20Building%20Assistance" target="_blank">Resume
+            Building</a>
+          <a href="index.html#job-seekers">Interview Prep</a>
+          <a href="careers.html#post-vacancy">Employer Services</a>
+          <a href="https://chat.whatsapp.com/DjBcWeLseNN1z95PA3Mv9n?mode=gi_t" target="_blank">Campus Hiring</a>
+        </div>
+        <div class="footer-col" style="display:flex; gap:10px; flex-direction: column;">
+          <h4>Contact</h4>
+          <span style="color: var(--text-muted);"><i class='bx bxl-whatsapp'></i> 8921483992</span>
+          <span style="color: var(--text-muted);"><i class='bx bx-envelope'></i> info@workwalaa.com</span>
+          <span style="color: var(--text-muted);"><i class='bx bx-map'></i> Kerala, India</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2025–2026 Workwalaa. From Kerala, India.</div>
+      <div class="footer-bottom-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanta.js interactive network dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // Vanta.js Initialization
+      if (window.VANTA) {
+        window.VANTA.NET({
+          el: "#about-network-core",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0xf2ca00, // Brand Yellow
+          backgroundColor: 0x0a0a0a, // match --bg-surface
+          points: 15.00, // slightly denser
+          maxDistance: 22.00,
+          spacing: 16.00,
+          showDots: true
+        });
+      }
+
+      // Interactive 3D Info Cards Logic
+      const infoCards = document.querySelectorAll('.info-card');
+
+      infoCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left; // x position within the element
+          const y = e.clientY - rect.top;  // y position within the element
+
+          // Set CSS variables for the radial glow effect
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+
+          // Calculate 3D tilt
+          // Range is -1 to 1 based on position from center
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const rotateX = ((y - centerY) / centerY) * -5; // Max 5 deg tilt
+          const rotateY = ((x - centerX) / centerX) * 5;  // Max 5 deg tilt
+
+          // Apply transform
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+          card.style.boxShadow = `
+            ${rotateY * -2}px ${rotateX * 2}px 30px rgba(0, 0, 0, 0.5),
+            0 0 0 1px rgba(242, 202, 0, 0.4)
+          `;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          // Reset transform smoothly
+          card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+          card.style.boxShadow = ''; // Reset to CSS default
+        });
+      });
+      // Scroll Reveal Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Optional: observer.unobserve(entry.target); to animate only once
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+      });
+
+      const revealElements = document.querySelectorAll('.reveal');
+      revealElements.forEach((el) => observer.observe(el));
+    });
+  </script>
+  <script>
+    // Theme toggler logic
+    document.addEventListener('DOMContentLoaded', () => {
+      if (document.documentElement.classList.contains('light-theme')) {
+        document.body.classList.add('light-theme');
+      }
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
+
+      if (themeToggleBtn && themeIcon) {
+        if (document.body.classList.contains('light-theme')) {
+          themeIcon.classList.replace('bx-sun', 'bx-moon');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+          document.body.classList.toggle('light-theme');
+          document.documentElement.classList.toggle('light-theme');
+
+          if (document.body.classList.contains('light-theme')) {
+            localStorage.setItem('workwalaa_theme', 'light');
+            themeIcon.classList.replace('bx-sun', 'bx-moon');
+          } else {
+            localStorage.setItem('workwalaa_theme', 'dark');
+            themeIcon.classList.replace('bx-moon', 'bx-sun');
+          }
+        });
+      }
+
+      // Mobile Menu Logic
+      const mobileMenuOpen = document.getElementById('mobile-menu-open');
+      const mobileMenuClose = document.getElementById('mobile-menu-close');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      if (mobileMenuOpen && mobileMenuClose && mobileMenu) {
+        mobileMenuOpen.addEventListener('click', () => {
+          mobileMenu.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+
+        // Close menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+    });
+
+  </script>
 </body>
+
 </html>

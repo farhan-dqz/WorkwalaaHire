@@ -1,1200 +1,3220 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MTQS6MNV51"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MTQS6MNV51');
-</script>
-
+  <!-- Basic Meta Tags -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
- <meta name="description" content="A smart job-matching platform for migrant and local workers. Find or offer work quickly, reliably, and with dignity across India.">
-<meta property="og:title" content="Workwalaa – Your Work, Your Way">
-<meta name="twitter:title" content="Workwalaa – Your Work, Your Way">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workwalaa - Smart Recruitment</title>
 
-  
-  <!-- SEO Meta Tags -->
-  <title>Workwalaa</title>
-  <link rel="icon" type="image/png" href="assets/appicon.png" />
+  <meta name="description"
+    content="A smart job-matching platform for migrant and local workers. Find or offer work quickly, reliably, and with dignity across India.">
 
-  <meta name="description" content="Workwalaa connects migrant and local workers with job opportunities in India through smart technology. Find verified workers instantly or build your career with dignity.">
-  <meta name="keywords" content="jobs, workers, India, employment, migrant workers, verified workers, job platform, work opportunities">
-  <meta name="author" content="Workwalaa">
-  
-  <!-- Social & Structured Data (Unchanged) -->
-  <meta property="og:title" content="Workwalaa - Connecting Work To Worth">
-  <meta property="og:description" content="Smart technology platform connecting workers with opportunities in India">
-  <meta property="og:image" content="https://i.ibb.co/7dKvTqvZ/Untitled-design-7.png">
-  <meta property="og:url" content="https://workwalaa.com">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Workwalaa - Connecting Work To Worth">
-  <meta name="twitter:description" content="Smart technology platform connecting workers with opportunities in India">
-  <meta name="twitter:image" content="https://i.ibb.co/7dKvTqvZ/Untitled-design-7.png">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://workwalaa.com/#organization",
-      "name": "Workwalaa",
-      "url": "https://workwalaa.com",
-      "logo": "https://i.ibb.co/7dKvTqvZ/Untitled-design-7.png",
-      "description": "Connecting migrant and local workers with job opportunities in India",
-      "email": "info@workwalaa.com",
-      "telephone": "+91-81568-01024",
-      "sameAs": [
-        "https://x.com/workwalaa_app",
-        "https://www.facebook.com/profile.php?id=61578621201819",
-        "https://www.linkedin.com/company/workwalaa/",
-        "https://www.instagram.com/workwalaa_app/"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-81568-01024",
-        "contactType": "customer service",
-        "email": "info@workwalaa.com"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://workwalaa.com/#website",
-      "url": "https://workwalaa.com",
-      "name": "Workwalaa",
-      "publisher": {
-        "@id": "https://workwalaa.com/#organization"
-      },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://workwalaa.com/#webpage",
-      "url": "https://workwalaa.com",
-      "name": "Workwalaa - Connecting Work to Worth",
-      "description": "Smart platform connecting local and migrant workers in India with verified jobs and fair pay.",
-      "isPartOf": {
-        "@id": "https://workwalaa.com/#website"
-      },
-      "about": {
-        "@id": "https://workwalaa.com/#organization"
-      },
-      "inLanguage": "en"
-    }
-  ]
-}
-</script>
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
+  <!-- Boxicons for modern icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-  <!-- Preload Critical Resources -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Maven+Pro:wght@400;700&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Maven+Pro:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="styleshee">
   <style>
-    /* --------------- CSS Custom Properties --------------- */
+    /* =========================================
+       GLOBAL VARIABLES 
+       ========================================= */
     :root {
-      --primary-yellow: #fdd835;
-      --secondary-yellow: #ffe066;
-      --light-yellow: #fff8e1;
-      --text-dark: #000;
-      --text-gray: #666;
-      --text-light-gray: #888;
-      --white: #fff;
-      --spacing-sm: 1rem;
-      --spacing-md: 2rem;
-      --spacing-lg: 3rem;
-      --spacing-xl: 4rem;
-      --border-radius: 8px;
-      --border-radius-lg: 16px;
-      --transition: all 0.3s ease;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 24px rgba(0,0,0,0.06);
-      --shadow-lg: 0 10px 20px rgba(0,0,0,0.1);
+      /* Deep Dark Theme Colors */
+      --bg-base: #030303;
+      --bg-surface: #0a0a0a;
+      --bg-elevated: #111111;
+
+      /* Vibrant Brand Yellow */
+      --brand-yellow: #f2ca00;
+      --brand-yellow-glow: rgba(242, 202, 0, 0.3);
+      --brand-yellow-hvr: #e5bf00;
+
+      /* Glassmorphism */
+      --glass-bg: rgba(255, 255, 255, 0.02);
+      --glass-border: rgba(255, 255, 255, 0.05);
+      --glass-blur: blur(20px);
+
+      /* Text Colors */
+      --text-main: #ffffff;
+      --text-muted: #999999;
+      --text-dark: #000000;
+
+      /* Utilities */
+      --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --border-radius-lg: 24px;
+      --border-radius-md: 16px;
     }
 
-.slider {
-      position: relative;
-      height: 50px;
-      width: 300px;
-      overflow: hidden;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .slide-text {
-      position: absolute;
-      width: 100%;
-      text-align: left;
-      font-size: 28px;
-      font-family: "Maven Pro";
-
-      margin-left: -0.1rem;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeSlide 12s infinite;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .slide-text:nth-child(1) { animation-delay: 0s; }
-    .slide-text:nth-child(2) { animation-delay: 3s; }
-    .slide-text:nth-child(3) { animation-delay: 6s; }
-    .slide-text:nth-child(4) { animation-delay: 9s; }
-    .slide-text:nth-child(5) { animation-delay: 12s; }
-    .slide-text:nth-child(6) { animation-delay: 15s; }
-    .slide-text:nth-child(7) { animation-delay: 18s; }
-    .slide-text:nth-child(8) { animation-delay: 21s; }
-    .slide-text:nth-child(9) { animation-delay: 24s; }
-    .slide-text:nth-child(9) { animation-delay: 27s; }
-    .slide-text:nth-child(19) { animation-delay: 30s; }
-
-
-
-
-
-    @keyframes fadeSlide {
-      0%   { opacity: 0; transform: translateY(30px); }
-      10%  { opacity: 1; transform: translateY(0); }
-      25%  { opacity: 1; transform: translateY(0); }
-      35%  { opacity: 0; transform: translateY(-30px); }
-      100% { opacity: 0; transform: translateY(-30px); }
-    }
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    padding-top: 40px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  /* Modal content */
-  .modal-content {
-    background-color: #fff;
-    margin: auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 800px;
-  }
-  .modal h1, .modal h2 {
-    color: #333;
-  }
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .close:hover {
-    color: black;
-  }
-  .close2 {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .close2:hover {
-    color: black;
-  }
-    /* --------------- Base reset & Defaults --------------- */
-    html { scroll-behavior: smooth; font-size: 16px; }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Maven Pro', sans-serif !important; }
-    body { background: var(--white); color: var(--text-dark); line-height: 1.6; }
-    a, button { transition: var(--transition); }
-    img { max-width: 100%; height: auto; display: block; }
-    button { cursor: pointer; min-height: 44px; min-width: 44px; }
-    
-    /* --------------- Accessibility & Utility --------------- */
-    .skip-link { position: absolute; top: -40px; left: 6px; background: var(--primary-yellow); color: var(--text-dark); padding: 8px; text-decoration: none; border-radius: var(--border-radius); z-index: 1001; font-weight: 600; }
-    .skip-link:focus { top: 6px; }
-    .error-message { background: #fee; color: #c33; padding: 0.75rem; border-radius: var(--border-radius); margin-bottom: var(--spacing-sm); border: 1px solid #fcc; display: none; }
-    #contact-success { display: none; color: green; margin-top: var(--spacing-sm); font-weight: 600; font-size: 1.07rem; text-align: center; }
-    
- /* --------------- Fade in --------------- */
-    .fade-in-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.0s ease-out, transform 1.0s ease-out;
-  will-change: opacity, transform;
-}
-
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-    /* --------------- Header --------------- */
-    header { background: linear-gradient(#ffffff, #fdd835); padding: 0rem var(--spacing-xl); display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: var(--shadow-sm); height: 96px; }
-    header .logo img { height: 170px; }
-    nav { display: flex; align-items: flex-end; height: 100%; padding-bottom: var(--spacing-sm); }
-    nav a {
-  margin-left: var(--spacing-md);
-  text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 300;
-  font-size: 1rem;
-  padding: 0.4rem 1rem;
-  border-radius: 999px; /* Pill-shaped */
-  transition: all 0.3s ease;
-}
-
-nav a:hover,
-nav a:focus {
-  background-color: white;
-  color: black;
-  outline: none;
-}
-
-
-    .menu-toggle { display: none; font-size: 2rem; background: none; border: none; color: var(--text-dark); margin-left: var(--spacing-sm); align-self: flex-end; margin-bottom: var(--spacing-sm); }
-    
-    /* --------------- Main Content & Hero --------------- */
-  
-    main { padding-top: 96px; }
-    .hero { background: linear-gradient(to bottom, var(--primary-yellow) 0%, var(--primary-yellow) 15%, var(--secondary-yellow) 35%, var(--light-yellow) 65%, var(--white) 85%, var(--white) 100%); padding: var(--spacing-xl) 6rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; min-height: 600px; }
-    .hero-text { max-width: 50%; flex-shrink: 0; margin-left: -37.8px; }
-    .hero-text h1 { font-size: 3rem;  font-weight: 800; line-height: 1.2; }
-    .hero-text p { font-size: 1rem; margin-top: var(--spacing-sm); max-width: 450px; color: var(--text-gray); }
-    .hero-buttons { margin-top: 1.5rem; justify-content: baseline; display: flex; gap: var(--spacing-sm); }
-    .hero-buttons button { padding: 0.75rem 1.5rem; border-radius: 20px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; background: var(--primary-yellow); border: none; color: var(--text-dark); text-decoration: none; }
-    .hero-buttons button:hover, .hero-buttons button:focus { background: var(--secondary-yellow); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-    .hero-image { flex-shrink: 0; display: flex; align-items: center; justify-content: center; max-width: 50%; }
-    .hero-image img { height: 550px; object-fit: contain; }
-    
-
-    @media (max-width: 768px) {
-  main {
-    padding-top: 100px;
-  }
-
-  .hero {
-    background: linear-gradient(to bottom, var(--primary-yellow) 0%, var(--primary-yellow) 15%, var(--secondary-yellow) 35%, var(--light-yellow) 55%, var(--white) 75%, var(--white) 100%);
-    padding: var(--spacing-xl) 2rem; /* smaller horizontal padding for phone */
-    display: flex;
-    flex-direction: column; /* stack vertically */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 600px;
-  }
-
-  .hero-text {
-  text-align: center; /* Center all inner content including slideshow */
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-  .hero-text h1 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    line-height: 1.2;
-  }
-
-  .hero-text p {
-    font-size: 1rem;
-    margin-top: var(--spacing-sm);
-    max-width: 100%;
-    color: var(--text-gray);
-  }
-
-  .hero-buttons {
-    margin-top: 1.5rem;
-    justify-content: center;
-    display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
-  }
-
-  .hero-image {
-    margin-top: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
-  }
-
-  .hero-image img {
-    height: 320px;
-    object-fit: contain;
-  }
-}
-
-.sliding-text-wrapper {
-  font-family: 'Maven+Pro';
-  font-size: 2rem; /* Increased size */
-  font-weight: 600;
-  color: #000;
-  margin-bottom: 0.5rem;
-  min-height: 1.0em;
-  transition: all 0.3s ease-in-out; /* Smooth visual transition */
-  display: flex;
-        margin-left: 1rem;
-
-}
-
-.cursor {
-  font-weight: 400;
-  font-size: 2rem;
-  color: #000;
-  animation: blink 1.5s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-/* your existing styles stay as they are */
-
-/* --- Add only this --- */
-@media (max-width: 768px) {
-  .slider {
-    display: block;              /* flexbox only on phones */
-    justify-content: center;    /* center horizontally */
-    align-items: left;        /* center vertically if you want */
-    text-align: center;         /* center text inside */
-      margin-left: 5%;
-
-  }
-
-  .slide-text {
-    width: 100%;                /* span full width so text-align works */
-    text-align: center;          /* center text */
-    display: block;               /* helps center emoji + text */
-    justify-content: center;
-    margin-left: 0,auto;
-
-
-  }
-}
-
-
-
-
-
-    /* --------------- Services (Flip Cards) --------------- */
-    .services { padding: var(--spacing-lg) 0; }
-    .services h2 { font-size: 2rem; font-weight: 700; margin: 0 var(--spacing-lg) var(--spacing-md); }
-    .card-container-wrapper { position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 0 var(--spacing-lg) var(--spacing-sm); scrollbar-width: none; }
-    .card-container-wrapper::-webkit-scrollbar { display: none; }
-    .card-container { display: flex; flex-wrap: nowrap; gap: var(--spacing-md); scroll-snap-type: x mandatory; transition: transform 0.3s; }
-    .css-card { flex: 0 0 auto; scroll-snap-align: start; min-width: 280px; max-width: 320px; height: 480px; perspective: 1000px; }
-    .css-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
-    .css-card:hover .css-card-inner, .css-card:focus-within .css-card-inner { transform: rotateY(180deg); }
-    .css-card-front, .css-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 15px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; padding: 1.5rem; }
-    .css-card-front { background: linear-gradient(to bottom, #fff6d3, var(--white)); text-align: left; }
-    .css-card-back { background: linear-gradient(to top, var(--primary-yellow), var(--light-yellow)); transform: rotateY(180deg); align-items: center; justify-content: center; text-align: center; }
-    .css-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .css-card p { font-size: 0.9rem; margin-bottom: var(--spacing-sm); color: #333; }
-    .css-card .read-more { background: var(--primary-yellow); color: var(--text-dark); border: none; padding: 0.5rem var(--spacing-sm); border-radius: 20px; font-weight: 600; margin-bottom: var(--spacing-sm); width: fit-content; }
-    .css-card .read-more:hover, .css-card .read-more:focus { background: var(--secondary-yellow); transform: translateY(-1px); }
-    .css-card img { border-radius: 12px; margin-top: auto; object-fit: cover; }
-    .css-card-back h3 { font-size: 1.2rem; }
-    .css-card-back p { font-size: 1rem; line-height: 1.5; }
-
-    /* --------------- Staggered CTA Sections --------------- */
-    .staggered-container { padding: var(--spacing-xl) var(--spacing-md); max-width: 1400px; margin: 0 auto; }
-    .staggered-header { text-align: center; margin-bottom: var(--spacing-xl); }
-    .staggered-header h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: var(--spacing-sm); }
-    .staggered-header p { font-size: 1.1rem; color: var(--text-gray); max-width: 600px; margin: 0 auto; }
-    .staggered-item { display: flex; align-items: center; gap: var(--spacing-xl); margin-bottom: 6rem; opacity: 0; animation: slideInUp 0.8s ease forwards; }
-    .staggered-item:nth-child(2) { animation-delay: 0.2s; }
-    .staggered-item:nth-child(3) { animation-delay: 0.4s; }
-    .staggered-item:nth-child(4) { animation-delay: 0.6s; }
-    @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-    .staggered-item:nth-child(even) { flex-direction: row-reverse; }
-    .staggered-content { flex: 1; padding: var(--spacing-md); }
-    .staggered-image { flex: 0 0 240px; position: relative; }
-    .staggered-image img { width: 100%; height: 250px; object-fit: cover; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .staggered-image:hover img { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
-    .staggered-item:nth-child(odd) .staggered-image::before { content: ''; position: absolute; top: -20px; left: -20px; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-yellow), var(--secondary-yellow)); border-radius: 50%; opacity: 0.3; z-index: -1; }
-    .staggered-item:nth-child(even) .staggered-image::before { content: ''; position: absolute; bottom: -20px; right: -20px; width: 80px; height: 80px; background: linear-gradient(135deg, var(--secondary-yellow), var(--light-yellow)); border-radius: 50%; opacity: 0.4; z-index: -1; }
-    .staggered-content h3 { font-size: 2rem; font-weight: 700; line-height: 1.3; margin-bottom: var(--spacing-sm); }
-    .staggered-content p { font-size: 1.1rem; color: #555; line-height: 1.7; margin-bottom: var(--spacing-md); }
-    .staggered-button { background: var(--text-dark); color: var(--white); border: none; padding: var(--spacing-sm) 2.5rem; border-radius: 30px; font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; position: relative; overflow: hidden; }
-    .staggered-button::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s ease; }
-    .staggered-button:hover::before, .staggered-button:focus::before { left: 100%; }
-    .staggered-button:hover, .staggered-button:focus { background: #333; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
-    .staggered-button svg { width: 18px; height: 18px; transition: transform 0.3s ease; }
-    .staggered-button:hover svg, .staggered-button:focus svg { transform: translateX(5px); }
-
-    /* --------------- Contact Section --------------- */
-    .improved-contact { background: var(--white); border-radius: var(--border-radius-lg); margin-top: var(--spacing-md); margin-bottom: 0; padding: var(--spacing-lg) var(--spacing-md); box-shadow: var(--shadow-md); }
-    .contact-content {
-  display: flex;
-  align-items: flex-start; /* or center */
-  justify-content: space-between;
-  gap: 2rem; /* spacing between left & right */
-}
-
-.contact-info-block {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.contact-form {
-  flex: 1;
-}
-    .contact-info-block h2 { font-size: 2.1rem; font-weight: 600; margin-bottom: 1.5rem; }
-    .contact-info-block p { margin-bottom: var(--spacing-md); color: var(--text-gray); }
-    .contact-details { margin-top: 1.2rem; font-size: 1.07rem; line-height: 1.8; display: flex; flex-direction: column; gap: 1.2rem; }
-    .contact-details > div { display: flex; align-items: center; gap: 0.8rem; }
-    .contact-icon { display: inline-flex; align-items: center; justify-content: center; }
-    .contact-form { flex: 1 1 340px; min-width: 300px; background: var(--light-yellow); border-radius: var(--border-radius-lg); padding: var(--spacing-md) 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); display: flex; flex-direction: column; gap: var(--spacing-sm); }
-    .contact-form label { font-weight: 600; margin-bottom: 0.2rem; }
-    .contact-form input, .contact-form textarea { border: 1px solid #ddd; border-radius: var(--border-radius); padding: 0.7rem; font-size: 1rem; background: var(--white); }
-    .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--primary-yellow); border-color: var(--primary-yellow); }
-    .contact-form button { background: var(--primary-yellow); color: var(--text-dark); border: none; border-radius: var(--border-radius); padding: 0.9rem; font-weight: 700; margin-top: 0.5rem; }
-    .contact-form button:hover, .contact-form button:focus { background: var(--secondary-yellow); transform: translateY(-1px); }
-
- @media (max-width: 768px) {
-  .contact-form {
-    width: 100%;
-    padding: 1.5rem ;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  .contact-content {
-    flex-direction: column;
-    padding: 0 0rem;
-    
-  }
-}
-
-    /* --------------- Footer --------------- */
-   #footer {
-  background: linear-gradient(to top, #fdd835, #fdd835);
-  padding: 2px 0; /* Reduced padding */
-  font-size: 13px;
-  position: relative;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1.2cm;
-  flex-wrap: wrap;
-}
-
-.footer-logo {
-  width: 120px;
-  height: auto;
-}
-
-.footer-social-inline {
-  display: flex;
-  gap: 3px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-.footer-social-inline a {
-  margin: 0rem;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-.footer-social-inline img {
-  border-radius: 50%;
-  object-fit: cover;
-  width: 50px;
-  height: auto;
-  margin: 0rem;
-}
-
-.footer-social-inline a:hover img {
-  transform: scale(1.1);
-}
-.footer-bottom {
-  text-align: center;
-  font-size: 12px;
-  margin-top: 6px;
-  color: #777;
-  padding: 2px 0;
-}
-
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 50px;
-  }
-
-  .footer-left {
-    margin-bottom: 10px;
-  }
-
-.footer-links {
-  display: flex;
-  justify-content: center; /* or space-around/space-between */
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
-  gap: 0.2rem; /* spacing between items */
-  padding: 0.1rem;
-  font-size: 1rem;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
-}
-
-}
-
-
-
-
-    /* --------------- Responsive Design (Ordered for clarity) --------------- */
-    @media (max-width: 1024px) {
-      .hero { padding: var(--spacing-lg) var(--spacing-md); min-height: 500px; }
-      .hero-image img { height: 300px; }
-      .footer-content { padding: 0 0.5rem; }
-      .staggered-item { gap: var(--spacing-md); }
-      .staggered-image { flex: 0 0 250px; }
-    }
-    
-    @media (max-width: 900px) {
-      .hero { flex-direction: column; padding: var(--spacing-md) var(--spacing-sm); text-align: center; min-height: auto; }
-      .hero-text, .hero-image { max-width: 100%; }
-      .hero-image { margin-top: var(--spacing-md); }
-      .hero-image img { height: 280px; }
-      .card-container-wrapper { padding: 0 var(--spacing-sm); }
-      .contact-content { flex-direction: column; gap: 1.5rem; }
-      .contact-info-block, .contact-form { max-width: 100%; padding-right: 0; }
-      .staggered-item { flex-direction: column !important; gap: var(--spacing-md); text-align: center; }
-      .staggered-image { flex: none; width: 100%; max-width: 350px; }
-      .staggered-container { padding: var(--spacing-md) var(--spacing-sm); }
-      .footer-main { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
-      .footer-links { flex-direction: row; gap: 0.7rem; margin: 0.7rem 0 0; }
-      .footer-social, .footer-copyright { justify-content: flex-start; text-align: left; }
-      .footer-mission { margin-right: 0; }
-    }
-    
-    @media (max-width: 768px) {
-      header { height: 80px; padding: 0.5rem var(--spacing-md); }
-      main { padding-top: 80px; }
-      header .logo img { height: 105px; }
-      nav { display: none; flex-direction: column; background: var(--light-yellow); position: absolute; top: 80px; right: 0; left: 0; z-index: 10; padding: var(--spacing-sm) 0; align-items: center; height: auto; box-shadow: var(--shadow-sm); }
-      nav.active { display: flex; }
-      nav a { margin: 0.5rem 0; }
-      .menu-toggle { display: block; margin-bottom: 0.5rem; -webkit-tap-highlight-color: rgba(253, 216, 53, 0.3); }
-      .footer-logo { height: 110px; }
-      .css-card { -webkit-tap-highlight-color: rgba(253, 216, 53, 0.3); }
-      .css-card:active .css-card-inner { transform: rotateY(180deg); }
-      .read-more { background: var(--primary-yellow) !important; color: var(--text-dark) !important; }
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    /* Popup Background */
-    .popup-overlay {
-      display: none;
+    h1,
+    h2,
+    h3,
+    h4,
+    .brand-font {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Selection Color */
+    ::selection {
+      background: var(--brand-yellow);
+      color: #000;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
       position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(2px);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -2;
+      pointer-events: auto;
+      /* Allow mouse interaction for 3D */
+    }
+
+    /* =========================================
+       NAVIGATION 
+       ========================================= */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       z-index: 1000;
-      justify-content: center;
+      transition: var(--transition-smooth);
+      background: transparent;
+    }
+
+    nav.scrolled {
+      padding: 1rem 5%;
+      background: rgba(3, 3, 3, 0.85);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      height: 40px;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+    }
+
+    .logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
       align-items: center;
     }
 
-    /* Popup Box */
-    .popup {
-      background: white;
-      border-radius: 12px;
-      padding: 20px 30px;
-      width: 320px;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition-smooth);
     }
 
-    .popup h2 {
-      font-size: 18px;
-      margin-bottom: 5px;
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-main);
     }
 
-    .popup p {
-      font-size: 14px;
-      margin-bottom: 15px;
-      color: #555;
+    .nav-links a.active {
+      border-bottom: 2px solid var(--brand-yellow);
+      padding-bottom: 4px;
     }
 
-    .popup input[type="email"] {
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: var(--brand-yellow);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .menu-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      right: -100%;
       width: 100%;
-      padding: 10px;
-      font-size: 14px;
-      margin-bottom: 15px;
-      border-radius: 6px;
+      height: 100vh;
+      background: rgba(3, 3, 3, 0.95);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .mobile-menu-overlay.active {
+      right: 0;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 5%;
+      font-size: 2.5rem;
+      color: var(--brand-yellow);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-menu-close:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    .mobile-nav-links a {
+      color: #fff;
+      font-size: 1.5rem;
+      font-family: 'Outfit', sans-serif;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    .mobile-menu-overlay.active .mobile-nav-links a {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .mobile-nav-links a:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+
+    .mobile-nav-links a:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+
+    .mobile-nav-links a:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+
+    .mobile-nav-links a:nth-child(4) {
+      transition-delay: 0.4s;
+    }
+
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active {
+      color: var(--brand-yellow);
+    }
+
+    /* =========================================
+       THEME TOGGLER 
+       ========================================= */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(242, 202, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    .theme-toggle i {
+      font-size: 1.3rem;
+      color: var(--brand-yellow);
+      transition: var(--transition-smooth);
+    }
+
+    /* Light Theme Variables */
+    .light-theme {
+      --bg-base: #ffffff;
+      --bg-surface: #f8f9fa;
+      --bg-elevated: #ffffff;
+      --text-main: #1a1a1a;
+      --text-muted: #666666;
+      --text-dark: #ffffff;
+      --glass-bg: rgba(0, 0, 0, 0.02);
+      --glass-border: rgba(0, 0, 0, 0.08);
+    }
+
+    .light-theme .logo-text {
+      color: #1a1a1a;
+    }
+
+    .light-theme .hero {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .light-theme nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .light-theme .mobile-menu-overlay {
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .light-theme .mobile-nav-links a {
+      color: #1a1a1a;
+    }
+
+    .light-theme footer {
+      background: #f8f9fa;
+    }
+
+    /* =========================================
+       THEME SUGGESTION POPUP
+       ========================================= */
+    .theme-suggestion {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--brand-yellow), #e5bf00);
+      color: #000;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(242, 202, 0, 0.4);
+      z-index: 10000;
+      opacity: 0;
+      transform: translateY(-20px) scale(0.9);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+      max-width: 250px;
+      text-align: center;
+    }
+
+    .theme-suggestion.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .theme-suggestion::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      right: 30px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid var(--brand-yellow);
+    }
+
+    .theme-suggestion .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      border: none;
+      color: #000;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .theme-suggestion .close-btn:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .theme-suggestion-pulse {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      border: 2px solid var(--brand-yellow);
+      border-radius: 50%;
+      animation: suggestionPulse 2s infinite;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .theme-suggestion-pulse.show {
+      opacity: 1;
+    }
+
+    @keyframes suggestionPulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Light theme adjustments for popup */
+    .light-theme .theme-suggestion {
+      background: linear-gradient(135deg, var(--brand-yellow), #b88800);
+      box-shadow: 0 10px 30px rgba(220, 163, 0, 0.3);
+    }
+
+    .light-theme .theme-suggestion::before {
+      border-bottom-color: var(--brand-yellow);
+    }
+
+    /* =========================================
+       BUTTONS 
+       ========================================= */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brand-yellow);
+      color: var(--text-dark);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      box-shadow: 0 5px 20px var(--brand-yellow-glow);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-yellow-hvr);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(242, 202, 0, 0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--glass-bg);
+      color: var(--text-main);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--glass-blur);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    /* =========================================
+       HERO SECTION 
+       ========================================= */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+      overflow: hidden;
+      background-image: url('assets/hero_bg.png');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      background-color: rgba(3, 3, 3, 0.85);
+      /* Deep dark overlay */
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin-top: -5vh;
+      animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(242, 202, 0, 0.1);
+      border: 1px solid rgba(242, 202, 0, 0.3);
+      color: var(--brand-yellow);
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1.5px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #fff, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Dynamic text */
+    .dynamic-roles {
+      color: var(--brand-yellow);
+      display: inline-block;
+      text-shadow: 0 0 20px var(--brand-yellow-glow);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 3rem auto;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .ctas {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================
+       STATS GLASS OVERLAP 
+       ========================================= */
+    .stats-container {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+      margin: -60px auto 4rem auto;
+      padding: 0 5%;
+    }
+
+    .stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius-md);
+      padding: 2.5rem;
+      text-align: center;
+      transition: var(--transition-smooth);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(242, 202, 0, 0.3);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .stat-card h3 {
+      font-size: 3rem;
+      color: var(--brand-yellow);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .stat-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* =========================================
+       SERVICES (Tech / Modern Approach)
+       ========================================= */
+    .services-section {
+      padding: 6rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 span {
+      color: var(--brand-yellow);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius-lg);
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--brand-yellow), transparent);
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+
+    .service-card:hover {
+      background: var(--bg-elevated);
+      transform: translateY(-5px);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      color: var(--brand-yellow);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       WORKWALAA ASSIST SECTION (Premium Dark 3D)
+       ========================================= */
+    .assist-section {
+      padding: 8rem 5%;
+      margin: 0 auto;
+      max-width: 1300px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-surface);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--glass-border);
+      box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8), 0 20px 50px rgba(0, 0, 0, 0.5);
+      margin-bottom: 4rem;
+    }
+
+    /* Inner mysterious glow */
+    .assist-section::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 30%;
+      width: 60%;
+      height: 60%;
+      background: radial-gradient(circle, var(--brand-yellow-glow) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(80px);
+    }
+
+    .assist-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .assist-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .assist-header h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: #fff;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .assist-header h2 span {
+      background: linear-gradient(135deg, var(--brand-yellow), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .assist-tagline {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .assist-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      /* wider landscape text area */
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .assist-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    /* Waitlist Excitement Graphic */
+    .assist-image-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+      position: relative;
+    }
+
+    .waitlist-hero-graphic {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(-20px);
+    }
+
+    /* Pulsing core rings to create anticipation */
+    .pulse-ring-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+    }
+
+    .pulse-ring {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid var(--brand-yellow);
+      border-radius: 50%;
+      animation: expandPulse 3s infinite cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .pulse-ring:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .pulse-ring:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    @keyframes expandPulse {
+      0% {
+        transform: scale(0.5);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* The Main Glowing Invite / Future Card */
+    .invite-card-wrapper {
+      position: relative;
+      z-index: 5;
+      animation: floatSmooth 4s infinite ease-in-out;
+    }
+
+    .invite-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(242, 202, 0, 0.4);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(242, 202, 0, 0.1);
+      backdrop-filter: blur(10px);
+      width: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .invite-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      right: -50%;
+      bottom: -50%;
+      background: radial-gradient(circle, rgba(242, 202, 0, 0.2) 0%, transparent 50%);
+      animation: rotateGlow 8s infinite linear;
+      z-index: -1;
+    }
+
+    @keyframes rotateGlow {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .invite-icon {
+      font-size: 3.5rem;
+      color: var(--brand-yellow);
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 10px rgba(242, 202, 0, 0.6));
+    }
+
+    .invite-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .invite-subtitle {
+      color: var(--brand-yellow);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Floating elements around the card */
+    .floating-badge {
+      position: absolute;
+      background: var(--bg-surface);
+      border: 1px solid var(--glass-border);
+      padding: 10px 15px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      font-weight: 500;
+      z-index: 6;
+      backdrop-filter: blur(5px);
+    }
+
+    .floating-badge i {
+      color: var(--brand-yellow);
+      font-size: 1.2rem;
+    }
+
+    .badge-1 {
+      top: 10%;
+      left: -10%;
+      animation: floatSmooth 5s infinite ease-in-out reverse;
+    }
+
+    .badge-2 {
+      bottom: 20%;
+      right: -20%;
+      animation: floatSmooth 6s infinite ease-in-out 1s;
+    }
+
+    /* Success / Satisfaction Animation styles */
+    .success-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-surface);
+      border-radius: var(--border-radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.9);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 10;
+    }
+
+    .success-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    .success-check {
+      font-size: 4rem;
+      color: #00e676;
+      /* bright satisfying green */
+      margin-bottom: 1rem;
+      animation: popCheck 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    .success-overlay.active .success-check {
+      animation-delay: 0.2s;
+    }
+
+    @keyframes popCheck {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      80% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .success-text {
+      color: #fff;
+      font-size: 1.2rem;
+      font-family: 'Outfit', sans-serif;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease 0.4s;
+    }
+
+    .success-overlay.active .success-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .assist-text p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .assist-text p strong {
+      color: #fff;
+    }
+
+    .assist-features h3 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    .assist-feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .assist-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 1.5rem;
+      background: var(--glass-bg);
+      border-radius: var(--border-radius-md);
+      border: 1px solid var(--glass-border);
+      transition: var(--transition-smooth);
+    }
+
+    .assist-feature-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(242, 202, 0, 0.3);
+      transform: translateX(10px);
+    }
+
+    .assist-feature-item i {
+      color: var(--brand-yellow);
+      font-size: 2rem;
+      margin-top: 2px;
+      filter: drop-shadow(0 0 10px rgba(242, 202, 0, 0.4));
+    }
+
+    .assist-feature-item-text h4 {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .assist-feature-item-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .assist-action {
+      text-align: center;
+      margin-top: 2rem;
+      z-index: 10;
+      position: relative;
+      width: 100%;
+    }
+
+    /* Reuse standard primary button style, but make it distinct */
+    .btn-wishlist {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brand-yellow);
+      color: var(--text-dark);
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      box-shadow: 0 5px 20px var(--brand-yellow-glow);
+    }
+
+    .btn-wishlist:hover {
+      background: var(--brand-yellow-hvr);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(242, 202, 0, 0.4);
+    }
+
+    .wishlist-form-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+      opacity: 0;
+      width: 100%;
+    }
+
+    .wishlist-form-container.active {
+      max-height: 200px;
+      opacity: 1;
+      transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out 0.1s;
+      margin-top: 2rem;
+    }
+
+    .wishlist-form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 5px;
+      background: var(--glass-bg);
+      border-radius: 50px;
+      border: 1px solid var(--glass-border);
+    }
+
+    .wishlist-form input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      border: none;
+      background: transparent;
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .wishlist-form input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-confirm {
+      background: var(--brand-yellow);
+      color: #000;
+      border: none;
+      padding: 0 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      transition: background 0.3s;
+    }
+
+    .btn-confirm:hover {
+      background: var(--brand-yellow-hvr);
+    }
+
+    @media (max-width: 992px) {
+      .assist-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+
+      .assist-section {
+        padding: 4rem 5%;
+      }
+
+      .wishlist-form {
+        flex-direction: column;
+        background: transparent;
+        border: none;
+      }
+
+      .wishlist-form input {
+        border: 1px solid var(--glass-border);
+        background: var(--bg-surface);
+        margin-bottom: 10px;
+      }
+
+      .btn-confirm {
+        padding: 1rem;
+        width: 100%;
+      }
+
+      .element-3d-wrapper {
+        width: 200px;
+        height: 200px;
+      }
+
+      .cube-face {
+        width: 200px;
+        height: 200px;
+      }
+
+      .cube-front {
+        transform: rotateY(0deg) translateZ(100px);
+      }
+
+      .cube-right {
+        transform: rotateY(90deg) translateZ(100px);
+      }
+
+      .cube-back {
+        transform: rotateY(180deg) translateZ(100px);
+      }
+
+      .cube-left {
+        transform: rotateY(-90deg) translateZ(100px);
+      }
+
+      .cube-top {
+        transform: rotateX(90deg) translateZ(100px);
+      }
+
+      .cube-bottom {
+        transform: rotateX(-90deg) translateZ(100px);
+      }
+    }
+
+    .btn-wishlist:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+
+    .wishlist-form-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+      opacity: 0;
+    }
+
+    .wishlist-form-container.active {
+      max-height: 200px;
+      opacity: 1;
+      transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out 0.1s;
+      margin-top: 1.5rem;
+    }
+
+    .wishlist-form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .wishlist-form input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
       border: 1px solid #ccc;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
     }
 
-    .popup button.submit-btn {
-      display: block;         /* Makes it take full line width for centering */
-  margin: 0 auto;         /* Centers horizontally */
-  background: #fdd835;    /* Your yellow color */
-  color: black;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
+    .wishlist-form input:focus {
+      border-color: #d4af37;
     }
 
-    .popup .close-btn {
+    .btn-confirm {
+      background: #d4af37;
+      color: #111;
+      border: none;
+      padding: 0 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      transition: background 0.3s;
+    }
+
+    .btn-confirm:hover {
+      background: #c5a028;
+    }
+
+    @media (max-width: 992px) {
+      .assist-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .assist-card {
+        padding: 2.5rem 1.5rem;
+        border-radius: 30px;
+      }
+
+      .wishlist-form {
+        flex-direction: column;
+      }
+
+      .btn-confirm {
+        padding: 1rem;
+        width: 100%;
+      }
+    }
+
+    /* =========================================
+       HOW IT WORKS (Staggered Sections)
+       ========================================= */
+    .how-it-works {
+      padding: 6rem 5%;
+      background: var(--bg-surface);
+    }
+
+    .feature-row {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto 8rem auto;
+    }
+
+    .feature-row:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .feature-content {
+      flex: 1;
+    }
+
+    .feature-content h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .feature-content p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-image {
+      flex: 1;
+      position: relative;
+    }
+
+    .feature-image img {
+      width: 100%;
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      /* Restore subtle glass border */
+
+      /* Subtle fade out at the bottom to blend into the section background instead of the whole image looking weird */
+      mask-image: linear-gradient(to top, transparent 0%, black 25%);
+      -webkit-mask-image: linear-gradient(to top, transparent 0%, black 25%);
+    }
+
+    /* Decorative Glow behind images */
+    .feature-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: var(--brand-yellow);
+      filter: blur(80px);
+      opacity: 0.1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    /* =========================================
+       FOOTER 
+       ========================================= */
+    footer {
+      background: #000;
+      padding: 4rem 5% 2rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4rem;
+    }
+
+    .footer-brand {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      max-width: 320px;
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      flex: 2;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-col {
+      min-width: 150px;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      margin-bottom: 1.8rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-col a {
+      display: block;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover {
+      color: var(--brand-yellow);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      width: 100%;
+      margin: 4rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--brand-yellow);
+    }
+
+    @media (max-width: 768px) {
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-direction: column;
+      }
+    }
+
+    /* =========================================
+       NEW SECTIONS (Grid & Contact)
+       ========================================= */
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-item h4 {
+      font-size: 1.2rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item h4 i {
+      color: var(--brand-yellow);
+      font-size: 1.5rem;
+    }
+
+    .feature-item p {
+      color: var(--text-muted);
+      padding-left: 34px;
+      line-height: 1.4;
+    }
+
+    .testimonials-section {
+      padding: 6rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      text-align: left;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.15);
+      /* Significantly more opaque than standard glass-bg */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      padding: 2rem;
+      border-radius: var(--border-radius-lg);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
       position: absolute;
       top: 10px;
-      right: 15px;
-      font-size: 18px;
-      cursor: pointer;
-      background: none;
-      border: none;
+      right: 20px;
+      font-size: 4rem;
+      color: rgba(242, 202, 0, 0.1);
+      font-family: serif;
     }
 
+    .testimonial-card p {
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+      line-height: 1.5;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .author-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(242, 202, 0, 0.1);
+      color: var(--brand-yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .author-info h4 {
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .author-info span {
+      color: var(--brand-yellow);
+      font-size: 0.85rem;
+    }
+
+    .contact-section {
+      padding: 6rem 5%;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 4rem;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-detail-item i {
+      font-size: 2rem;
+      color: var(--brand-yellow);
+    }
+
+    .contact-detail-text h4 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 3px;
+    }
+
+    .contact-detail-text p {
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .contact-form {
+      flex: 1.5;
+      background: var(--bg-elevated);
+      padding: 3rem;
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--glass-border);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 1rem;
+      background: var(--bg-base);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      color: #fff;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--brand-yellow);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    /* Contact Form Success Overlay */
+    .contact-form {
+      position: relative;
+      /* Ensure overlay positions correctly over the form */
+      overflow: hidden;
+    }
+
+    .contact-success-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-elevated);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease-in-out;
+      z-index: 10;
+      border-radius: var(--border-radius-lg);
+    }
+
+    .contact-success-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .contact-success-overlay .success-content {
+      text-align: center;
+      transform: translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .contact-success-overlay.active .success-content {
+      transform: translateY(0);
+    }
+
+    /* Network Connect Animation */
+    .network-connecting-content {
+      text-align: center;
+      transition: opacity 0.4s ease;
+    }
+
+    .network-loader {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+    }
+
+    .net-node {
+      position: absolute;
+      background: var(--brand-yellow);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--brand-yellow);
+      z-index: 3;
+    }
+
+    .center-node {
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse-node 1.5s infinite alternate;
+    }
+
+    .ext-node {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      box-shadow: 0 0 8px #fff;
+    }
+
+    .node-a {
+      top: 10%;
+      left: 15%;
+    }
+
+    .node-b {
+      top: 20%;
+      right: 10%;
+    }
+
+    .node-c {
+      bottom: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .net-line {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.2);
+      transform-origin: center;
+      z-index: 0;
+    }
+
+    .line-a {
+      width: 2px;
+      height: 45px;
+      top: 15%;
+      left: 32%;
+      transform: rotate(-45deg);
+    }
+
+    .line-b {
+      width: 2px;
+      height: 45px;
+      top: 25%;
+      right: 28%;
+      transform: rotate(55deg);
+    }
+
+    .line-c {
+      width: 2px;
+      height: 40px;
+      bottom: 20%;
+      left: calc(50% - 1px);
+    }
+
+    .net-packet {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--brand-yellow);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      z-index: 2;
+      box-shadow: 0 0 8px var(--brand-yellow);
+    }
+
+    .packet-a {
+      animation: send-a 1.5s infinite 0s;
+    }
+
+    .packet-b {
+      animation: send-b 1.5s infinite 0.5s;
+    }
+
+    .packet-c {
+      animation: send-c 1.5s infinite 1s;
+    }
+
+    @keyframes pulse-node {
+      0% {
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 0 20px var(--brand-yellow);
+      }
+    }
+
+    @keyframes send-a {
+      0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translate(-35px, -40px);
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes send-b {
+      0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translate(35px, -30px);
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes send-c {
+      0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translate(0, 35px);
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* =========================================
+       INTERACTIVE QUOTE CARD (3D Flip)
+       ========================================= */
+    .quote-card-section {
+      padding: 6rem 5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      position: relative;
+      perspective: 1200px;
+    }
+
+    .quote-card-container {
+      width: 100%;
+      max-width: 650px;
+      /* Increased max-width to give text more room */
+      min-height: 280px;
+      /* Slight height adjustment */
+      position: relative;
+      cursor: pointer;
+      /* Slow, smooth transition for reverting back to normal */
+      transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 10;
+    }
+
+    .quote-card {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      /* Slow, smooth transition for flipping back */
+      transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      transform-style: preserve-3d;
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Shared styles for Front and Back */
+    .quote-card-front,
+    .quote-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2.5rem 3.5rem;
+      /* Adjusted padding to maximize text width */
+      text-align: center;
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--glass-border);
+      overflow: hidden;
+      /* Glassmorphism background with ambient glow */
+      background: rgba(10, 10, 10, 0.6);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+    }
+
+    /* The moving background animation (ambient glow) */
+    .quote-card-front::before,
+    .quote-card-back::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(242, 202, 0, 0.15), transparent 60%);
+      animation: ambientPulse 6s ease-in-out infinite alternate;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes ambientPulse {
+      0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: scale(1.2) translate(5%, 5%);
+        opacity: 1;
+      }
+    }
+
+    .quote-card-front h3,
+    .quote-card-front span,
+    .quote-card-back p,
+    .quote-card-back .highlight {
+      position: relative;
+      z-index: 2;
+    }
+
+    .quote-card-front h3 {
+      font-size: 1.35rem;
+      /* Slightly reduced font size to fit exactly 3 lines */
+      color: #fff;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .quote-card-front span {
+      display: block;
+      margin-top: 1.5rem;
+      color: var(--brand-yellow);
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .quote-card-back {
+      transform: rotateY(180deg);
+      border-color: rgba(242, 202, 0, 0.3);
+    }
+
+    .quote-card-back p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .quote-card-back .highlight {
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    /* HOVER STATE: Expand slightly, flip, vibrate */
+    .quote-card-container:hover {
+      max-width: 800px;
+      /* Fast enter animation for width expansion */
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .quote-card-container:hover .quote-card {
+      transform: rotateY(180deg);
+      box-shadow: 0 40px 100px rgba(242, 202, 0, 0.2);
+      animation: intense-vibrate 0.4s ease-in-out;
+      /* Fast enter animation for flipping */
+      transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    @keyframes intense-vibrate {
+      0% {
+        transform: rotateY(180deg) translate(0);
+      }
+
+      20% {
+        transform: rotateY(180deg) translate(-3px, 3px);
+      }
+
+      40% {
+        transform: rotateY(180deg) translate(-3px, -3px);
+      }
+
+      60% {
+        transform: rotateY(180deg) translate(3px, 3px);
+      }
+
+      80% {
+        transform: rotateY(180deg) translate(3px, -3px);
+      }
+
+      100% {
+        transform: rotateY(180deg) translate(0);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .quote-card-container {
+        min-height: 400px;
+      }
+
+      .quote-card-front h3 {
+        font-size: 1.2rem;
+      }
+
+      .quote-card-back {
+        padding: 2rem;
+      }
+
+      .quote-card-back .highlight {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* =========================================
+       ANIMATIONS & MEDIA QUERIES
+       ========================================= */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 992px) {
+
+      .feature-row,
+      .feature-row:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      /* Specific mobile optimization for employer section */
+      #employers .feature-row {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+
+      #employers .feature-content {
+        order: 1;
+        text-align: center !important;
+      }
+
+      #employers .feature-image {
+        order: 2;
+        margin-top: 2rem;
+      }
+
+      /* Mobile optimization for contact section */
+      #contact .contact-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 3rem;
+      }
+
+      #contact .contact-info {
+        order: 1;
+        text-align: center !important;
+      }
+
+      #contact .contact-form {
+        order: 2;
+        text-align: center !important;
+      }
+
+      #contact .contact-details {
+        align-items: center;
+        justify-content: center;
+      }
+
+      #contact .contact-detail-item {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .stats-container {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+
+      /* Hero Mobile Polish */
+      .hero-title {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .ctas {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .ctas a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
+  <style>
+    /* =========================================
+       THEME OVERRIDES & LIGHT MODE POLISH
+       ========================================= */
+    :root:has(body.light-theme),
+    body.light-theme {
+      --bg-base: #f4f6f8;
+      --bg-surface: #ffffff;
+      --bg-elevated: #fcfcfc;
+
+      --brand-yellow: #dca300;
+      /* Darker yellow for text/icon contrast */
+      --brand-yellow-glow: rgba(220, 163, 0, 0.15);
+      --brand-yellow-hvr: #b88800;
+
+      --text-main: #111111;
+      --text-muted: #555555;
+
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    /* THEME BUTTON - DEFAULT (DARK MODE) */
+    .theme-btn {
+      background: rgba(242, 202, 0, 0.1);
+      border: 1px solid rgba(242, 202, 0, 0.3);
+      color: var(--brand-yellow);
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      margin-left: 15px;
+      box-shadow: 0 0 15px rgba(242, 202, 0, 0.15);
+    }
+
+    .theme-btn:hover {
+      background: var(--brand-yellow);
+      color: #000;
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: 0 0 25px rgba(242, 202, 0, 0.4);
+    }
+
+    /* THEME BUTTON - LIGHT MODE */
+    body.light-theme .theme-btn {
+      background: #ffffff;
+      border: 1px solid var(--glass-border);
+      color: #111;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    body.light-theme .theme-btn:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    .theme-btn i {
+      transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    body.light-theme .theme-btn i {
+      transform: rotate(360deg);
+    }
+
+    /* LIGHT THEME AESTHETIC FIXES */
+    /* Typography Overrides */
+    body.light-theme .logo-text,
+    body.light-theme .hero-title,
+    body.light-theme .assist-header h2,
+    body.light-theme .assist-text p strong,
+    body.light-theme .assist-features h3,
+    body.light-theme .assist-feature-item-text h4,
+    body.light-theme .info-card h2,
+    body.light-theme .leader-info h3,
+    body.light-theme .manifesto-block p,
+    body.light-theme .footer-col h4,
+    body.light-theme .contact-info h2,
+    body.light-theme .contact-detail-text h4,
+    body.light-theme .contact-detail-text p,
+    body.light-theme .section-title,
+    body.light-theme .stat-card h3,
+    body.light-theme .contact-form label,
+    body.light-theme .contact-form input,
+    body.light-theme .contact-form textarea,
+    body.light-theme .contact-form select,
+    body.light-theme .wishlist-form input {
+      color: var(--text-main);
+    }
+
+    /* Gradients for Text */
+    body.light-theme .hero-title span,
+    body.light-theme .assist-header h2 span,
+    body.light-theme .section-title span,
+    body.light-theme .about-hero h1 span,
+    body.light-theme .contact-info h2 span {
+      background: linear-gradient(135deg, var(--brand-yellow), #222);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    body.light-theme .hero-subtitle,
+    body.light-theme .footer-brand p {
+      color: var(--text-muted);
+    }
+
+    /* Backgrounds & Overlays */
+    body.light-theme .hero {
+      background-color: rgba(244, 246, 248, 0.85);
+    }
+
+    body.light-theme .contact-form input,
+    body.light-theme .contact-form textarea,
+    body.light-theme .contact-form select,
+    body.light-theme .wishlist-form input {
+      background: var(--bg-surface);
+      border-color: var(--glass-border);
+      color: var(--text-main);
+    }
+
+    body.light-theme .contact-form select option {
+      background: var(--bg-surface);
+      color: var(--text-main);
+    }
+
+    body.light-theme nav.scrolled {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Box Shadows & Glows */
+    body.light-theme .assist-section,
+    body.light-theme .ecosystem-section {
+      box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.03), 0 20px 50px rgba(0, 0, 0, 0.03);
+    }
+
+    body.light-theme .invite-card,
+    body.light-theme .eco-card,
+    body.light-theme .info-card {
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body.light-theme .invite-title {
+      color: var(--text-main);
+    }
+
+    body.light-theme .stat-card:hover,
+    body.light-theme .eco-card:hover,
+    body.light-theme .service-card:hover,
+    body.light-theme .leader-card:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      border-color: rgba(220, 163, 0, 0.3);
+    }
+
+    /* Specific Sections */
+    body.light-theme footer,
+    body.light-theme .manifesto-section {
+      background: #fdfdfd;
+    }
+
+    body.light-theme .feature-item h4 {
+      color: var(--text-main);
+    }
+
+    body.light-theme .testimonial-card {
+      background: rgba(255, 255, 255, 0.85);
+      /* Slightly less opaque white in light mode to contrast against off-white background */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    body.light-theme .feature-image img {
+      mask-image: none !important;
+      -webkit-mask-image: none !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body.light-theme .feature-glow {
+      display: none;
+    }
+
+    body.light-theme .comet-border::after {
+      background: var(--bg-surface);
+    }
+  </style>
+  <script>
+    // Apply theme immediately to prevent FOUC
+    const savedTheme = localStorage.getItem('workwalaa_theme');
+    if (savedTheme === 'light') {
+      document.documentElement.classList.add('light-theme');
+    }
+  </script>
 </head>
 
 <body>
-  <!-- Skip Link for Accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header>
-    <div class="logo">
-      <img src="https://i.ibb.co/7dKvTqvZ/Untitled-design-7.png" alt="Workwalaa Logo" loading="eager">
+  <!-- Ambient Glow & 3D Interactive Background -->
+  <div class="ambient-glow" id="ambient-bg"></div>
+
+  <!-- Theme Suggestion Popup -->
+  <div class="theme-suggestion" id="themeSuggestion">
+    <button class="close-btn" onclick="document.getElementById('themeSuggestion').style.display = 'none';">×</button>
+    <div> Change theme!</div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <a href="index.html" class="logo-container">
+      <span class="logo-text">Workwalaa</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="careers.html">Jobs</a>
+      <a href="aboutus.html">About Us</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <i class='bx bx-sun' id="theme-icon"></i>
+      </button>
     </div>
-    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navigation">☰</button>
-    <nav role="navigation" aria-label="Main navigation">
-      <a href="#main-content">Home</a>
-      <a href="/careers.html">Careers</a>
-      <a href="/aboutus.html" class="text-black px-4 py-2">About us</a>
-      <a href="#contact">Contact Us</a>
-    </nav>
-  </header>
 
- <main id="main-content">
-  <section id="home" class="hero fade-in-section">
-    <div class="hero-text">
+    <div class="nav-actions hidden-mobile">
+      <a href="https://wa.me/919061362656" target="_blank" class="btn-primary"
+        style="padding: 0.6rem 1.5rem; font-size: 0.95rem;">
+        <i class='bx bxl-whatsapp' style="color: #111111; font-size: 1.2rem;"></i> Help
+      </a>
+    </div>
 
-      <!-- 👇 Slideshow text moved inside and above heading -->
-      <div class="sliding-text-wrapper">
-        <span id="typed-text"></span>
+    <i class='bx bx-menu menu-toggle' id="mobile-menu-open"></i>
+  </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <i class='bx bx-x mobile-menu-close' id="mobile-menu-close"></i>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="careers.html">Jobs</a>
+      <a href="aboutus.html">About Us</a>
+      <button class="theme-toggle" id="mobile-theme-toggle" aria-label="Toggle theme" style="margin-top: 1rem;">
+        <i class='bx bx-sun' id="mobile-theme-icon"></i>
+      </button>
+    </div>
+    <a href="blogs.html">Blogs</a>
+    <a href="careers.html#post-vacancy" style="color: var(--brand-yellow); margin-top: 1rem;">Post Vacancy</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span>Connecting Work <br>to</span>
+        <span class="dynamic-roles" id="typed-text">Worth.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Connecting skilled professionals with verified employers through AI-powered matching for faster, smarter hiring.
+      </p>
+
+      <div class="ctas">
+        <a href="careers.html" class="btn-primary">
+          Find Jobs <i class='bx bx-right-arrow-alt'></i>
+        </a>
+        <a href="careers.html#post-vacancy" class="btn-secondary">
+          <i class='bx bx-buildings'></i> Post Vacancy
+        </a>
       </div>
+    </div>
+  </section>
 
-      <h1>Connecting Work <br>to Worth</h1>
-       <div class="slider">
-    <div class="slide-text"> Construction </div>
-    <div class="slide-text"> Agriculture </div>
-    <div class="slide-text"> Helpers</div>
-    <div class="slide-text"> Roofing</div>  </div>
-      <p>We match people to purpose using smart technology to turn every job into meaningful opportunity.</p>
-
-      <div class="hero-buttons">
-        <button id="download-btn" aria-label="Download Workwalaa app via WhatsApp">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-            Download app
-          </button>
-  <div class="popup-overlay" id="popup-overlay">
-    <div class="popup">
-      <button class="close-btn" id="close-popup">&times;</button>
-      <h2>We are launching soon </h2>
-      <p>Please provide your email to get the updates</p>
-      <form onsubmit="sendEmail(event)" action="mailto:conecxia@gmail.com?subject=I like to get the early access of the app" method="post" enctype="text/plain">
-    <input type="email" id="user-email" placeholder="Enter Email" autocomplete="email" required>
-<a href="mailto:conecxia@gmail.com?subject=I like to get the early access of the app">
-  <button type="button" class="submit-btn">Submit</button>
-</a>
-</form>
-
-
-
+  <!-- STATS LAYER -->
+  <div class="stats-container">
+    <div class="stat-card">
+      <h3>5k+</h3>
+      <p>Jobs Posted</p>
+    </div>
+    <div class="stat-card">
+      <h3>2.7k+</h3>
+      <p>Successful Hires</p>
+    </div>
+    <div class="stat-card">
+      <h3>300+</h3>
+      <p>Verified Employers</p>
     </div>
   </div>
 
+  <!-- SERVICES SECTION -->
+  <section class="services-section">
+    <div class="section-header">
+      <h2>Why choose <span>Workwalaa</span></h2>
+      <p style="color: var(--text-muted); font-size: 1.1rem;">Modern tools for modern employment.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <i class='bx bx-badge-check service-icon'></i>
+        <h3>Verified Opportunities</h3>
+        <p>Every employer and job posting on our platform is verified, ensuring peace of mind and accountability for job
+          seekers.</p>
+      </div>
+      <div class="service-card">
+        <i class='bx bx-brain service-icon'></i>
+        <h3>AI-Powered Smart Matching</h3>
+        <p>Our proprietary algorithm instantly analyzes requirements, skills, and proximity to deliver the perfect
+          candidate or job match.</p>
+      </div>
+      <div class="service-card">
+        <i class='bx bx-group service-icon'></i>
+        <h3>Support For Candidates</h3>
+        <p>We provide resume building and interview preparation guidance to help you stand out to verified employers.
+        </p>
+      </div>
+      <div class="service-card">
+        <i class='bx bx-check-shield service-icon'></i>
+        <h3>Transparent Process</h3>
+        <p>No hidden conditions. Enjoy a clear and structured hiring journey from application to onboarding.
+        </p>
+      </div>
+      <div class="service-card">
+        <i class='bx bx-shield-quarter service-icon'></i>
+        <h3>Reliable Workforce Assurance</h3>
+        <p>We go beyond matching by ensuring consistent engagement, performance monitoring, and accountability, helping
+          organizations build dependable teams and giving candidates a stable and professional work environment.</p>
+      </div>
+      <div class="service-card">
+        <i class='bx bx-certification service-icon'></i>
+        <h3>Built on Standards & Trust</h3>
+        <p>Workwalaa operates with structured verification, clear processes, and evolving quality benchmarks, creating a
+          trusted ecosystem where employers and candidates can collaborate with confidence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR JOB SEEKERS -->
+  <section class="how-it-works" id="job-seekers" style="background: var(--bg-base);">
+    <div class="feature-row">
+      <div class="feature-content">
+        <h3
+          style="font-size: 1.5rem; color: var(--brand-yellow); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">
+          For Job Seekers</h3>
+        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Find Your <span>Dream Job</span></h2>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <h4><i class='bx bx-check-circle'></i> Find verified opportunities</h4>
+            <p>Find verified opportunities with personalized guidance built around your skills.</p>
+          </div>
+          <a href="https://chat.whatsapp.com/CkDHktrDoXE6HkjgzeRorr?mode=gi_t" target="_blank"
+            style="text-decoration: none; color: inherit; display: block;">
+            <div class="feature-item" style="cursor: pointer;">
+              <h4><i class='bx bxl-whatsapp'></i> WhatsApp Community Support</h4>
+              <p>Receive verified job updates, hiring alerts, and direct assistance through our active WhatsApp support
+                community.</p>
+            </div>
+          </a>
+          <a href="interview-prep.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="feature-item" style="cursor: pointer;">
+              <h4><i class='bx bx-conversation'></i> Interview Preparation Guidance</h4>
+              <p>Structured mock sessions, communication coaching, and role-specific preparation.</p>
+            </div>
+          </a>
+          <a href="https://wa.me/919061362656?text=I%20need%20Resume%20Building%20Assistance" target="_blank"
+            style="text-decoration: none; color: inherit; display: block;">
+            <div class="feature-item" style="cursor: pointer;">
+              <h4><i class='bx bx-file-blank'></i> Resume Building Assistance</h4>
+              <p>Professional resume optimization to improve visibility and selection chances.</p>
+            </div>
+          </a>
+        </div>
+        <a href="careers.html" class="btn-primary">Get Started <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+      <div class="feature-image">
+        <div class="feature-glow"></div>
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800"
+          alt="Guidance for Job Seekers"
+          style="border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); width: 100%; height: auto; object-fit: cover; position: relative; z-index: 2;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR EMPLOYERS -->
+  <section class="how-it-works" id="employers" style="background: var(--bg-surface);">
+    <div class="feature-row" style="flex-direction: row-reverse;">
+      <div class="feature-content">
+        <h3
+          style="font-size: 1.5rem; color: var(--brand-yellow); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">
+          For Employers</h3>
+        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Hire the <span>Right Talent</span></h2>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <h4><i class='bx bx-check-shield'></i> Verified Candidates</h4>
+            <p>Pre-screened applicants matched to your needs.</p>
+          </div>
+          <a href="blogs.html?id=blog-1" style="text-decoration: none; color: inherit; display: block;">
+            <div class="feature-item" style="cursor: pointer;">
+              <h4><i class='bx bx-bolt-circle'></i> Faster Hiring</h4>
+              <p>Hire up to 60% faster with our streamlined process.</p>
+            </div>
+          </a>
+          <a href="blogs.html?id=blog-3" style="text-decoration: none; color: inherit; display: block;">
+            <div class="feature-item" style="cursor: pointer;">
+              <h4><i class='bx bx-brain'></i> AI-Supported</h4>
+              <p>Find verified candidates faster with structured, AI-supported hiring assistance.</p>
+            </div>
+          </a>
+          <div class="feature-item">
+            <h4><i class='bx bx-support'></i> Dedicated Support</h4>
+            <p>A consultant guiding your hiring journey end-to-end.</p>
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary">Post a Vacancy <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+      <div class="feature-image">
+        <div class="feature-glow"></div>
+        <img src="assets/smart_matching.png" alt="Tools for Employers" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="section-header">
+      <h2>Success <span>Stories</span></h2>
+      <p style="color: var(--text-muted); font-size: 1.1rem;">What people say about Workwalaa</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>“Workwalaa helped me find my dream job within 2 weeks. The support made all the difference.”</p>
+        <div class="testimonial-author">
+          <div class="author-icon">PS</div>
+          <div class="author-info">
+            <h4>Priya Sharma</h4>
+            <span>Software Developer</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p>“We've hired 15+ candidates through Workwalaa. The verification process saved us huge time.”</p>
+        <div class="testimonial-author">
+          <div class="author-icon">RP</div>
+          <div class="author-info">
+            <h4>Rahul Patel</h4>
+            <span>HR Manager</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p>“As a fresher, Workwalaa guided me from resume to interview. Highly recommended!”</p>
+        <div class="testimonial-author">
+          <div class="author-icon">AD</div>
+          <div class="author-info">
+            <h4>Anita Desai</h4>
+            <span>Marketing Executive</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p>“Very genuine consultancy. No hidden charges and excellent guidance throughout.”</p>
+        <div class="testimonial-author">
+          <div class="author-icon">MR</div>
+          <div class="author-info">
+            <h4>Mohammed Riyas</h4>
+            <span>Accounts Executive</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p>“An excellent team that truly understands what job seekers need. The process was incredibly smooth.”</p>
+        <div class="testimonial-author">
+          <div class="author-icon">IS</div>
+          <div class="author-info">
+            <h4>Isham</h4>
+            <span>Founder</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p>“The WhatsApp community support is a game-changer. I found my perfect role thanks to their alerts.”</p>
+        <div class="testimonial-author">
+          <div class="author-icon">MI</div>
+          <div class="author-info">
+            <h4>Minnath</h4>
+            <span>Marketing Manager</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKWALAA ASSIST -->
+  <section class="assist-section" id="assist">
+    <div class="assist-content">
+      <div class="assist-header">
+        <h2>Workwalaa <span>Assist</span></h2>
+        <p class="assist-tagline">Right Worker • Right Time • Right Place</p>
+      </div>
+
+      <div class="assist-grid">
+        <div class="assist-text-col">
+          <div class="assist-text">
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; margin-bottom: 1.5rem; color: #fff;">
+              Real-Time Workforce, Simplified</h3>
+            <p><strong>Workwalaa Assist</strong> is a smart platform that connects employers with nearby verified
+              blue-collar workers in real time. Using our mobile application, advanced algorithms, and AI support, you
+              can request the right worker and get them deployed on time at your location, whether local or migrant,
+              with just a click.</p>
+            <p>Through our mobile-first system, employers can instantly request workers based on skill, availability,
+              and proximity, while our intelligent matching engine ensures the best fit for the job.</p>
+            <p>From request to deployment, tracking, and feedback, everything is streamlined to reduce delays, improve
+              productivity, and build trust.</p>
+          </div>
+
+          <div class="assist-features">
+            <h3>Key Features</h3>
+            <ul class="assist-feature-list">
+              <li class="assist-feature-item">
+                <i class='bx bx-time-five'></i>
+                <div class="assist-feature-item-text">
+                  <h4>Real-Time Worker Matching</h4>
+                  <p>Instantly connect with available workers near your job site.</p>
+                </div>
+              </li>
+              <li class="assist-feature-item">
+                <i class='bx bx-brain'></i>
+                <div class="assist-feature-item-text">
+                  <h4>AI & Algorithm Powered</h4>
+                  <p>Smart matching based on skills, reliability, distance, and availability.</p>
+                </div>
+              </li>
+              <li class="assist-feature-item">
+                <i class='bx bx-check-shield'></i>
+                <div class="assist-feature-item-text">
+                  <h4>Verified & Trusted Workers</h4>
+                  <p>Quality checks and performance tracking ensure reliability.</p>
+                </div>
+              </li>
+
+              <li class="assist-feature-item">
+                <i class='bx bx-line-chart'></i>
+                <div class="assist-feature-item-text">
+                  <h4>Scalable Access</h4>
+                  <p>Easily manage small tasks or large workforce needs with local & migrant integration.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="assist-image-col">
+          <!-- Waitlist Anticipation Graphic -->
+          <div class="waitlist-hero-graphic">
+
+            <!-- Pulsing anticipation rings -->
+            <div class="pulse-ring-container">
+              <div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
+            </div>
+
+            <!-- Floating VIP Badges -->
+            <div class="floating-badge badge-1">
+              <i class='bx bxs-star'></i> Early Access
+            </div>
+            <div class="floating-badge badge-2">
+              <i class='bx bx-lock-open-alt'></i> Unlock Future
+            </div>
+
+            <!-- Main Invite Card -->
+            <div class="invite-card-wrapper">
+              <div class="invite-card">
+                <i class='bx bx-wrench invite-icon'></i>
+                <div class="invite-title">Workwalaa Assist</div>
+                <div class="invite-subtitle">Coming Soon</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="assist-action">
+            <button class="btn-wishlist" id="btnWishlist">
+              <i class='bx bx-heart'></i> Join Waitlist
+            </button>
+
+            <div class="wishlist-form-container" id="wishlistContainer">
+              <form class="wishlist-form" id="wishlistForm">
+                <input type="email" placeholder="Enter your email address" required id="wishlistEmail">
+                <button type="submit" class="btn-confirm">Confirm</button>
+              </form>
+              <!-- Success Animation Overlay -->
+              <div class="success-overlay" id="successOverlay">
+                <i class='bx bx-check-circle success-check'></i>
+                <div class="success-text">You're on the list!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE FOUNDER CARD -->
+  <section class="quote-card-section">
+    <div class="quote-card-container">
+      <div class="quote-card">
+
+        <!-- Front: Initial Quote -->
+        <div class="quote-card-front">
+          <h3>"Work shouldn’t be hard to find for someone who is willing to do it. We simplify access to opportunities
+            so opportunity is within reach for all."</h3>
+          <span>Founder, Workwalaa</span>
+        </div>
+
+        <!-- Back: The Expanded Mission -->
+        <div class="quote-card-back">
+          <div class="highlight">
+            We are building a world where opportunity is not hidden behind complexity.
+          </div>
+          <p>By bringing transparency to the job ecosystem and helping people prepare with the right knowledge and
+            support, we ensure that access is fair and decisions are informed.</p>
+          <p style="color: var(--brand-yellow); font-weight: 500; margin-bottom: 0;">
+            Workwalaa stands for dignity in work, clarity in process, and trust in every connection.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Contact <span>Workwalaa</span></h2>
+        <p>We’ll respond shortly. No spam. No pressure.</p>
+
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <i class='bx bxl-whatsapp'></i>
+            <div class="contact-detail-text">
+              <h4>Phone</h4>
+              <p>90613 62656</p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <i class='bx bx-envelope'></i>
+            <div class="contact-detail-text">
+              <h4>Email</h4>
+              <p><a href="mailto:info@workwalaa.com"
+                  style="color: inherit; text-decoration: none;">info@workwalaa.com</a></p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <i class='bx bx-map'></i>
+            <div class="contact-detail-text">
+              <h4>Location</h4>
+              <p>Kerala, India</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form id="mainContactForm" onsubmit="handleContactSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>I am a...</label>
+              <select name="type" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="job_seeker">Job Seeker</option>
+                <option value="employer">Employer</option>
+                <option value="founder_investor">Founder / Investor</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="Enter your full name" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="Enter your phone number" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="Enter your email address" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Your Message</label>
+            <textarea name="message" rows="4" placeholder="How can we help you?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;"
+            id="contactSubmitBtn">Send Message</button>
+        </form>
+
+        <!-- Dynamic Success Message Overlay for Contact Form -->
+        <div class="contact-success-overlay" id="contactSuccessOverlay">
+
+          <!-- Network Connecting Animation -->
+          <div class="network-connecting-content" id="networkConnectingContent">
+            <div class="network-loader">
+              <div class="net-node center-node"></div>
+              <div class="net-node ext-node node-a"></div>
+              <div class="net-node ext-node node-b"></div>
+              <div class="net-node ext-node node-c"></div>
+              <div class="net-line line-a"></div>
+              <div class="net-line line-b"></div>
+              <div class="net-line line-c"></div>
+              <div class="net-packet packet-a"></div>
+              <div class="net-packet packet-b"></div>
+              <div class="net-packet packet-c"></div>
+            </div>
+            <h3 style="color: #fff; font-size: 1.2rem; margin-top: 1.5rem;">Connecting to Network...</h3>
+            <p style="color: var(--brand-yellow); font-size: 0.9rem; margin-top: 0.5rem; letter-spacing: 1px;">
+              ENCRYPTING & ROUTING</p>
+          </div>
+
+          <!-- Success State -->
+          <div class="success-content" id="contactSuccessContent" style="display: none;">
+            <i class='bx bx-check-circle success-check'
+              style="font-size: 4rem; color: var(--brand-yellow); margin-bottom: 1rem;"></i>
+            <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem;">Message Delivered</h3>
+            <p style="color: var(--text-muted);">Thank you for reaching out. We will connect with you shortly.</p>
+          </div>
 
         </div>
       </div>
-     <div class="hero-image">
-  <img src="./assets/workwalaa.png" 
-       alt="Workwalaa" 
-       loading="eager" 
-       class="w-64 md:w-96" />
-       
-</div>
+    </div>
+  </section>
 
-    </section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo-container" style="margin-bottom: 0.25rem;">
+          <span class="logo-text" style="font-size: 1.2rem;">Workwalaa</span>
+        </div>
+        <p style="margin-top: 0;">Connecting Work To Worth.</p>
+      </div>
 
-
-    <!-- Services Section (Unchanged HTML) -->
-    <section id="services" class="services fade-in-section">
-      <h2>Our Services</h2>
-      <div class="card-container-wrapper">
-        <div class="card-container" role="group" aria-label="Service offerings">
-          <article class="css-card"><div class="css-card-inner"><div class="css-card-front"><h3>Verified and trusted </h3><p>We provide workers whose identities are verified through government issued ID checks for a safer and more reliable experience.</p><button class="read-more" aria-label="Read more about verified workers">Read more</button><img src="https://i.postimg.cc/4dfGcbmr/Untitled-design-1.png" alt="Verified worker with certification badge" loading="lazy"></div><div class="css-card-back"><h3>Our Verification Process</h3><p>Every worker on Workwalaa is verified using official government ID (like Aadhaar). While we don’t conduct background checks or certify skills, our identity verification adds a layer of trust and accountability for both clients and workers.</p></div></div></article>
-          <article class="css-card"><div class="css-card-inner"><div class="css-card-front"><h3>Smart Matching System</h3><p>Our tech driven system finds the best workers for your need instantly.<br>‎<br>‎</p><button class="read-more" aria-label="Read more about smart matching">Read more</button><img src="https://i.ibb.co/ZpxYgJX9/Workwalaa-payment-interface-100-x-100-px-5.png" alt="AI-powered job matching algorithm" loading="lazy"></div><div class="css-card-back"><h3>Intelligent & Fast</h3><p>Our algorithm analyzes your specific requirements, worker skills, and location to provide an instant and accurate match, saving you time and effort.</p></div></div></article>
-          <article class="css-card"><div class="css-card-inner"><div class="css-card-front"><h3>Multi Language Support</h3><p>We help bridge language gaps by supporting regional languages, making communication easier for both clients and workers.<br>‎</p><button class="read-more" aria-label="Read more about language assistance">Read more</button><img src="https://i.ibb.co/RpX09zDJ/Untitled-design-3.png" alt="Language translation and communication support" loading="lazy"></div><div class="css-card-back"><h3>Helping You Communicate Better</h3><p>Our platform supports multiple Indian languages to help clients and workers understand each other more easily. While we don't offer live translation, this support improves clarity and reduces miscommunication during work.</p></div></div></article>
-          <article class="css-card"><div class="css-card-inner"><div class="css-card-front"><h3>No hidden cost and price haggles</h3><p>With Workwalaa, what you see is what you pay. No random charges or last minute surprises.<br>‎</p><button class="read-more" aria-label="Read more about transparent pricing">Read more</button><img src="https://i.ibb.co/dsYBNs4q/Copy-of-Workwalaa-payment-interface-100-x-100-px-11.png" alt="Transparent pricing with no hidden fees" loading="lazy"></div><div class="css-card-back"><h3>Transparent Pricing</h3><p>Enjoy fair and upfront pricing for all services. The rate is fixed and transparent, so you can avoid haggling and be confident in the cost from the start.</p></div></div></article>
-          <article class="css-card"><div class="css-card-inner"><div class="css-card-front"><h3>Hyperlocal access</h3><p>Workers are matched within your local area. Workwalaa supports local hiring by connecting users to nearby talent, reducing delay.<br>‎</p><button class="read-more" aria-label="Read more about quality assurance">Read more</button><img src="https://i.ibb.co/xKjRDqnH/Copy-of-Workwalaa-payment-interface-100-x-100-px-3.png" alt="Quality control and service monitoring" loading="lazy"></div><div class="css-card-back"><h3>Nearby Workers, Faster Response</h3><p>Workwalaa connects you with workers from your nearby area, which means quicker availability, better familiarity with local conditions, and reduced travel delays.</p></div></div></article>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="#job-seekers">Job Seekers</a>
+          <a href="#employers">Employers</a>
+          <a href="aboutus.html">About Us</a>
+          <a href="blogs.html">Blogs</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="careers.html">Job Search</a>
+          <a href="https://wa.me/919061362656?text=I%20need%20Resume%20Building%20Assistance" target="_blank">Resume
+            Building</a>
+          <a href="index.html#job-seekers">Interview Prep</a>
+          <a href="careers.html#post-vacancy">Employer Services</a>
+          <a href="https://chat.whatsapp.com/DjBcWeLseNN1z95PA3Mv9n?mode=gi_t" target="_blank">Campus Hiring</a>
+        </div>
+        <div class="footer-col" style="display:flex; gap:10px; flex-direction: column;">
+          <h4>Contact</h4>
+          <span style="display: flex; align-items: center; gap: 8px; color: var(--text-muted);"><i
+              class='bx bxl-whatsapp'></i> 8921483992</span>
+          <span style="display: flex; align-items: center; gap: 8px; color: var(--text-muted);"><i
+              class='bx bx-envelope'></i> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@workwalaa.com"
+              target="_blank" style="color: inherit; text-decoration: none;">info@workwalaa.com</a></span>
+          <span style="display: flex; align-items: center; gap: 8px; color: var(--text-muted);"><i
+              class='bx bx-map'></i> Kerala, India</span>
         </div>
       </div>
-    </section>
-
-    <!-- Staggered CTA Section (Unchanged HTML, but buttons now work via JS) -->
-    <section id= "cta" class="staggered-container fade-in-section">
-      <div class="staggered-header"><h2>How Workwalaa Works</h2><p>Experience the difference with our streamlined approach to connecting talent with opportunity</p></div>
-      <article class="staggered-item"><div class="staggered-content" ><h3>Skip the Hassle, Get Workers Instantly</h3><p>Tired of early morning naka hunts? Still running behind middle men? Now get direct access to available workers near you – verified, rated and ready. No more delays, no more uncertainty.</p><button class="staggered-button" aria-label="Book workers now via WhatsApp" onclick="window.open('http://wa.me/918156801024', '_blank')">Book Now <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg></button></div><div class="staggered-image"><img src="https://i.ibb.co/VpxwDqxq/Copy-of-Workwalaa-payment-interface-100-x-100-px-10.png" alt="Customer easily booking a worker through mobile app" loading="lazy"></div></article>
-      <article class="staggered-item"><div class="staggered-content"><h3>Earn on Your Terms, Build Your Future</h3><p>No more waiting on the roadsides. Get job updates directly on your phone. Build a verified profile with us and let your work speak for itself. Your skills, your schedule, your dignity.</p><button class="staggered-button" aria-label="Start earning with Workwalaa" onclick="window.open('http://wa.me/918156801024', '_blank')">Start Earning <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg></button></div><div class="staggered-image"><img src="https://i.ibb.co/qYXQsvYF/Copy-of-Workwalaa-payment-interface-100-x-100-px-9.png" alt="Worker receiving job notifications on mobile phone" loading="lazy"></div></article>
-      <article class="staggered-item"><div class="staggered-content"><h3>Creating Impact, Building Communities</h3><p>We strive to ensure the well being of both our Workers and Customers. We constantly partner with safety advocates and develop systems to make every job a pleasant and comfortable experience.</p><button class="staggered-button" aria-label="Join the Workwalaa community"onclick="window.open('http://wa.me/918156801024', '_blank')">Join the Movement <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg></button></div><div class="staggered-image"><img src="https://i.ibb.co/0jbDnRcN/Copy-of-Workwalaa-payment-interface-100-x-100-px-8.png" alt="Happy worker using Workwalaa platform on mobile phone" loading="lazy"></div></article>
-    </section>
-
-    <!-- Contact Section (Unchanged HTML) -->
-    <section id="contact" class="contact improved-contact fade-in-section">
-      <div class="contact-content">
-        <div class="contact-info-block"><h2>We're excited to hear from you.</h2><p>Reach out to us with any questions, feedback or partnership opportunities</p><div class="contact-details"><div><span class="contact-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="#FFD600"/><path d="M19.5 17.1l-2.4-0.3c-0.4 0-0.7 0.1-1 0.4l-1.1 1.1c-2.1-1.1-3.8-2.8-4.9-4.9l1.1-1.1c0.3-0.3 0.4-0.6 0.4-1l-0.3-2.4c-0.1-0.5-0.5-0.9-1-0.9H8c-0.6 0-1.1 0-1.1 1.1 0 6 4.9 10.9 10.9 10.9 0.6 0 1.1-0.5 1.1-1.1v-1.1c0-0.5-0.4-0.9-0.9-1z" fill="#fff"/></svg></span><a href="tel:+918156801024" style="color: black; text-decoration: none; font-family: 'Maven Pro', sans-serif; font-weight: normal;">+91 81568 01024</a></div><div><span class="contact-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="#FFD600"/><path d="M7 10l7 5 7-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="7" y="10" width="14" height="8" rx="2" stroke="#fff" stroke-width="2"/></svg></span><a href="mailto:info@workwalaa.com" style="color: black; text-decoration: none; font-family: 'Maven Pro', sans-serif; font-weight: normal;">info@workwalaa.com</a></div><div><span class="contact-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="#FFD600"/><path d="M14 8a4 4 0 0 1 4 4c0 3-4 7-4 7s-4-4-4-7a4 4 0 0 1 4-4z" stroke="#fff" stroke-width="2"/><circle cx="14" cy="12" r="1.5" fill="#fff"/></svg></span> <div style="font-family: 'Maven Pro', sans-serif; font-weight: normal;">Conexcia Enterprises LLP</div></div>
-
-<!-- ✅ Social icons added right below the address -->
-<div class="footer-section footer-social-inline" style="margin-top: 16px;">
-  <a href="https://x.com/workwalaa_app?s=21" target="_blank" aria-label="X">
-    <img src="https://i.ibb.co/XrxFcz95/Copy-of-Copy-of-Workwalaa-payment-interface-100-x-100-px-8.png" alt="Twitter Logo" width="26" height="26" />
-  </a>
-  <a href="https://www.instagram.com/workwalaa_app/" target="_blank" aria-label="Instagram">
-    <img src="https://i.ibb.co/1ttdPtDk/Copy-of-Copy-of-Workwalaa-payment-interface-100-x-100-px-6.png" alt="Instagram Logo" width="26" height="26" />
-  </a>
-  <a href="https://www.facebook.com/profile.php?id=61578621201819" target="_blank" aria-label="Facebook">
-    <img src="https://i.ibb.co/q3kg3BkN/Copy-of-Copy-of-Workwalaa-payment-interface-100-x-100-px-5.png" alt="Facebook Logo" width="22" height="22" />
-  </a>
-  <a href="https://www.linkedin.com/company/workwalaa/" target="_blank" aria-label="LinkedIn">
-    <img src="https://i.ibb.co/4wXVfSFD/Copy-of-Copy-of-Workwalaa-payment-interface-100-x-100-px-4.png" alt="LinkedIn Logo" width="26" height="26" />
-  </a>
-</div>
-
-</div></div>
-
-        <form class="contact-form" novalidate><div class="error-message" id="form-error" role="alert" aria-live="polite"></div><label for="contact-name">Name </label><input type="text" id="contact-name" name="name" placeholder="Your name" required><label for="contact-email">Email</label><input type="email" id="contact-email" name="email" placeholder="Email id" required><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="4" placeholder="Your message" required></textarea>
-          <button type="button" onclick="sendViaGmail()">Send Via Mail</button>
-         <div id="contact-success" role="alert" aria-live="polite">Thank you! We'll get back to you soon.</div></form>
-      </div>
-     <script>
-  function sendViaGmail() {
-    const name = document.getElementById('contact-name').value;
-    const email = document.getElementById('contact-email').value;
-    const message = document.getElementById('contact-message').value;
-
-    const subject = encodeURIComponent("Message from Website");
-    const body = encodeURIComponent(`Name: ${name}\n\nEmail: ${email}\n\nMessage:\n\n${message}`);
-
-    // Detect if user is on mobile
-    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      // On phones → open Gmail app (mailto)
-      const mailtoURL = `mailto:info@workwalaa.com?subject=${subject}&body=${body}`;
-      window.location.href = mailtoURL;
-    } else {
-      // On desktop → open Gmail website as before
-      const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=info@workwalaa.com&su=${subject}&body=${body}`;
-      window.open(gmailURL, '_blank');
-    }
-  }
-</script>
-
-
-    </section>
-  </main>
-
-  <!-- Footer (Unchanged HTML) -->
-  <footer id="footer">
-  <div class="footer-content">
-    <!-- Left: Logo -->
-    <div class="footer-section footer-left">
-      <img src="https://i.ibb.co/7dKvTqvZ/Untitled-design-7.png" alt="Workwalaa Logo" class="footer-logo" loading="lazy" />
     </div>
 
+    <div class="footer-bottom">
+      <div>&copy; 2025–2026 Workwalaa. From Kerala, India.</div>
+      <div class="footer-bottom-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Right: Links -->
-    <nav class="footer-section footer-links" aria-label="Footer navigation">
-<!-- Trigger Button -->
-<a href="#" id="termsBtn">Terms of Service</a>
-<div id="termsModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    
-<h1>Terms & Conditions – Workwalaa</h1>
-<p><em>Last updated: 13/08/2025</em></p>
-
-<p>Workwalaa is operated by <strong>Conecxia Enterprises LLP</strong> (“we,” “us,” “our”), registered in India under LLPIN [LLPIN]. By using our mobile applications (“Worker App,” “Client App”) and services, you (“you,” “your,” whether Worker, Contractor, or Client) agree to these Terms & Conditions (“Terms”). If you do not agree, please do not use Workwalaa.</p>
-
-
-<h2>1. Who Can Use Workwalaa</h2>
-<ul>
-    You must be <strong>18 years or older</strong> to create an account.
-    You must have the legal capacity to enter into binding agreements under Indian law.
-    Workers must provide accurate details including name, age, contact number, and any mandatory KYC documents.
-</ul>
-
-
-<h2>2. Our Services</h2>
-<ul>
-    <strong>For Clients</strong> – We connect you to workers or contractors based on your job requirements.
-    <strong>For Workers</strong> – We help you find job opportunities that match your skills and location.
-    <strong>For Contractors</strong> – We connect you to clients and help you manage your workforce.
-</ul>
-<p>We are a <strong>technology platform only</strong> – <strong>we do not employ, manage, or control the workers</strong> and are not responsible for the quality, safety, legality, or completion of any work.</p>
-
-
-<h2>3. Information We Collect</h2>
-<p>When you use Workwalaa, we collect:</p>
-<ul>
-    <strong>Personal details</strong>: Name, phone number, email, gender, date of birth, Aadhaar/PAN (if provided).
-    <strong>Location data</strong>: GPS location during app usage.
-    <strong>Employment data</strong>: Skills, work history, ratings/reviews.
-    <strong>Device data</strong>: IP address, device model, operating system.
-    <strong>Media uploads</strong>: Profile pictures, documents, resumes.
-    <strong>Financial details</strong>: Bank account or UPI ID for payouts.
-</ul>
-<p>We also use third-party tools like WhatsApp API, SMS providers, payment gateways, and analytics services to operate and improve our platform.</p>
-
-
-<h2>4. How We Use Your Data</h2>
-<ul>
-    Provide and improve our services.
-    Match workers with clients/contractors.
-    Communicate with you via app notifications, WhatsApp, SMS, or email.
-    Process payments and payouts.
-    Conduct analytics for service improvement.
-</ul>
-<p>By using Workwalaa, you agree to our <strong>Privacy Policy</strong>.</p>
-
-
-<h2>5. Payments</h2>
-<ul>
-    Client payments and worker payouts are processed via third-party payment gateways.
-    Workwalaa is not responsible for any delays, failures, or technical errors in payment processing caused by banks or payment partners.
-</ul>
-
-
-<h2>6. No Guarantee & No Liability</h2>
-<ul>
-    We do not guarantee that you will find work, hire a worker, or that any job will be completed to your satisfaction.
-    We are not responsible for disputes, damages, injuries, fraud, or any losses arising from jobs arranged through Workwalaa.
-    <strong>Liability Cap:</strong> If we are ever held liable by a court, our total liability will be <strong>₹0</strong>.
-</ul>
-
-
-<h2>7. Prohibited Use</h2>
-<ul>
-    Provide false information or fake documents.
-    Use the platform for illegal or harmful activities.
-    Circumvent Workwalaa to avoid using the platform for future jobs.
-</ul>
-
-
-<h2>8. Account Suspension & Termination</h2>
-<p>We may suspend or terminate your account if you:</p>
-<ul>
-    Violate these Terms.
-    Engage in fraud, harassment, or illegal activities.
-    Abuse or misuse the platform.
-</ul>
-
-
-<h2>9. No Employment Relationship</h2>
-<ul>
-    Workwalaa is <strong>not an employer</strong>.
-    All arrangements are <strong>directly between Client and Worker/Contractor</strong>.
-    You are solely responsible for complying with applicable labour laws.
-</ul>
-
-
-<h2>10. Governing Law & Jurisdiction</h2>
-<p>These Terms are governed by the laws of <strong>India</strong>, and disputes will be resolved in the courts of <strong>Ernakulam, Kerala</strong>.</p>
-
-
-<h2>11. Changes to These Terms</h2>
-<p>We may update these Terms at any time. Continued use of the platform means you accept the updated Terms.</p>
-
-
-<h2>12. Contact Us</h2>
-<p>If you have questions, email us at: <strong>info@workwalaa.com</strong></p>
-
-  </div>
-</div>
-
-<a href="#" id="prvcybtn">Privacy Policy</a>
-<!-- The Modal -->
-<div id="privacyModal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="closePrivacy">&times;</span>
-
-    
-<h2>Privacy Policy</h2>
-    <p><strong>Conecxia Enterprises LLP</strong> Conecxia Enterprises LLP (“Workwalaa”, “we”, “our”, “us”) built the Workwalaa Worker App and Workwalaa Client App (together, the “Apps”) as service-based applications to connect workers, contractors, and clients efficiently. These Services are provided by Conecxia Enterprises LLP at no cost to registered users and are intended for use as described in this Privacy Policy.
-
-This page is used to inform users of our policies regarding the collection, use, and disclosure of Personal Information if anyone decides to use our Services.<br>
-
-By downloading, accessing, or using our Apps, you agree to the collection and use of information in accordance with this policy. The Personal Information we collect is used for providing, improving, and securing the Service. We do not use or share your information with anyone except as described in this Privacy Policy.<br>
-
-The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions unless otherwise defined here.</p>
-    
-    <h3>1. Information We Collect</h3>
-    <ul>
-      <strong>Personal Details:</strong> Name, mobile number, email, gender, date of birth, Aadhaar/PAN.
-      <strong>Location Data:</strong> Real time location during service use.
-      <strong>Employment Details:</strong> Skills, work history, references, ratings, and reviews.
-      <strong>Device Data:</strong> IP address, device model, OS, app version.
-      <strong>Media Uploads:</strong> Profile picture, resumes, identity documents.
-      <strong>Financial Details:</strong> Bank account details, UPI ID, and payment history.
-    </ul>
-
-    <h3>2. Third-Party Services</h3>
-    <p>We use third-party services that may collect information ...</p>
-
-    <h3>3. Use of Information</h3>
-    <p>We use collected data for service management, job matching, communication, payments, security, and analytics.</p>
-
-    <h3>4. Information Sharing</h3>
-    <p>We may share your information with employers, contractors, and third-party providers for service purposes.</p>
-
-    <h3>5. Log Data</h3>
-    <p>In case of an error, we collect Log Data like device IP, model, OS version, app configuration, and date/time.</p>
-
-    <h3>6. Cookies & Tracking</h3>
-    <p>We do not use cookies directly, but third-party SDKs may use similar technologies.</p>
-
-    <h3>7. Data Retention & Deletion</h3>
-    <p>We do not offer in-app account deletion; users may log out anytime. Some data may be retained for legal reasons.</p>
-
-    <h3>8. Children’s Privacy</h3>
-    <p>We do not allow users below 18 years old to register.</p>
-
-    <h3>9. Security</h3>
-    <p>We use encryption and access controls, but no system is 100% secure.</p>
-
-    <h3>10. Consent</h3>
-    <p>By using our services, you consent to our data practices.</p>
-
-    <h3>11. Changes to This Privacy Policy</h3>
-    <p>We may update our policy; changes will be posted here.</p>
-
-    <h3>12. Contact Us</h3>
-    <p>Email: <strong>info@workwalaa.com</strong><br>
-       Conecxia Enterprises LLP, Kerala, India<br>
-       <em>Effective Date: 12 August 2025</em></p>
-  </div>
-</div>
-<div class="footer-bottom">&copy; 2025 Workwalaa. All Rights Reserved.</div>
-    </nav>
-  </div>
-
-</footer>
-
-
-
-<script>
-// Open Privacy Policy Modal (Modal 2)
-document.getElementById("prvcybtn").onclick = function(e) {
-  e.preventDefault();
-  document.getElementById("privacyModal").style.display = "block";
-}
-
-// Close Privacy Policy Modal when clicking X
-document.getElementById("closePrivacy").onclick = function() {
-  document.getElementById("privacyModal").style.display = "none";
-}
-
-// Close Privacy Policy Modal when clicking outside
-window.addEventListener("click", function(e) {
-  if (e.target == document.getElementById("privacyModal")) {
-    document.getElementById("privacyModal").style.display = "none";
-  }
-});
-</script>
-<script>
-  // Terms modal
-  const termsModal = document.getElementById("termsModal");
-  const termsBtn = document.getElementById("termsBtn");
-  const termsClose = document.getElementsByClassName("close")[0];
-
-  termsBtn.onclick = function(e) {
-    e.preventDefault();
-    termsModal.style.display = "block";
-  }
-
-  termsClose.onclick = function() {
-    termsModal.style.display = "none";
-  }
-
-  window.onclick = function(event) {
-    if (event.target == termsModal) {
-      termsModal.style.display = "none";
-    }
-  }
-</script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('nav');
-      
-      // Mobile Menu Toggle
-      menuToggle.addEventListener('click', () => {
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        nav.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', !isExpanded);
-      });
-      
-      // WhatsApp Link Function
-      const openWhatsApp = () => {
-        const phoneNumber = '918156801024';
-        const message = encodeURIComponent("Hi Workwalaa, I'm interested in downloading your app.");
-        window.open(https://wa.me/${phoneNumber}?text=${message}, 'I am Intrested');
-      };
-      
-      document.getElementById('download-btn').addEventListener('click', openWhatsApp);
-      document.querySelectorAll('.staggered-button').forEach(button => {
-        button.addEventListener('click', openWhatsApp);
-      });
-      
-      // Smooth Scroll for "About Us" button
-      document.getElementById('about-btn').addEventListener('click', () => {
-        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-      });
-
-      // Contact Form Validation
-      const contactForm = document.querySelector('.contact-form');
-      const errorDiv = document.getElementById('form-error');
-      const successDiv = document.getElementById('contact-success');
-
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        errorDiv.style.display = 'none';
-        errorDiv.textContent = '';
-        
-        const name = document.getElementById('contact-name').value.trim();
-        const email = document.getElementById('contact-email').value.trim();
-        const message = document.getElementById('contact-message').value.trim();
-        let errors = [];
-
-        if (!name) errors.push('Name is required.');
-        if (!email) errors.push('Email is required.');
-        if (!message) errors.push('Message is required.');
-        
-        if (errors.length > 0) {
-          errorDiv.textContent = errors.join(' ');
-          errorDiv.style.display = 'block';
-        } else {
-          // On successful validation
-          successDiv.style.display = 'block';
-          contactForm.reset();
-          // Hide success message after a few seconds
-          setTimeout(() => { successDiv.style.display = 'none'; }, 4000);
-          
-          // In a real application, you would send the data to a server here, e.g., using fetch()
-          // fetch('/api/contact', { method: 'POST', body: new FormData(contactForm) });
-        }
-      });
-    });
-  </script>
-<script>
-  const faders = document.querySelectorAll('.fade-in-section');
-
-  const appearOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
-  };
-
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    });
-  }, appearOptions);
-
-  faders.forEach(section => {
-    appearOnScroll.observe(section);
-  });
-</script>
-
-<script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('nav');
-
-  menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-    menuToggle.setAttribute("aria-expanded", !isExpanded);
-  });
-</script>
-<script>
-    const downloadBtn = document.getElementById('download-btn');
-    const popupOverlay = document.getElementById('popup-overlay');
-    const closePopup = document.getElementById('close-popup');
-
-    // Show popup when clicking download button
-    downloadBtn.addEventListener('click', () => {
-      popupOverlay.style.display = 'flex';
-    });
-
-    // Close popup
-    closePopup.addEventListener('click', () => {
-      popupOverlay.style.display = 'none';
-    });
-
-    // Close popup when clicking outside
-    popupOverlay.addEventListener('click', (e) => {
-      if (e.target === popupOverlay) {
-        popupOverlay.style.display = 'none';
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
       }
     });
+
+    // Mobile Menu Logic
+    const mobileMenuOpen = document.getElementById('mobile-menu-open');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (mobileMenuOpen && mobileMenuClose && mobileMenu) {
+      mobileMenuOpen.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      });
+
+      mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      // Close menu when clicking a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+
+    // Simple Typewriter / Word Rotate Effect
+    const words = ["Worth.", "Talent.", "Purpose.", "Growth."];
+    let wordIndex = 0;
+    const typedText = document.getElementById('typed-text');
+
+    setInterval(() => {
+      wordIndex = (wordIndex + 1) % words.length;
+      typedText.style.opacity = 0;
+      setTimeout(() => {
+        typedText.innerText = words[wordIndex];
+        typedText.style.opacity = 1;
+      }, 300); // match fade transition
+    }, 3000);
+
+    typedText.style.transition = "opacity 0.3s ease";
+
+    // Wishlist Toggle & Satisfying Success Animation
+    const btnWishlist = document.getElementById('btnWishlist');
+    const wishlistContainer = document.getElementById('wishlistContainer');
+    const wishlistEmail = document.getElementById('wishlistEmail');
+    const wishlistForm = document.getElementById('wishlistForm');
+    const successOverlay = document.getElementById('successOverlay');
+
+    if (btnWishlist && wishlistContainer) {
+      btnWishlist.addEventListener('click', () => {
+        // Reset state if opened again
+        if (successOverlay) successOverlay.classList.remove('active');
+        if (wishlistForm) wishlistForm.style.opacity = '1';
+        if (wishlistEmail) wishlistEmail.value = '';
+
+        wishlistContainer.classList.toggle('active');
+        if (wishlistContainer.classList.contains('active')) {
+          setTimeout(() => wishlistEmail.focus(), 300);
+        }
+      });
+    }
+
+    if (wishlistForm) {
+      wishlistForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Prevent page reload
+
+        // Hide form inputs and trigger satisfying success UI
+        wishlistForm.style.opacity = '0';
+        wishlistForm.style.pointerEvents = 'none';
+
+        if (successOverlay) {
+          successOverlay.classList.add('active');
+
+          // Optionally, auto-close the whole dropdown after a few seconds
+          setTimeout(() => {
+            wishlistContainer.classList.remove('active');
+            setTimeout(() => {
+              wishlistForm.style.opacity = '1';
+              wishlistForm.style.pointerEvents = 'auto';
+              successOverlay.classList.remove('active');
+              wishlistEmail.value = '';
+            }, 500); // Wait for dropdown menu to hide before resetting
+          }, 2500);
+        }
+      });
+    }
+
+    // 3D Interactive Backgrounds (Vanta.js)
+    // Runs after the page has loaded
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.VANTA) {
+        // Main ambient background
+        window.VANTA.NET({
+          el: "#ambient-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0xf2ca00,
+          backgroundColor: 0x030303,
+          points: 12.00,
+          maxDistance: 25.00,
+          spacing: 18.00,
+          showDots: true
+        });
+      }
+    });
+
+    // Contact Form Submission Handler (Connected to Google Apps Script)
+    function handleContactSubmit(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const form = document.getElementById('mainContactForm');
+      const btn = document.getElementById('contactSubmitBtn');
+      const overlay = document.getElementById('contactSuccessOverlay');
+      const networkConnecting = document.getElementById('networkConnectingContent');
+      const contactSuccess = document.getElementById('contactSuccessContent');
+
+      // The Google Apps Script Web App URL provided by the user
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxt9Wk1Jyzj0eVE1PD-IhLGFvLoyQnvUS8kRjti8NS_jsNerMb7MEVpZ8TISrJxd_0HiQ/exec';
+
+      // 1. Loading State for button & UI
+      btn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Sending...";
+      btn.style.opacity = '0.8';
+      btn.style.pointerEvents = 'none';
+
+      // Reset overlay to show loading animation
+      networkConnecting.style.display = 'block';
+      contactSuccess.style.display = 'none';
+      overlay.classList.add('active');
+
+      // 2. Prepare FormData from the form inputs
+      const formData = new FormData(form);
+
+      // 3. Send data to Google Apps Script
+      fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => {
+          // Assume success if the fetch promise resolves
+          networkConnecting.style.display = 'none';
+          contactSuccess.style.display = 'block';
+
+          // Reset the form in the background
+          form.reset();
+
+          // Stage 2: Auto-close overlay after 3 seconds of success
+          setTimeout(() => {
+            overlay.classList.remove('active');
+
+            // Reset button back to normal state
+            btn.innerHTML = "Send Message";
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+          }, 3000);
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+
+          // Very basic error handling if fetch completely fails
+          overlay.classList.remove('active');
+          btn.innerHTML = "Send Failed - Try Again";
+          btn.style.opacity = '1';
+          btn.style.pointerEvents = 'auto';
+          alert("Sorry, there was an error sending your message. Please try again or contact us directly on WhatsApp.");
+        });
+    }
+
   </script>
 
-<script>
-function sendEmail(event) {
-    event.preventDefault(); // Prevent form refresh
-    const userEmail = document.getElementById("user-email").value;
+  <!-- Three.js & Vanta.js for ambient background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script>
+    // Theme toggler logic
+    document.addEventListener('DOMContentLoaded', () => {
+      // Apply saved theme on load
+      const savedTheme = localStorage.getItem('workwalaa_theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        document.documentElement.classList.add('light-theme');
+      }
 
-    const subject = "I would like to install the beta version of app";
-    const body = `Hello,%0D%0A%0D%0AMy email: ${encodeURIComponent(userEmail)}%0D%0A%0D%0AI would like to install the beta version of the app.`;
+      // Get all theme toggle buttons
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
+      const mobileThemeIcon = document.getElementById('mobile-theme-icon');
 
-    // Detect if user is on mobile
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      // Function to toggle theme
+      function toggleTheme() {
+        const isLight = document.body.classList.toggle('light-theme');
+        document.documentElement.classList.toggle('light-theme');
+        
+        // Update icons
+        const newIcon = isLight ? 'bx-moon' : 'bx-sun';
+        
+        if (themeIcon) {
+          themeIcon.className = `bx ${newIcon}`;
+        }
+        if (mobileThemeIcon) {
+          mobileThemeIcon.className = `bx ${newIcon}`;
+        }
+        
+        // Save preference
+        localStorage.setItem('workwalaa_theme', isLight ? 'light' : 'dark');
+        
+        // Close suggestion popup when theme is changed
+        closeThemeSuggestion();
+      }
 
-    if (isMobile) {
-        // On mobile → open Gmail app using mailto
-        window.location.href = `mailto:conecxia@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-    } else {
-        // On PC → open Gmail Web directly
-        window.open(
-          `https://mail.google.com/mail/?view=cm&fs=1&to=conecxia@gmail.com&su=${encodeURIComponent(subject)}&body=${body}`,
-          "_blank"
-        );
-    }
-}
-</script>
+      // Add event listeners to both buttons
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', toggleTheme);
+      }
+      if (mobileThemeToggleBtn) {
+        mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+      }
 
+      // Set initial icon states
+      if (savedTheme === 'light') {
+        if (themeIcon) themeIcon.className = 'bx bx-moon';
+        if (mobileThemeIcon) mobileThemeIcon.className = 'bx bx-moon';
+      }
 
+      // Theme Suggestion Popup Logic
+      const themeSuggestion = document.getElementById('themeSuggestion');
+      
+      // Show suggestion after 2 seconds on every page load
+      if (themeSuggestion) {
+        setTimeout(() => {
+          themeSuggestion.classList.add('show');
+          
+          // Position the popup near the theme toggle button
+          const themeToggle = document.getElementById('theme-toggle');
+          if (themeToggle) {
+            const toggleRect = themeToggle.getBoundingClientRect();
+            themeSuggestion.style.top = (toggleRect.bottom + 10) + 'px';
+            themeSuggestion.style.right = (window.innerWidth - toggleRect.right - 30) + 'px';
+          }
+        }, 2000);
+      }
 
+      // Close suggestion popup function
+      window.closeThemeSuggestion = function() {
+        if (themeSuggestion) {
+          themeSuggestion.classList.remove('show');
+        }
+      };
+
+      // Auto-close after 8 seconds
+      setTimeout(() => {
+        closeThemeSuggestion();
+      }, 8000);
+    });
+  </script>
 </body>
+
 </html>

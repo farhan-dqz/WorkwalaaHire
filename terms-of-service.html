@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service - Workwalaa</title>
+
+    <meta name="description" content="Workwalaa Terms of Service">
+
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Boxicons for modern icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        /* =========================================
+       GLOBAL VARIABLES 
+       ========================================= */
+        :root {
+            /* Deep Dark Theme Colors */
+            --bg-base: #030303;
+            --bg-surface: #0a0a0a;
+            --bg-elevated: #111111;
+
+            /* Vibrant Brand Yellow */
+            --brand-yellow: #f2ca00;
+            --brand-yellow-glow: rgba(242, 202, 0, 0.3);
+            --brand-yellow-hvr: #e5bf00;
+
+            /* Glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --glass-blur: blur(20px);
+
+            /* Text Colors */
+            --text-main: #ffffff;
+            --text-muted: #999999;
+            --text-dark: #000000;
+
+            /* Utilities */
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius-lg: 24px;
+            --border-radius-md: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .brand-font {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: var(--brand-yellow);
+            color: #000;
+        }
+
+        /* Ambient Background Glow */
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -2;
+            pointer-events: auto;
+        }
+
+        /* =========================================
+       NAVIGATION 
+       ========================================= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+            background: rgba(3, 3, 3, 0.85);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 40px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid var(--brand-yellow);
+            padding-bottom: 4px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            color: var(--brand-yellow);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* BUTTONS */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--brand-yellow);
+            color: var(--text-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            box-shadow: 0 5px 20px var(--brand-yellow-glow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-yellow-hvr);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(242, 202, 0, 0.4);
+        }
+
+        /* Typography Overrides for Legal Pages */
+        .legal-content {
+            padding: 10rem 5% 5rem 5%;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .legal-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--brand-yellow);
+        }
+
+        .legal-content h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .legal-content h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--brand-yellow);
+        }
+
+        .legal-content p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .legal-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .legal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-content strong {
+            color: #fff;
+        }
+
+        .legal-content hr {
+            border: 0;
+            height: 1px;
+            background: var(--glass-border);
+            margin: 3rem 0;
+        }
+
+        .meta-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--glass-border);
+            padding: 4rem 5% 2rem 5%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-col a:hover {
+            color: var(--brand-yellow);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--brand-yellow);
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <style>
+        /* =========================================
+           THEME OVERRIDES & LIGHT MODE POLISH
+           ========================================= */
+        :root:has(body.light-theme),
+        body.light-theme {
+            --bg-base: #f4f6f8;
+            --bg-surface: #ffffff;
+            --bg-elevated: #fcfcfc;
+
+            --brand-yellow: #dca300;
+            /* Darker yellow for text/icon contrast */
+            --brand-yellow-glow: rgba(220, 163, 0, 0.15);
+            --brand-yellow-hvr: #b88800;
+
+            --text-main: #111111;
+            --text-muted: #555555;
+
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* THEME BUTTON - DEFAULT (DARK MODE) */
+        .theme-btn {
+            background: rgba(242, 202, 0, 0.1);
+            border: 1px solid rgba(242, 202, 0, 0.3);
+            color: var(--brand-yellow);
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            margin-left: 15px;
+            box-shadow: 0 0 15px rgba(242, 202, 0, 0.15);
+        }
+
+        .theme-btn:hover {
+            background: var(--brand-yellow);
+            color: #000;
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 0 25px rgba(242, 202, 0, 0.4);
+        }
+
+        /* THEME BUTTON - LIGHT MODE */
+        body.light-theme .theme-btn {
+            background: #ffffff;
+            border: 1px solid var(--glass-border);
+            color: #111;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        body.light-theme .theme-btn:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        .theme-btn i {
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        body.light-theme .theme-btn i {
+            transform: rotate(360deg);
+        }
+
+        /* LIGHT THEME AESTHETIC FIXES */
+        body.light-theme .logo-text,
+        body.light-theme .footer-col h4,
+        body.light-theme .legal-content,
+        body.light-theme .legal-content h2,
+        body.light-theme .legal-content h3,
+        body.light-theme .legal-content strong,
+        body.light-theme .legal-content p,
+        body.light-theme .legal-content ul,
+        body.light-theme .legal-content li {
+            color: var(--text-main);
+        }
+
+        body.light-theme .footer-brand p,
+        body.light-theme .meta-info {
+            color: var(--text-muted);
+        }
+
+        body.light-theme .legal-content h1 {
+            background: linear-gradient(135deg, var(--brand-yellow), #222);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-theme nav {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-theme footer {
+            background: #fdfdfd;
+            border-top: 1px solid var(--glass-border);
+        }
+    </style>
+    <script>
+        // Apply theme immediately to prevent FOUC
+        const savedTheme = localStorage.getItem('workwalaa_theme');
+        if (savedTheme === 'light') {
+            document.documentElement.classList.add('light-theme');
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Removed Ambient Glow Graphic for Legal Text Readability -->
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="https://i.ibb.co/7dKvTqvZ/Untitled-design-7.png" alt="Workwalaa Logo" />
+            <span class="logo-text">Workwalaa</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="careers.html">Jobs</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="blogs.html">Blogs</a>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                <i class='bx bx-sun' id="theme-icon"></i>
+            </button>
+        </div>
+        <div class="nav-actions hidden-mobile">
+            <a href="https://wa.me/919061362656" target="_blank" class="btn-primary"
+                style="padding: 0.6rem 1.5rem; font-size: 0.95rem;">
+                <i class='bx bxl-whatsapp' style="color: #111111; font-size: 1.2rem;"></i> Help
+            </a>
+        </div>
+        <i class='bx bx-menu menu-toggle' id="mobile-menu-open"></i>
+    </nav>
+
+    <!-- LEGAL CONTENT SECTION -->
+    <section class="legal-content">
+        <h1>Master Terms & Conditions for Workwalaa</h1>
+        <div class="meta-info">
+            <strong>Last Updated:</strong> 13/08/2025
+        </div>
+
+        <p>Workwalaa (“Platform”) is operated by Conecxia Enterprises LLP, a Limited Liability Partnership registered
+            under the laws of India, having LLPIN [●] (“Workwalaa”, “we”, “us”, “our”).</p>
+
+        <p>By accessing or using the Workwalaa mobile applications, website, or services (collectively, the “Platform”),
+            you (“User”, “you”) agree to be bound by these Terms & Conditions (“Terms”). If you do not agree, please do
+            not use the Platform.</p>
+
+        <hr>
+
+        <h2>1. Definitions</h2>
+        <ul>
+            <li><strong>Candidate / Worker:</strong> Any individual seeking employment or work opportunities through the
+                Platform.</li>
+            <li><strong>Employer / Client:</strong> Any individual, company, HR agency, or business seeking to hire
+                candidates or workers.</li>
+            <li><strong>Premium Client:</strong> Employers opting for paid screening or verification services.</li>
+            <li><strong>Services:</strong> Technology enabled facilitation, discovery, and matching services only.</li>
+        </ul>
+
+        <h2>2. Platform Nature & Role Disclaimer</h2>
+        <p>Workwalaa is a technology enabled facilitation platform only.</p>
+        <p>Workwalaa does not act as:</p>
+        <ul>
+            <li>an employer</li>
+            <li>an employee</li>
+            <li>a manpower agency</li>
+            <li>a recruitment agent guaranteeing employment</li>
+        </ul>
+        <p>Workwalaa does not control:</p>
+        <ul>
+            <li>hiring decisions</li>
+            <li>employment terms</li>
+            <li>salaries</li>
+            <li>workplace conduct</li>
+        </ul>
+        <p>All hiring, engagement, and employment relationships are strictly between Employer and Candidate.</p>
+
+        <hr>
+
+        <h2>PART A: BLUE COLLAR / GIG SERVICES</h2>
+        <p><em>(Short term, daily wage, contract, and task based work)</em></p>
+
+        <h3>A1. Scope</h3>
+        <p>Workwalaa facilitates short term and gig based work connections between Clients and Workers.</p>
+
+        <h3>A2. No Employment Relationship</h3>
+        <ul>
+            <li>Workwalaa is not an employer</li>
+            <li>Workers are not employees, agents, or representatives of Workwalaa</li>
+            <li>Clients are solely responsible for labour law compliance</li>
+        </ul>
+
+        <h3>A3. Payments</h3>
+        <ul>
+            <li>Payments for work are made directly between Client and Worker</li>
+            <li>Workwalaa does not handle job wages</li>
+            <li>Platform fees may be collected through Worker Coins <em>(Worker Coin Wallet Terms apply separately
+                    below.)</em></li>
+        </ul>
+
+        <hr>
+
+        <h2>PART B: WHITE COLLAR RECRUITMENT SERVICES</h2>
+        <p><em>(Long term employment, corporate hiring, professional roles)</em></p>
+
+        <h3>B1. Scope of Services</h3>
+        <p>Workwalaa provides candidate discovery, screening (where applicable), and profile sharing services.</p>
+        <p>Workwalaa does not guarantee:</p>
+        <ul>
+            <li>job offers</li>
+            <li>interviews</li>
+            <li>hiring</li>
+            <li>candidate performance</li>
+            <li>retention or continuity of employment</li>
+        </ul>
+
+        <h3>B2. Screening & Verification Disclaimer</h3>
+        <p><strong>Standard Services</strong></p>
+        <p>Workwalaa performs no mandatory background verification by default.</p>
+        <p><strong>Premium Client Services</strong></p>
+        <p>For Premium Clients only, Workwalaa may conduct:</p>
+        <ul>
+            <li>basic education verification</li>
+            <li>prior employment verification</li>
+        </ul>
+        <p>Such verification:</p>
+        <ul>
+            <li>is based on documents and data provided by the Candidate</li>
+            <li>does not constitute a legal, criminal, or forensic verification</li>
+        </ul>
+        <p>Workwalaa does not guarantee the absolute accuracy of verification results.</p>
+        <p>⚠️ <strong>Final responsibility always remains with the Employer.</strong></p>
+
+        <h3>B3. Employer Responsibilities (Mandatory Clause)</h3>
+        <p>Employers expressly agree that they are solely responsible for:</p>
+        <ul>
+            <li>identity verification</li>
+            <li>education and credential validation</li>
+            <li>criminal background checks</li>
+            <li>reference checks</li>
+            <li>statutory and labour law compliance</li>
+        </ul>
+        <p>Workwalaa shall have ZERO liability for:</p>
+        <ul>
+            <li>theft</li>
+            <li>fraud</li>
+            <li>misrepresentation</li>
+            <li>misconduct</li>
+            <li>data misuse</li>
+            <li>workplace incidents</li>
+            <li>financial or reputational loss</li>
+        </ul>
+        <p>Hiring decisions are taken entirely at Employer’s own risk.</p>
+
+        <h3>B4. Candidate Responsibilities</h3>
+        <p>Candidates acknowledge that:</p>
+        <ul>
+            <li>Workwalaa does not guarantee employment</li>
+            <li>Shortlisting and profile sharing is at Workwalaa’s sole discretion</li>
+        </ul>
+        <p>Candidates cannot challenge:</p>
+        <ul>
+            <li>rejection</li>
+            <li>non-shortlisting</li>
+            <li>prioritisation logic</li>
+        </ul>
+        <p>Candidates must independently verify:</p>
+        <ul>
+            <li>employer legitimacy</li>
+            <li>job role</li>
+            <li>compensation</li>
+            <li>offer authenticity</li>
+        </ul>
+
+        <h3>B5. Candidate Success Fees</h3>
+        <p>Candidates may be charged a success based facilitation fee.</p>
+        <ul>
+            <li>Fee becomes payable only after successful joining.</li>
+            <li>Payment must be completed within 30 days of joining, preferably near the first salary cycle.</li>
+        </ul>
+        <p>The fee is non refundable, except where:</p>
+        <ul>
+            <li>the Candidate joins and the Employer fails to pay any salary</li>
+            <li>In such case, the fee shall be refunded.</li>
+        </ul>
+        <p>No refund shall be provided if termination occurs due to:</p>
+        <ul>
+            <li>performance issues</li>
+            <li>misconduct</li>
+            <li>voluntary resignation</li>
+        </ul>
+
+        <h3>B6. Employer Fees</h3>
+        <ul>
+            <li>Employers shall pay a service fee only after successful hiring.</li>
+            <li>Fees are charged per hire, unless otherwise agreed in writing.</li>
+            <li>Employer fees and Candidate fees are independent and non interchangeable.</li>
+        </ul>
+
+        <h3>B7. Replacement Policy</h3>
+        <ul>
+            <li>Employers may request a replacement within 7 days of joining.</li>
+            <li>Workwalaa shall attempt to provide a suitable replacement.</li>
+            <li>If replacement is not feasible, 100% of Workwalaa’s service fee shall be refunded.</li>
+            <li>No replacement or refund applies after the 7 day period.</li>
+        </ul>
+
+        <h3>B8. Hiring Control & Discretion</h3>
+        <p>Workwalaa retains sole and final discretion, based on internal assessment parameters, to:</p>
+        <ul>
+            <li>shortlist candidates</li>
+            <li>prioritise profiles</li>
+            <li>decide which candidates are shared</li>
+        </ul>
+        <p>Such discretion is non challengeable.</p>
+
+        <h3>B9. Data Sharing & Responsibility</h3>
+        <p>Once candidate data is shared:</p>
+        <ul>
+            <li>Employer assumes full responsibility for storage, usage, and compliance.</li>
+        </ul>
+        <p>Workwalaa bears no responsibility for:</p>
+        <ul>
+            <li>data retention</li>
+            <li>misuse</li>
+            <li>leaks</li>
+            <li>regulatory non compliance by Employer.</li>
+        </ul>
+
+        <hr>
+
+        <h2>WORKER COIN WALLET: TERMS & CONDITIONS</h2>
+        <p><em>(As previously approved, unchanged except alignment)</em></p>
+        <ul>
+            <li>Worker Coins are digital platform credits</li>
+            <li>Not legal tender</li>
+            <li>Non transferable</li>
+            <li>Non refundable except at Workwalaa’s discretion</li>
+            <li>Subject to expiry, suspension, or reversal</li>
+            <li>Workwalaa retains full control over Worker Coin issuance and valuation.</li>
+        </ul>
+
+        <hr>
+
+        <h2>3. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law:</p>
+        <ul>
+            <li>Workwalaa’s total liability, if any, shall not exceed the platform fees paid in the preceding 3 months
+            </li>
+            <li>Workwalaa shall not be liable for indirect, incidental, or consequential damages</li>
+        </ul>
+
+        <h2>4. Account Suspension & Termination</h2>
+        <p>Workwalaa may suspend or terminate access for:</p>
+        <ul>
+            <li>policy violations</li>
+            <li>fraud or misuse</li>
+            <li>legal or compliance risks</li>
+        </ul>
+
+        <h2>5. Governing Law & Jurisdiction</h2>
+        <p>These Terms are governed by the laws of India. Courts at Ernakulam, Kerala shall have exclusive jurisdiction.
+        </p>
+
+        <h2>6. Updates to Terms</h2>
+        <p>Workwalaa may modify these Terms at any time. Continued use constitutes acceptance.</p>
+
+        <h2>7. Contact</h2>
+        <p>📧 <a href="mailto:info@workwalaa.com"
+                style="color: var(--brand-yellow); text-decoration: none;">info@workwalaa.com</a></p>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-container" style="margin-bottom: 0.25rem;">
+                    <span class="logo-text" style="font-size: 1.2rem;">Workwalaa</span>
+                </div>
+                <p style="margin-top: 0;">Connecting Work To Worth.</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#job-seekers">Job Seekers</a>
+                    <a href="index.html#employers">Employers</a>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="blogs.html">Blogs</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="careers.html">Job Search</a>
+                    <a href="https://wa.me/919061362656?text=I%20need%20Resume%20Building%20Assistance"
+                        target="_blank">Resume Building</a>
+                    <a href="index.html#job-seekers">Interview Prep</a>
+                    <a href="careers.html#post-vacancy">Employer Services</a>
+                    <a href="https://chat.whatsapp.com/DjBcWeLseNN1z95PA3Mv9n?mode=gi_t" target="_blank">Campus
+                        Hiring</a>
+                </div>
+                <div class="footer-col" style="display:flex; gap:10px; flex-direction: column;">
+                    <h4>Contact</h4>
+                    <span style="color: var(--text-muted);"><i class='bx bxl-whatsapp'></i> 8921483992</span>
+                    <span style="color: var(--text-muted);"><i class='bx bx-envelope'></i> info@workwalaa.com</span>
+                    <span style="color: var(--text-muted);"><i class='bx bx-map'></i> Kerala, India</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>&copy; 2025–2026 Workwalaa. From Kerala, India.</div>
+            <div class="footer-bottom-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Javascript Logic -->
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuOpen = document.getElementById('mobile-menu-open');
+        if (mobileMenuOpen) {
+            // Simple alert for now as mobile menu HTML is omitted to save space, but icon is there
+            mobileMenuOpen.addEventListener('click', () => {
+                alert("Mobile menu clicked");
+            });
+        }
+    </script>
+    <script>
+        // Theme toggler logic
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.documentElement.classList.contains('light-theme')) {
+                document.body.classList.add('light-theme');
+            }
+
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+
+            if (themeToggleBtn && themeIcon) {
+                if (document.body.classList.contains('light-theme')) {
+                    themeIcon.classList.replace('bx-sun', 'bx-moon');
+                }
+
+                themeToggleBtn.addEventListener('click', () => {
+                    document.body.classList.toggle('light-theme');
+                    document.documentElement.classList.toggle('light-theme');
+
+                    if (document.body.classList.contains('light-theme')) {
+                        localStorage.setItem('workwalaa_theme', 'light');
+                        themeIcon.classList.replace('bx-sun', 'bx-moon');
+                    } else {
+                        localStorage.setItem('workwalaa_theme', 'dark');
+                        themeIcon.classList.replace('bx-moon', 'bx-sun');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

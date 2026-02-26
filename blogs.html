@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs - Workwalaa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        :root {
+            --bg-base: #030303;
+            --bg-surface: #0a0a0a;
+            --bg-elevated: #111111;
+
+            --brand-yellow: #f2ca00;
+            --brand-yellow-hvr: #e6c000;
+            --brand-yellow-glow: rgba(242, 202, 0, 0.4);
+
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --glass-blur: blur(12px);
+
+            --text-main: #ffffff;
+            --text-muted: #999999;
+            --text-dark: #000000;
+
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+
+            --transition-smooth: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Ambient Glow Background */
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at top right, rgba(242, 202, 0, 0.05), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(242, 202, 0, 0.03), transparent 40%);
+        }
+
+        /* =========================================
+       NAVIGATION 
+       ========================================= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+            background: rgba(3, 3, 3, 0.85);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid var(--brand-yellow);
+            padding-bottom: 4px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            color: var(--brand-yellow);
+            cursor: pointer;
+        }
+
+        /* =========================================
+       HERO SECTION
+       ========================================= */
+        .blogs-hero {
+            padding: 160px 5% 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .blogs-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .blogs-hero h1 span {
+            color: var(--brand-yellow);
+        }
+
+        .blogs-hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+       BLOGS GRID
+       ========================================= */
+        .blogs-section {
+            padding: 2rem 5% 6rem;
+            position: relative;
+        }
+
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border-color: rgba(242, 202, 0, 0.4);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.08);
+        }
+
+        .blog-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--brand-yellow);
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .blog-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta i {
+            color: var(--brand-yellow);
+            margin-right: 5px;
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            font-family: 'Outfit', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .blog-card:hover .blog-title {
+            color: var(--brand-yellow);
+        }
+
+        .blog-excerpt {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-read-more {
+            margin-top: auto;
+            color: var(--brand-yellow);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .blog-card:hover .blog-read-more {
+            gap: 10px;
+        }
+
+        /* Featured Blog (Spans 2 columns if space allows) */
+        @media (min-width: 900px) {
+            .blog-featured {
+                grid-column: span 2;
+                flex-direction: row;
+            }
+
+            .blog-featured .blog-image {
+                height: auto;
+                width: 50%;
+            }
+
+            .blog-featured .blog-content {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* =========================================
+       FOOTER 
+       ========================================= */
+        footer {
+            background: #000;
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+
+        .footer-brand {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 320px;
+            margin-top: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            flex: 2;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            min-width: 150px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 1.8rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--brand-yellow);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            width: 100%;
+            margin: 4rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--brand-yellow);
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <style>
+        /* =========================================
+       THEME OVERRIDES & LIGHT MODE POLISH
+       ========================================= */
+        :root:has(body.light-theme),
+        body.light-theme {
+            --bg-base: #f4f6f8;
+            --bg-surface: #ffffff;
+            --bg-elevated: #fcfcfc;
+
+            --brand-yellow: #dca300;
+            --brand-yellow-glow: rgba(220, 163, 0, 0.15);
+            --brand-yellow-hvr: #b88800;
+
+            --text-main: #111111;
+            --text-muted: #555555;
+
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.08);
+        }
+
+        /* Base Blog Modal Styles */
+        .blog-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .blog-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .blog-modal-content {
+            background: var(--bg-surface);
+            width: 90%;
+            max-width: 800px;
+            height: 90vh;
+            max-height: 900px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-modal.active .blog-modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        /* --- ADVANCED MODAL DESIGN (Testing for Blog 4) --- */
+        .blog-modal.advanced-design .blog-modal-content {
+            max-width: 1000px;
+            flex-direction: row;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            overflow: visible;
+        }
+
+        .blog-modal.advanced-design .modal-visual-panel {
+            display: block;
+            flex: 0 0 40%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px 0 0 20px;
+            position: relative;
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+        }
+
+        .blog-modal.advanced-design.active .modal-visual-panel {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .modal-visual-panel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
+            border-radius: 20px 0 0 20px;
+        }
+
+        .blog-modal.advanced-design .modal-text-panel {
+            flex: 1;
+            background: var(--bg-surface);
+            border-radius: 0 20px 20px 0;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--glass-border);
+            border-left: none;
+            box-shadow: 20px 30px 60px rgba(0, 0, 0, 0.5);
+            transform: translateX(50px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+
+        .blog-modal.advanced-design.active .modal-text-panel {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .modal-visual-panel {
+            display: none;
+        }
+
+        /* Hidden by default for base design */
+
+        .blog-modal-header {
+            padding: 2.5rem 2.5rem 1.5rem;
+            position: relative;
+            background: transparent;
+            border-bottom: none;
+        }
+
+        .blog-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .blog-modal-close:hover {
+            background: #ff3b30;
+            color: #fff;
+            border-color: #ff3b30;
+            transform: rotate(90deg);
+        }
+
+        .blog-modal-body {
+            padding: 0 2.5rem 2.5rem;
+            overflow-y: auto;
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Custom Scrollbar for Modal Text */
+        .blog-modal-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .blog-modal-body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .blog-modal-body::-webkit-scrollbar-thumb {
+            background: rgba(242, 202, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .blog-modal-body::-webkit-scrollbar-thumb:hover {
+            background: rgba(242, 202, 0, 0.8);
+        }
+
+        .blog-modal-body h2 {
+            color: var(--brand-yellow);
+            font-family: 'Outfit', sans-serif;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: inline-block;
+            border-bottom: 2px solid rgba(242, 202, 0, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .blog-modal-body blockquote {
+            background: rgba(242, 202, 0, 0.03);
+            border-radius: 0 10px 10px 0;
+            padding: 1.5rem 2rem !important;
+        }
+
+        .blog-modal-body p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .blog-modal-title {
+            font-size: 2.2rem;
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            padding-right: 3rem;
+            line-height: 1.2;
+        }
+
+        .blog-modal-meta {
+            color: var(--brand-yellow);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 15px;
+            font-weight: 500;
+        }
+
+        .blog-modal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        body.light-theme .blog-modal {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        body.light-theme .blog-modal-content,
+        body.light-theme .modal-text-panel {
+            background: #ffffff;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .blog-modal-close {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 900px) {
+            .blog-modal.advanced-design .blog-modal-content {
+                flex-direction: column;
+                max-width: 90%;
+            }
+
+            .blog-modal.advanced-design .modal-visual-panel {
+                flex: 0 0 200px;
+                border-radius: 20px 20px 0 0;
+                transform: translateY(-30px);
+            }
+
+            .blog-modal.advanced-design .modal-text-panel {
+                border-radius: 0 0 20px 20px;
+                border-left: 1px solid var(--glass-border);
+                border-top: none;
+                transform: translateY(30px);
+            }
+
+            .modal-visual-panel::after {
+                border-radius: 20px 20px 0 0;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+            }
+        }
+
+        /* THEME BUTTON - DEFAULT (DARK MODE) */
+        .theme-btn {
+            background: rgba(242, 202, 0, 0.1);
+            border: 1px solid rgba(242, 202, 0, 0.3);
+            color: var(--brand-yellow);
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            margin-left: 15px;
+            box-shadow: 0 0 15px rgba(242, 202, 0, 0.15);
+        }
+
+        .theme-btn:hover {
+            background: var(--brand-yellow);
+            color: #000;
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 0 25px rgba(242, 202, 0, 0.4);
+        }
+
+        /* THEME BUTTON - LIGHT MODE */
+        body.light-theme .theme-btn {
+            background: #ffffff;
+            border: 1px solid var(--glass-border);
+            color: #111;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        body.light-theme .theme-btn:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        .theme-btn i {
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        body.light-theme .theme-btn i {
+            transform: rotate(360deg);
+        }
+
+        /* LIGHT THEME AESTHETIC FIXES */
+        body.light-theme .logo-text,
+        body.light-theme .blogs-hero h1,
+        body.light-theme .blog-title,
+        body.light-theme .footer-col h4 {
+            color: var(--text-main);
+        }
+
+        body.light-theme .blogs-hero h1 span {
+            background: linear-gradient(135deg, var(--brand-yellow), #222);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-theme .blogs-hero p,
+        body.light-theme .footer-brand p {
+            color: var(--text-muted);
+        }
+
+        body.light-theme nav {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-theme .blog-card {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .blog-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(220, 163, 0, 0.3);
+            background: #fff;
+        }
+
+        body.light-theme .blog-card:hover .blog-title {
+            color: var(--brand-yellow);
+        }
+
+        body.light-theme footer {
+            background: #fdfdfd;
+            border-top: 1px solid var(--glass-border);
+        }
+    </style>
+    <script>
+        // Apply theme immediately to prevent FOUC
+        const savedTheme = localStorage.getItem('workwalaa_theme');
+        if (savedTheme === 'light') {
+            document.documentElement.classList.add('light-theme');
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo-container">
+            <span class="logo-text">Workwalaa</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="careers.html">Jobs</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="blogs.html" class="active">Blogs</a>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                <i class='bx bx-sun' id="theme-icon"></i>
+            </button>
+        </div>
+        <i class='bx bx-menu menu-toggle'></i>
+    </nav>
+
+    <!-- Hero -->
+    <header class="blogs-hero">
+        <h1>Inside <span>Workwalaa</span></h1>
+        <p>Get the latest updates, stories, hiring insights, and future plans straight from our dynamic ecosystem.</p>
+    </header>
+
+    <!-- BLOGS SECTION -->
+    <section class="blogs-section">
+        <div class="blogs-grid">
+
+            <!-- Blog 1: Note: Where We’re Headed -->
+            <article class="blog-card blog-featured">
+                <div class="blog-image">
+                    <div class="blog-badge">Vision</div>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop"
+                        alt="Founder discussing plans in a meeting">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-user'></i> Mohammed Nihal Mundoli</span>
+                    </div>
+                    <h3 class="blog-title">Note: Where We’re Headed with Workwalaa</h3>
+                    <p class="blog-excerpt">If you spend enough time around hiring, whether with workers searching for
+                        stability or businesses trying to build reliable teams, you start noticing the same patterns
+                        repeat. Good people struggle to find the right opportunities...</p>
+                    <a href="#" class="blog-read-more" data-blog-id="blog-1">Read Full Article <i
+                            class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </article>
+
+            <!-- Blog 2: Smarter Support Systems -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <div class="blog-badge">Update</div>
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
+                        alt="Authentic team collaboration in an open workspace">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-news'></i> Latest Insight</span>
+                    </div>
+                    <h3 class="blog-title">What’s Next: Building Smarter Support Systems for Growing Teams</h3>
+                    <p class="blog-excerpt">As we continue working closely with companies of different sizes, one
+                        pattern keeps showing up: growth brings complexity faster than most teams expect. Founders and
+                        business owners often find themselves stretched...</p>
+                    <a href="#" class="blog-read-more" data-blog-id="blog-2">Read Full Article <i
+                            class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </article>
+
+            <!-- Blog 3: Matching Process -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <div class="blog-badge">Process</div>
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop"
+                        alt="A real, candid employment interview discussion">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-brain'></i> How We Work</span>
+                    </div>
+                    <h3 class="blog-title">How We Match the Right People: A Look Inside Our Process</h3>
+                    <p class="blog-excerpt">Matching the right person to the right role is rarely as simple as reviewing
+                        a resume. Over time, we’ve learned that meaningful hiring requires both intelligent systems and
+                        careful human judgment working together.</p>
+                    <a href="#" class="blog-read-more" data-blog-id="blog-3">Read Full Article <i
+                            class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </article>
+
+            <!-- Blog 4: Conversations Around Workwalaa -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <div class="blog-badge">Community</div>
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop"
+                        alt="A top-down aesthetic view of people interacting over a workspace table">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-message-rounded-dots'></i> Testimonials &amp; Feedback</span>
+                    </div>
+                    <h3 class="blog-title">What People Are Saying: Conversations Around Workwalaa</h3>
+                    <p class="blog-excerpt">We often say that the real measure of any platform isn’t what it claims, but
+                        what people quietly experience when they interact with it. Over time, we’ve listened closely to
+                        feedback...</p>
+                    <a href="#" class="blog-read-more" data-blog-id="blog-4">Read Full Article <i
+                            class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </article>
+
+            <!-- Blog 5: Workwalaa Assist -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <div class="blog-badge">Feature</div>
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop"
+                        alt="A worker checking their phone in a dynamic field environment">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-mobile-alt'></i> Workwalaa Assist</span>
+                    </div>
+                    <h3 class="blog-title">The Hype Is Real: Why Workwalaa Assist Is Getting Attention</h3>
+                    <p class="blog-excerpt">Across local job markets, especially in sectors that depend on daily and
+                        short-term labor, one challenge shows up again and again: finding reliable workers quickly
+                        without uncertainty...</p>
+                    <a href="#" class="blog-read-more" data-blog-id="blog-5">Read Full Article <i
+                            class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div class="blog-modal" id="blogModal">
+        <div class="blog-modal-content">
+            <!-- Used only for advanced design -->
+            <div class="modal-visual-panel" id="modalVisualSide"></div>
+
+            <div class="modal-text-panel">
+                <button class="blog-modal-close" id="closeModal">
+                    <i class='bx bx-x'></i>
+                </button>
+                <div class="blog-modal-header">
+                    <h2 class="blog-modal-title" id="modalTitle">Blog Title</h2>
+                    <div class="blog-modal-meta" id="modalMeta">
+                        <span><i class='bx bx-calendar'></i> Date</span>
+                    </div>
+                </div>
+                <div class="blog-modal-body" id="modalBody">
+                    <!-- Content injected via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-container" style="margin-bottom: 0.25rem;">
+                    <span class="logo-text" style="font-size: 1.2rem;">Workwalaa</span>
+                </div>
+                <p style="margin-top: 0;">Connecting Work To Worth.</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#job-seekers">Job Seekers</a>
+                    <a href="index.html#employers">Employers</a>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="blogs.html">Blogs</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="careers.html">Job Search</a>
+                    <a href="https://wa.me/919061362656?text=I%20need%20Resume%20Building%20Assistance"
+                        target="_blank">Resume Building</a>
+                    <a href="index.html#job-seekers">Interview Prep</a>
+                    <a href="careers.html#post-vacancy">Employer Services</a>
+                    <a href="https://chat.whatsapp.com/DjBcWeLseNN1z95PA3Mv9n?mode=gi_t" target="_blank">Campus
+                        Hiring</a>
+                </div>
+                <div class="footer-col" style="display:flex; gap:10px; flex-direction: column;">
+                    <h4>Contact</h4>
+                    <span style="color: var(--text-muted);"><i class='bx bxl-whatsapp'></i> 8921483992</span>
+                    <span style="color: var(--text-muted);"><i class='bx bx-envelope'></i> info@workwalaa.com</span>
+                    <span style="color: var(--text-muted);"><i class='bx bx-map'></i> Kerala, India</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>&copy; 2025–2026 Workwalaa. From Kerala, India.</div>
+            <div class="footer-bottom-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggler logic
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.documentElement.classList.contains('light-theme')) {
+                document.body.classList.add('light-theme');
+            }
+
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+
+            if (themeToggleBtn && themeIcon) {
+                if (document.body.classList.contains('light-theme')) {
+                    themeIcon.classList.replace('bx-sun', 'bx-moon');
+                }
+
+                themeToggleBtn.addEventListener('click', () => {
+                    document.body.classList.toggle('light-theme');
+                    document.documentElement.classList.toggle('light-theme');
+
+                    if (document.body.classList.contains('light-theme')) {
+                        localStorage.setItem('workwalaa_theme', 'light');
+                        themeIcon.classList.replace('bx-sun', 'bx-moon');
+                    } else {
+                        localStorage.setItem('workwalaa_theme', 'dark');
+                        themeIcon.classList.replace('bx-moon', 'bx-sun');
+                    }
+                });
+            }
+        });
+
+        // Blog Modal Logic
+        const modal = document.getElementById('blogModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const modalMeta = document.getElementById('modalMeta');
+
+        const blogData = {
+            'blog-1': {
+                title: "Note: Where We’re Headed with Workwalaa",
+                meta: "<span><i class='bx bx-user'></i> Mohammed Nihal Mundoli</span>",
+                designVariant: "advanced",
+                imgSrc: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop",
+                content: `
+                    <p>If you spend enough time around hiring, whether with workers searching for stability or businesses trying to build reliable teams, you start noticing the same patterns repeat.</p>
+                    <p>Good people struggle to find the right opportunities, not because they lack ability, but because guidance and access are fragmented. On the other side, companies spend enormous time and energy just trying to find candidates they can trust. Between these two realities sits a gap that has quietly existed for years.</p>
+                    <p>Workwalaa is our way of working inside that gap.</p>
+                    <p>Over time, we’ve learned that solving hiring challenges isn’t only about speed or technology. It’s about understanding people, their motivations, their adaptability, their readiness, and then building systems that respect both sides of the equation.</p>
+                    <p>For candidates, we try to create clarity. Many talented individuals simply need direction: how to present themselves, how to prepare, how to understand workplace expectations, and how to navigate opportunities that were previously out of reach. Seeing someone grow into a role they once thought impossible remains one of the most rewarding parts of this journey.</p>
+                    <p>For employers, the reality is equally clear. Hiring isn’t just about filling positions; it’s about reducing uncertainty. Every wrong hire costs time, momentum, and trust. Our focus has always been to remove as much noise as possible, so conversations can begin with confidence instead of doubt.</p>
+                    <p>As we continue expanding beyond where we started, our attention stays on building processes that scale without losing the human element. Technology helps us move faster and see patterns more clearly, but thoughtful evaluation and honest communication remain at the center of how we operate.</p>
+                    <p>There’s still a long road ahead. Workforce ecosystems are complex, and meaningful improvements take time. But each step reinforces a simple belief: when the right systems are in place, opportunities flow more naturally, and everyone benefits.</p>
+                    <p>Thank you to everyone who continues to trust and grow alongside Workwalaa.</p>
+                `
+            },
+            'blog-2': {
+                title: "What’s Next: Building Smarter Support Systems for Growing Teams",
+                meta: "<span><i class='bx bx-news'></i> Latest Insight</span>",
+                designVariant: "advanced",
+                imgSrc: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+                content: `
+                    <p>As we continue working closely with companies of different sizes, one pattern keeps showing up: growth brings complexity faster than most teams expect.</p>
+                    <p>Founders and business owners often find themselves stretched between building the business and managing internal functions like hiring, coordination, and people operations. For many smaller teams, setting up a full HR department is expensive. For larger organizations, maintaining continuous recruitment cycles consumes significant time and resources.</p>
+                    <p>We’ve been thinking deeply about how to reduce this operational load in a meaningful way.</p>
+                    
+                    <h2>Extending Support Beyond Hiring</h2>
+                    <p>One of the directions we’re exploring is providing dedicated operational support through a shared team model. Instead of each company carrying the full cost of building internal capacity, our team can step in to handle recruitment workflows and core HR coordination, allowing businesses to focus on what they do best.</p>
+                    <p>By operating across multiple organizations, we’re able to bring experienced professionals and structured processes at a fraction of the traditional cost, while maintaining consistency and responsiveness. The intention is simple: reduce friction, improve continuity, and make growth easier to manage.</p>
+                    
+                    <h2>The Polyworking Approach</h2>
+                    <p>We’re also developing what we internally call a “polyworking” model, a system where specialized teams support multiple companies simultaneously.</p>
+                    <p>For smaller businesses, this can ease the financial burden of maintaining full-time HR resources while still ensuring that essential functions are handled reliably. For larger organizations with ongoing hiring needs, it offers a streamlined way to keep recruitment moving without adding unnecessary overhead.</p>
+                    <p>The goal is not just efficiency, but stability: ensuring that teams can scale without operational bottlenecks.</p>
+                    
+                    <h2>Bringing More Clarity to Candidate Evaluation</h2>
+                    <p>Another area we’re investing in is a structured benchmarking and certification framework.</p>
+                    <p>Hiring decisions often rely heavily on resumes and limited interactions, which don’t always reflect real capability. We’re working on systems that combine structured assessments, interviews, verification processes, and data-backed insights to create a clearer picture of each candidate’s strengths.</p>
+                    <p>This will allow companies to review candidates with greater confidence, supported by standardized profiles that go beyond self-reported information. By documenting capabilities and validating skills, we aim to reduce uncertainty and improve decision quality across the hiring process.</p>
+                    
+                    <h2>Moving Forward</h2>
+                    <p>These initiatives are still taking shape, but they reflect a broader commitment to build systems that support both companies and individuals in more practical ways.</p>
+                    <p>As always, our focus remains on solving real problems thoughtfully, step by step, and learning from the organizations and people we work with every day.</p>
+                    <p>More updates soon as these efforts progress.</p>
+                `
+            },
+            'blog-3': {
+                title: "How We Match the Right People: A Look Inside Our Process",
+                meta: "<span><i class='bx bx-brain'></i> How We Work</span>",
+                designVariant: "advanced",
+                imgSrc: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+                content: `
+                    <p>Matching the right person to the right role is rarely as simple as reviewing a resume. Over time, we’ve learned that meaningful hiring requires both intelligent systems and careful human judgment working together.</p>
+                    <p>At Workwalaa, every placement begins with a structured discovery process designed to understand not just qualifications, but real fit.</p>
+                    
+                    <h2>Where It Starts</h2>
+                    <p>When a role is opened, our AI systems immediately begin scanning our talent pool to identify candidates who align with the requirements. This happens continuously, allowing us to surface strong matches quickly while keeping the process responsive.</p>
+                    <p>Shortlisted profiles are then passed to our internal team for deeper review. Technology helps us move fast, but human evaluation helps us stay accurate.</p>
+                    
+                    <h2>Multi-Layer Verification</h2>
+                    <p>Our team reviews skills, past experience, and background details to ensure consistency across information sources. This step allows us to validate whether a candidate genuinely meets the expectations of the role rather than relying solely on self-reported data.</p>
+                    <p>Once this review is complete, our coordinators connect directly with candidates to understand their preferences, motivations, and expectations. These conversations often reveal important context, from career goals to work environment preferences, that cannot be captured through data alone.</p>
+                    
+                    <h2>Preparing for Success</h2>
+                    <p>For roles where additional validation is required, we conduct structured interviews and assessments. Candidates are also guided on what to expect, including insights into the company, role responsibilities, and workplace culture, so they can approach final discussions with clarity and confidence.</p>
+                    <p>Our goal is not simply to send profiles; it is to ensure candidates are prepared to succeed.</p>
+                    
+                    <h2>Why We Filter Carefully</h2>
+                    <p>Throughout this journey, many candidates may not move forward for a specific role. This is a natural part of maintaining quality and alignment. However, we believe that every interaction should create value.</p>
+                    <p>Candidates who are not selected receive guidance and support through ongoing learning initiatives, helping them strengthen their readiness for future opportunities. We see this as an investment in long-term growth, not just immediate outcomes.</p>
+                    
+                    <h2>A Balanced Approach</h2>
+                    <p>By combining continuous AI support with hands-on evaluation, we aim to create a hiring experience that feels both efficient and thoughtful. Companies gain confidence in their decisions, and candidates receive clarity about where they stand and how they can improve.</p>
+                    <p>Behind every successful placement is a process built on patience, attention, and a commitment to fairness, principles that continue to guide how we operate every day.</p>
+                `
+            },
+            'blog-4': {
+                title: "What People Are Saying: Conversations Around Workwalaa",
+                meta: "<span><i class='bx bx-message-rounded-dots'></i> Testimonials &amp; Feedback</span>",
+                designVariant: "advanced",
+                imgSrc: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
+                content: `
+                    <p>We often say that the real measure of any platform isn’t what it claims, but what people quietly experience when they interact with it.</p>
+                    <p>Over time, we’ve listened closely to feedback from both job seekers and organizations: through conversations, messages, and everyday interactions. What stands out is not just satisfaction, but a sense of relief that hiring and job searching can feel more structured and supportive.</p>
+                    
+                    <h2>From Candidates: Feeling Supported Through the Journey</h2>
+                    <p>Many individuals share that the difference lies in the guidance they receive. Instead of navigating the job market alone, they feel supported in understanding opportunities, preparing for interviews, and building confidence along the way.</p>
+                    <p>Some describe how roles reached them soon after joining the network, while others highlight how community channels helped them stay informed about relevant openings and industry expectations. For freshers and experienced professionals alike, having access to timely updates and practical support has made the process feel less uncertain.</p>
+                    <p>A recurring sentiment is that the experience feels genuine, with clear communication, practical advice, and a sense that someone is actively invested in helping them move forward.</p>
+                    
+                    <h2>From Businesses: Less Effort, Better Outcomes</h2>
+                    <p>Organizations often reflect on how hiring used to involve significant time spent on advertising, screening large volumes of applications, and coordinating multiple rounds just to identify suitable candidates.</p>
+                    <p>Now, many teams share that conversations begin with candidates who are already aligned with their needs, allowing them to focus on meaningful discussions rather than initial filtering. This shift not only improves efficiency but also reduces the operational strain that hiring can place on internal teams.</p>
+                    <p>There’s also a growing sense that working with a structured process helps companies maintain consistency, especially when hiring needs are continuous.</p>
+                    
+                    <h2>A Shift Toward Confidence</h2>
+                    <p>Across both sides, one theme appears consistently: confidence.</p>
+                    <p>Candidates feel they have clearer direction, while businesses feel more assured in their hiring decisions. Community support, responsive coordination, and thoughtful matching contribute to an experience that feels dependable rather than transactional.</p>
+                    <p>We see these reflections as signals of progress, and as reminders to continue improving. Listening to real experiences helps us refine what we do and stay grounded in the needs of the people we serve.</p>
+                    <p>The conversations continue, and so does the work behind the scenes.</p>
+                `
+            },
+            'blog-5': {
+                title: "The Hype Is Real: Why Workwalaa Assist Is Getting Attention",
+                meta: "<span><i class='bx bx-mobile-alt'></i> Workwalaa Assist</span>",
+                designVariant: "advanced",
+                imgSrc: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop",
+                content: `
+                    <p>Across local job markets, especially in sectors that depend on daily and short-term labor, one challenge shows up again and again: finding reliable workers quickly without uncertainty.</p>
+                    <p>Workwalaa Assist was built to respond to that reality.</p>
+                    <p>Instead of treating workforce access as a slow, fragmented process, Assist focuses on hyperlocal activation, connecting businesses to verified workers within their immediate area through a simple, responsive system. Whether the need is urgent or planned, the goal is to make workforce availability feel predictable.</p>
+                    
+                    <h2>Built for Real Work Environments</h2>
+                    <p>Through our mobile-driven approach, businesses can request workers in a way that reflects how work actually happens on the ground. Many industries rely heavily on local and migrant workers, and delays in coordination can affect entire operations.</p>
+                    <p>Assist brings together a growing network of workers across Kerala, allowing organizations to access talent that is verified and aligned with real field requirements. By combining a gig-style model with structured oversight, we aim to make short-term and flexible workforce engagement smoother and more dependable.</p>
+                    
+                    <h2>Hyperlocal, Yet Structured</h2>
+                    <p>One of the defining aspects of Assist is its focus on locality. Jobs are matched within nearby regions wherever possible, enabling faster deployment and reducing logistical friction. This hyperlocal approach helps ensure that opportunities remain accessible to workers while giving businesses quicker response times.</p>
+                    <p>Behind the scenes, ranking and evaluation systems help highlight workers based on experience, reliability, and past performance, helping decision-making feel clearer and more transparent.</p>
+                    
+                    <h2>Giving Workers a Track Record</h2>
+                    <p>A meaningful part of this initiative is creating a documented work history for individuals who often operate without formal recognition. By capturing experience and performance signals, Assist contributes to building a visible track record that workers can carry forward, helping them access better opportunities over time.</p>
+                    <p>This is particularly important in environments where skills are proven through experience rather than formal credentials.</p>
+                    
+                    <h2>Supporting Both Local and Migrant Communities</h2>
+                    <p>Kerala’s workforce ecosystem includes a strong mix of local and migrant workers, each playing a critical role in daily operations across industries. Assist is designed with this diversity in mind, making it easier for workers to find opportunities while ensuring that businesses can engage with confidence.</p>
+                    
+                    <h2>Looking Ahead</h2>
+                    <p>Workwalaa Assist is more than a feature; it reflects our commitment to building systems that respond to real-world needs with simplicity and reliability. As adoption grows, we continue refining the experience to ensure it remains practical, inclusive, and responsive to the communities it serves.</p>
+                    <p>The excitement around Assist isn’t just about new technology; it comes from seeing everyday challenges being addressed in a way that feels tangible and useful.</p>
+                `
+            }
+        };
+
+        const body = document.body;
+        const modalVisualSide = document.getElementById('modalVisualSide');
+
+        document.querySelectorAll('.blog-read-more').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const blogId = this.getAttribute('data-blog-id');
+                if (blogData[blogId]) {
+                    const data = blogData[blogId];
+                    modalTitle.innerHTML = data.title;
+                    modalMeta.innerHTML = data.meta;
+                    modalBody.innerHTML = data.content;
+
+                    // Reset modal classes
+                    modal.className = 'blog-modal';
+
+                    // Apply advanced design if specified
+                    if (data.designVariant === 'advanced') {
+                        modal.classList.add('advanced-design');
+                        modalVisualSide.style.backgroundImage = 'url(' + data.imgSrc + ')';
+                    } else {
+                        // Fallback structure styling to make the modal work normally without the side panel
+                        const textPanel = document.querySelector('.modal-text-panel');
+                        textPanel.style.borderRadius = "20px";
+                    }
+
+                    // Slight delay for smooth animation trigger
+                    setTimeout(() => {
+                        modal.classList.add('active');
+                        body.style.overflow = 'hidden'; // Prevent background scrolling
+                    }, 10);
+                }
+            });
+        });
+
+        const closeFunc = () => {
+            modal.classList.remove('active');
+            body.style.overflow = '';
+        };
+
+        closeModal.addEventListener('click', closeFunc);
+
+        modal.addEventListener('click', (e) => {
+            // Close if clicking outside the modal content
+            if (e.target === modal) {
+                closeFunc();
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeFunc();
+            }
+        });
+    </script>
+</body>
+
+</html>

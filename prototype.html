@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workwalaa - Smart Recruitment</title>
+
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Boxicons for modern icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <style>
+    :root {
+      /* Deep Dark Theme Colors */
+      --bg-color: #050505;
+      --bg-gradient: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #050505 60%);
+
+      /* Accents - Neon Blue / Purple like the generated image */
+      --accent-primary: #00f2fe;
+      --accent-secondary: #4facfe;
+      --accent-purple: #8e2de2;
+
+      /* Workwalaa Yellow integrated subtly for branding */
+      --brand-yellow: #fdd835;
+      --brand-yellow-glow: rgba(253, 216, 53, 0.4);
+
+      /* Glassmorphism */
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-blur: blur(16px);
+
+      /* Text */
+      --text-main: #ffffff;
+      --text-muted: #8892b0;
+
+      /* Transitions & Shadows */
+      --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --shadow-glow: 0 0 30px rgba(0, 242, 254, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      background-image: var(--bg-gradient);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .brand-font {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Fixed Background Image Layer for Depth */
+    .bg-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background-image: url('assets/hero_bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.25;
+      /* Subtle transparency so it doesn't overpower */
+      filter: saturate(1.2) contrast(1.1);
+      /* Add a gentle floating animation to the background */
+      animation: ambientFloat 30s ease-in-out infinite alternate;
+      transform-origin: center;
+    }
+
+    @keyframes ambientFloat {
+      0% {
+        transform: scale(1.0) translate(0, 0);
+      }
+
+      50% {
+        transform: scale(1.05) translate(1%, 2%);
+      }
+
+      100% {
+        transform: scale(1.0) translate(-1%, -1%);
+      }
+    }
+
+    /* Navigation - Glassy */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(5, 5, 5, 0.4);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--glass-border);
+      transition: var(--transition-smooth);
+    }
+
+    nav.scrolled {
+      padding: 1rem 5%;
+      background: rgba(5, 5, 5, 0.8);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      height: 45px;
+      /* If logo is dark, we invert it for dark mode. Remove if you have a white PNG */
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+    }
+
+    .logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #fff, var(--brand-yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background: var(--brand-yellow);
+      transition: var(--transition-smooth);
+      box-shadow: 0 0 10px var(--brand-yellow-glow);
+    }
+
+    .nav-links a:hover {
+      color: var(--brand-yellow);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .actions-nav button {
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: var(--transition-smooth);
+    }
+
+    .actions-nav button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+      margin-top: 2rem;
+    }
+
+    /* Glowing Orb Behind Hero Text for high contrast */
+    .hero-glow-orb {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(26, 26, 46, 0) 70%);
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(40px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -5vh;
+      /* visually center better */
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      backdrop-filter: var(--glass-blur);
+      animation: slideDown 1s ease-out;
+    }
+
+    .badge-icon {
+      color: var(--brand-yellow);
+      animation: pulse 2s infinite;
+    }
+
+    .hero-title {
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -2px;
+      text-transform: capitalize;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #fff 20%, var(--text-muted) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+    }
+
+    /* Animated Typewriter Style Scroller */
+    .dynamic-text-container {
+      display: inline-flex;
+      overflow: hidden;
+      height: clamp(3.5rem, 8vw, 6.5rem);
+      vertical-align: bottom;
+      padding: 0 10px;
+      color: var(--accent-primary);
+      text-shadow: var(--shadow-glow);
+    }
+
+    .dynamic-texts {
+      display: flex;
+      flex-direction: column;
+      animation: slideWords 10s infinite cubic-bezier(0.77, 0, 0.175, 1);
+      /* cubic-bezier makes the snap faster but dwell longer */
+    }
+
+    .dynamic-texts span {
+      height: clamp(3.5rem, 8vw, 6.5rem);
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+    }
+
+    @keyframes slideWords {
+
+      0%,
+      15% {
+        transform: translateY(0);
+      }
+
+      25%,
+      40% {
+        transform: translateY(-25%);
+      }
+
+      50%,
+      65% {
+        transform: translateY(-50%);
+      }
+
+      75%,
+      90% {
+        transform: translateY(-75%);
+      }
+
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 3.5rem;
+      font-weight: 400;
+      line-height: 1.8;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    /* Core Interactive Buttons */
+    .ctas {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    /* Button Primary - Find Jobs */
+    .btn-glow {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 1.2rem 2.8rem;
+      font-size: 1.1rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      color: #000;
+      background: linear-gradient(135deg, var(--brand-yellow), #fbc02d);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+      box-shadow: 0 10px 30px rgba(253, 216, 53, 0.3);
+      z-index: 1;
+    }
+
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+      transform: skewX(-20deg);
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+
+    .btn-glow:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(253, 216, 53, 0.5);
+    }
+
+    .btn-glow:hover::before {
+      left: 150%;
+    }
+
+    .btn-glow i {
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-glow:hover i {
+      transform: translateX(4px);
+    }
+
+    /* Button Secondary - Post Vacancy */
+    .btn-glass {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 1.2rem 2.8rem;
+      font-size: 1.1rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Subtle scrolling indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.6;
+      animation: fadePulse 3s infinite;
+    }
+
+    .mouse {
+      width: 26px;
+      height: 42px;
+      border: 2px solid #fff;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .mouse::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 6px;
+      background: #fff;
+      border-radius: 2px;
+      animation: scroll 2s infinite;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(-50%, 15px);
+        opacity: 0;
+      }
+    }
+
+    /* Glassy Stats / Trust Section */
+    .stats-container {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+      margin: -50px auto 100px;
+      padding: 0 5%;
+    }
+
+    .stat-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .stat-card:hover::before {
+      opacity: 1;
+    }
+
+    .stat-card h3 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #fff, #aaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Animations Details */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.5;
+        text-shadow: none;
+      }
+
+      50% {
+        opacity: 1;
+        text-shadow: 0 0 10px var(--brand-yellow);
+      }
+
+      100% {
+        opacity: 0.5;
+        text-shadow: none;
+      }
+    }
+
+    @keyframes fadePulse {
+
+      0%,
+      100% {
+        opacity: 0.3;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    /* Responsive Defaults */
+    @media (max-width: 900px) {
+
+      .nav-links,
+      .actions-nav {
+        display: none;
+      }
+
+      .stats-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 50px;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+      }
+
+      .ctas {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+      }
+
+      .btn-glow,
+      .btn-glass {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Abstract Background Graphic layer -->
+  <div class="bg-layer"></div>
+
+  <!-- Glassmorphism Navbar -->
+  <nav id="navbar">
+    <a href="index.html" class="logo-container">
+      <span class="logo-text">Workwalaa</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#employers">For Employers</a>
+      <a href="#seekers">For Seekers</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="actions-nav">
+      <button>Log In</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-glow-orb"></div>
+
+    <div class="hero-content">
+      <div class="badge">
+        <i class='bx bxs-bolt-circle badge-icon'></i> Smart Matching System
+      </div>
+
+      <h1 class="hero-title">
+        <span class="gradient-text">Find Dedicated</span>
+        <div class="dynamic-text-container">
+          <div class="dynamic-texts">
+            <span>Workers</span>
+            <span>Helpers</span>
+            <span>Drivers</span>
+            <span>Experts</span>
+            <span>Workers</span> <!-- Duplicate the first to make loop seamless -->
+          </div>
+        </div>
+      </h1>
+
+      <p class="hero-subtitle">
+        Connecting worth to work. Verified profiles, seamless matching, and direct communication. Build your team or
+        find your next opportunity instantly.
+      </p>
+
+      <div class="ctas">
+        <!-- High Contrast Call to Action -->
+        <a href="#find-jobs" class="btn-glow">
+          Find Jobs <i class='bx bx-right-arrow-alt'></i>
+        </a>
+        <a href="#post-vacancy" class="btn-glass">
+          <i class='bx bx-briefcase'></i> Post Vacancy
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Down indicator -->
+    <div class="scroll-indicator">
+      <div class="mouse"></div>
+      <span style="font-size: 0.8rem; letter-spacing: 2px;">SCROLL EXPLORE</span>
+    </div>
+  </section>
+
+  <!-- Stats Section (Glass Cards overlapping sections) -->
+  <div class="stats-container">
+    <div class="stat-card">
+      <h3>10k+</h3>
+      <p>Verified Workers</p>
+    </div>
+    <div class="stat-card">
+      <h3>5k+</h3>
+      <p>Jobs Posted</p>
+    </div>
+    <div class="stat-card">
+      <h3>#1</h3>
+      <p>Hyperlocal Network</p>
+    </div>
+  </div>
+
+  <!-- Space for extra scrolling -->
+  <div style="height: 50vh;"></div>
+
+  <!-- Simple interaction scripts -->
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Subtly animate background elements on mouse move for parallax feel
+    document.addEventListener("mousemove", (e) => {
+      const glowOrb = document.querySelector('.hero-glow-orb');
+      const x = (window.innerWidth / 2 - e.pageX) / 25;
+      const y = (window.innerHeight / 2 - e.pageY) / 25;
+      glowOrb.style.transform = `translate(calc(-50% + ${-x}px), calc(-50% + ${-y}px))`;
+    });
+  </script>
+
+</body>
+
+</html>

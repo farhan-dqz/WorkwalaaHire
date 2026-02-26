@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interview Preparation - Workwalaa</title>
+
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        /* Add Styles Here - Copying over from previous page structure for consistency */
+        :root {
+            --bg-base: #030303;
+            --bg-surface: #0a0a0a;
+            --bg-elevated: #111111;
+            --brand-yellow: #f2ca00;
+            --brand-yellow-hvr: #e5bf00;
+            --text-main: #ffffff;
+            --text-muted: #999999;
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --transition-smooth: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Simple Header */
+        header {
+            padding: 2rem 5%;
+            border-bottom: 1px solid var(--glass-border);
+            background: rgba(3, 3, 3, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .back-link {
+            color: var(--brand-yellow);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .back-link:hover {
+            text-shadow: 0 0 10px rgba(242, 202, 0, 0.5);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 5%;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .page-title span {
+            color: var(--brand-yellow);
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Sections */
+        .prep-section {
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .prep-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--brand-yellow);
+        }
+
+        .prep-section p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Question List */
+        .question-list {
+            list-style: none;
+            counter-reset: custom-counter;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .question-list li {
+            counter-increment: custom-counter;
+            background: var(--glass-bg);
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .question-list li:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+            border-color: rgba(242, 202, 0, 0.3);
+        }
+
+        .question-list li::before {
+            content: counter(custom-counter) ".";
+            color: var(--brand-yellow);
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            min-width: 25px;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(255, 59, 48, 0.1);
+            border-left: 4px solid #ff3b30;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2rem;
+        }
+
+        .warning-box p {
+            color: #ff3b30;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .prep-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .question-list li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <style>
+        /* =========================================
+           THEME OVERRIDES & LIGHT MODE POLISH
+           ========================================= */
+        :root:has(body.light-theme),
+        body.light-theme {
+            --bg-base: #f4f6f8;
+            --bg-surface: #ffffff;
+            --bg-elevated: #fcfcfc;
+            --brand-yellow: #dca300;
+            --text-main: #111111;
+            --text-muted: #555555;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.08);
+        }
+
+        body.light-theme header {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-theme .logo-text,
+        body.light-theme .page-title,
+        body.light-theme .prep-section h2 {
+            color: var(--text-main);
+        }
+
+        body.light-theme .page-subtitle,
+        body.light-theme .prep-section p {
+            color: var(--text-muted);
+        }
+
+        body.light-theme .prep-section {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .question-list li {
+            background: #ffffff;
+            border-color: rgba(0, 0, 0, 0.1);
+            color: var(--text-main);
+        }
+
+        body.light-theme .question-list li:hover {
+            background: #fdfdfd;
+            border-color: rgba(220, 163, 0, 0.3);
+        }
+    </style>
+    <script>
+        // Apply theme immediately to prevent FOUC
+        const savedTheme = localStorage.getItem('workwalaa_theme');
+        if (savedTheme === 'light') {
+            document.documentElement.classList.add('light-theme');
+            document.addEventListener('DOMContentLoaded', () => {
+                document.body.classList.add('light-theme');
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <span class="logo-text">Workwalaa</span>
+        </a>
+        <a href="index.html" class="back-link">
+            <i class='bx bx-arrow-back'></i> Back to Home
+        </a>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Interview <span>Preparation</span></h1>
+        <p class="page-subtitle">Master these questions and stand out to verified employers.</p>
+
+        <!-- ATS Resume Section -->
+        <div class="prep-section">
+            <h2><i class='bx bx-file-blank'></i> Resume Building (ATS Friendly)</h2>
+            <p>Before you even get to the interview, your resume needs to pass the Applicant Tracking System (ATS). An
+                ATS-friendly resume ensures your skills and experience are readable by recruitment software.</p>
+
+            <ul style="color: var(--text-muted); margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8;">
+                <li><strong>Use Standard Formatting:</strong> Avoid complex layouts, tables, or columns that ATS bots
+                    can't read.</li>
+                <li><strong>Keywords Matter:</strong> Tailor your resume explicitly using keywords from the job
+                    description.</li>
+                <li><strong>Professional Fonts:</strong> Stick to standard fonts like Arial, Calibri, or Times New
+                    Roman.</li>
+                <li><strong>Clear Headings:</strong> Use standard section titles (e.g., "Work Experience", "Education",
+                    "Skills").</li>
+            </ul>
+            <a href="https://wa.me/919061362656?text=I%20need%20Resume%20Building%20Assistance" target="_blank"
+                class="back-link"
+                style="display: inline-flex; background: rgba(242,202,0,0.1); padding: 0.8rem 1.5rem; border-radius: 50px; border: 1px solid var(--brand-yellow);">
+                <i class='bx bxl-whatsapp' style="font-size: 1.2rem;"></i> Need Help? Get Resume Assistance
+            </a>
+        </div>
+
+        <!-- Interview Questions Section -->
+        <div class="prep-section">
+            <h2><i class='bx bx-conversation'></i> Basic Interview Questions</h2>
+            <p>Preparation is the key to confidence. Be ready with structured answers (like the STAR method) for the
+                following fundamental questions.</p>
+
+            <div class="warning-box">
+                <p><i class='bx bx-error-circle'></i> If you cannot answer these core questions, we strongly advise
+                    preparing further before attending the interview.</p>
+            </div>
+
+            <ul class="question-list">
+                <li>Tell me about yourself.</li>
+                <li>Why do you want this job?</li>
+                <li>What do you know about our company?</li>
+                <li>Why should we hire you?</li>
+                <li>What are your strengths?</li>
+                <li>What is your biggest weakness?</li>
+                <li>Describe a challenge you faced and how you handled it.</li>
+                <li>Where do you see yourself in 5 years?</li>
+                <li>Why are you leaving your current job? / Why did you leave your last job?</li>
+                <li>What motivates you at work?</li>
+                <li>How do you handle pressure and stress?</li>
+                <li>Tell me about a failure and what you learned from it.</li>
+                <li>How do you handle conflict with a team member?</li>
+                <li>What is your biggest professional achievement?</li>
+                <li>How do you prioritize your work?</li>
+                <li>Are you comfortable working in a team?</li>
+                <li>What are your salary expectations?</li>
+                <li>Do you have any questions for us?</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
