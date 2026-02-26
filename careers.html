@@ -335,61 +335,9 @@
       /* ...rest of styles exist above... */
     }
 
-    /* Hover Blast Effect Integration */
-    .card-progress {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 4px;
-      background: var(--brand-yellow);
-      width: 0%;
-      transition: width 0s;
-      box-shadow: 0 0 10px var(--brand-yellow);
-      border-radius: 0 0 0 var(--border-radius-md);
-      z-index: 5;
-    }
+    /* hover blast effect removed */
+    /* card-progress element no longer used */
 
-    .job-card.charging .card-progress {
-      width: 100%;
-      transition: width 3s linear;
-      border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
-    }
-
-    .job-card.charging {
-      box-shadow: 0 15px 40px rgba(242, 202, 0, 0.15);
-      border-color: var(--brand-yellow);
-    }
-
-    .job-card.blasting {
-      animation: hyperBlast 0.8s cubic-bezier(0.1, 0.8, 0.2, 1) forwards !important;
-      z-index: 1000;
-      pointer-events: none;
-    }
-
-    @keyframes hyperBlast {
-      0% {
-        transform: scale(1.02);
-        background: var(--bg-surface);
-      }
-
-      20% {
-        transform: scale(0.95);
-        background: var(--brand-yellow);
-        box-shadow: 0 0 100px var(--brand-yellow);
-      }
-
-      100% {
-        transform: scale(3);
-        opacity: 0;
-        filter: blur(20px);
-        background: #fff;
-      }
-    }
-
-    .job-card.blasting * {
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -1445,27 +1393,10 @@
             <span class="job-location"><i class='bx bx-map'></i> ${job.location}</span>
             <a href="#" class="apply-link" onclick="openApplyJobModal('${job.id}'); return false;">Apply Now <i class='bx bx-right-arrow-alt'></i></a>
           </div>
-          <div class="card-progress"></div>
         `;
 
-        // Hover Blast Logic
-        let hoverTimer;
-        card.addEventListener('mouseenter', () => {
-          card.classList.add('charging');
-          hoverTimer = setTimeout(() => {
-            card.classList.remove('charging');
-            card.classList.add('blasting');
-            setTimeout(() => {
-              card.classList.remove('blasting');
-              openApplyJobModal(job.id);
-            }, 800);
-          }, 3000);
-        });
+        // hover blast interaction removed
 
-        card.addEventListener('mouseleave', () => {
-          card.classList.remove('charging');
-          clearTimeout(hoverTimer);
-        });
 
         grid.appendChild(card);
         observer.observe(card);
