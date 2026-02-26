@@ -365,28 +365,74 @@
       --glass-border: rgba(0, 0, 0, 0.08);
     }
 
-    .light-theme .logo-text {
+.light-theme .logo-text {
+  color: #1a1a1a;
+}
+
+.light-theme .hero {
+  background-color: rgba(248, 249, 250, 0.9);
+  background-image: url('assets/hero_bg_light.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+.light-theme .hero-title span:first-child {
+  color: #1a1a1a;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.light-theme .hero-title .dynamic-roles {
+  color: #1a1a1a;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.light-theme nav.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.light-theme .mobile-menu-overlay {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.light-theme .mobile-nav-links a {
+  color: #1a1a1a;
+}
+
+.light-theme footer {
+  background: #f8f9fa;
+}
+
+.light-theme .author-info h4 {
+  color: #1a1a1a;
+}
+
+/* =========================================
+   THEME SUGGESTION POPUP
+   ========================================= */
+.theme-suggestion {
+  position: fixed;
+  top: 70px;
+  right: 75px;
+  background: linear-gradient(135deg, var(--brand-yellow), #e5bf00);
+  color: #000;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(242, 202, 0, 0.4);
+  z-index: 10000;
+  opacity: 0;
+  transform: translateY(-20px) scale(0.9);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+  max-width: 250px;
+  text-align: center;
+}
+
+    .light-theme .author-info h4 {
       color: #1a1a1a;
-    }
-
-    .light-theme .hero {
-      background-color: rgba(255, 255, 255, 0.9);
-    }
-
-    .light-theme nav.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-    }
-
-    .light-theme .mobile-menu-overlay {
-      background: rgba(255, 255, 255, 0.98);
-    }
-
-    .light-theme .mobile-nav-links a {
-      color: #1a1a1a;
-    }
-
-    .light-theme footer {
-      background: #f8f9fa;
     }
 
     /* =========================================
@@ -3199,10 +3245,12 @@
 
     // 3D Interactive Backgrounds (Vanta.js)
     // Runs after the page has loaded
+    let vantaEffect = null;
+    
     window.addEventListener('DOMContentLoaded', () => {
       if (window.VANTA) {
         // Main ambient background
-        window.VANTA.NET({
+        vantaEffect = window.VANTA.NET({
           el: "#ambient-bg",
           mouseControls: true,
           touchControls: true,
@@ -3295,6 +3343,16 @@
       if (savedTheme === 'light') {
         document.body.classList.add('light-theme');
         document.documentElement.classList.add('light-theme');
+        
+        // Update VANTA effect for light theme if it exists
+        setTimeout(() => {
+          if (vantaEffect) {
+            vantaEffect.setOptions({
+              backgroundColor: 0xe5e5e5,
+              color: 0x333333
+            });
+          }
+        }, 100);
       }
 
       // Get all theme toggle buttons
@@ -3307,6 +3365,23 @@
       function toggleTheme() {
         const isLight = document.body.classList.toggle('light-theme');
         document.documentElement.classList.toggle('light-theme');
+        
+        // Update VANTA effect colors based on theme
+        if (vantaEffect) {
+          if (isLight) {
+            // Light theme - soft off-white background with subtle blue-gray dots
+            vantaEffect.setOptions({
+              backgroundColor: 0xf8f9fa,
+              color: 0x6c757d
+            });
+          } else {
+            // Dark theme - dark background with yellow dots
+            vantaEffect.setOptions({
+              backgroundColor: 0x030303,
+              color: 0xf2ca00
+            });
+          }
+        }
         
         // Update icons
         const newIcon = isLight ? 'bx-moon' : 'bx-sun';
