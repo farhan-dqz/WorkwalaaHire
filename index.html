@@ -2223,28 +2223,28 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 45px;
-        height: 45px;
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: var(--brand-yellow);
         border-radius: 50%;
-        cursor: pointer;
-        transition: var(--transition-smooth);
-        backdrop-filter: var(--glass-blur);
-        -webkit-backdrop-filter: var(--glass-blur);
-        margin-right: 1rem;
+        z-index: 9999;
+        box-shadow: 0 4px 20px rgba(242, 202, 0, 0.4);
+        border: none;
         padding: 0;
       }
 
       .mobile-theme-toggle:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(242, 202, 0, 0.3);
-        transform: scale(1.05);
+        background: var(--brand-yellow-hvr);
+        transform: scale(1.1);
+        box-shadow: 0 6px 30px rgba(242, 202, 0, 0.6);
       }
 
       .mobile-theme-toggle i {
-        font-size: 1.3rem;
-        color: var(--brand-yellow);
+        font-size: 1.5rem;
+        color: #000;
       }
 
       /* Mobile Menu Toggle Button */
@@ -3357,9 +3357,9 @@
 
       // Get all theme toggle buttons
       const themeToggleBtn = document.getElementById('theme-toggle');
-      const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+      const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle-btn');
       const themeIcon = document.getElementById('theme-icon');
-      const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+      const mobileThemeIcon = document.getElementById('mobile-theme-icon-btn');
 
       // Function to toggle theme
       function toggleTheme() {
