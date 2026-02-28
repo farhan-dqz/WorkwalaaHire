@@ -18,37 +18,17 @@
     :root {
       --bg-base: #030303;
       --bg-surface: #0a0a0a;
-      --bg-elevated: #111111;
 
       --brand-yellow: #f2ca00;
-      --brand-yellow-hvr: #e5bf00;
-      --brand-yellow-glow: rgba(242, 202, 0, 0.3);
 
-      --glass-bg: rgba(255, 255, 255, 0.02);
+      --glass-bg: rgba(255, 255, 255, 0.03);
       --glass-border: rgba(255, 255, 255, 0.05);
-      --glass-blur: blur(20px);
 
       --text-main: #ffffff;
       --text-muted: #999999;
-      --text-dark: #000000;
-      --glass-blur: blur(20px);
 
-      /* Utilities */
-      --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      --border-radius-lg: 24px;
+      --transition-smooth: all 0.3s ease;
     }
-
-    body.light-theme {
-      --bg-base: #ffffff;
-      --bg-surface: #ffffff;
-      --bg-elevated: #ffffff;
-      --text-main: #1a1a1a;
-      --text-muted: #555555;
-      --text-dark: #ffffff;
-      --glass-bg: rgba(0, 0, 0, 0.01);
-      --glass-border: rgba(0, 0, 0, 0.05);
-    }
-
 
     * {
       margin: 0;
@@ -124,77 +104,6 @@
       padding-bottom: 4px;
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 45px;
-      height: 45px;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: var(--transition-smooth);
-      backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur);
-    }
-
-    .theme-toggle:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(242, 202, 0, 0.3);
-      transform: scale(1.05);
-    }
-
-    .theme-toggle i {
-      font-size: 1.3rem;
-      color: var(--brand-yellow);
-      transition: var(--transition-smooth);
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--brand-yellow);
-      color: var(--text-dark);
-      padding: 0.8rem 2rem;
-      border-radius: 50px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: var(--transition-smooth);
-      box-shadow: 0 5px 20px var(--brand-yellow-glow);
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      background: var(--brand-yellow-hvr);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(242, 202, 0, 0.4);
-    }
-
-
-    /* Responsive Helpers */
-    @media (max-width: 992px) {
-      .hidden-mobile {
-        display: none !important;
-      }
-    }
-
-    @media (min-width: 993px) {
-      .hidden-desktop {
-        display: none !important;
-      }
-    }
-
     /* Mobile Menu Toggle */
     .menu-toggle {
       display: none;
@@ -232,7 +141,7 @@
 
     .mobile-menu-close {
       position: absolute;
-      top: 1rem;
+      top: 1.5rem;
       right: 5%;
       font-size: 2.5rem;
       color: var(--brand-yellow);
@@ -1282,20 +1191,18 @@
     <a href="index.html" class="logo-container">
       <span class="logo-text">Workwalaa</span>
     </a>
-    <div class="nav-links hidden-mobile">
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="careers.html">Jobs</a>
       <a href="aboutus.html" class="active">About Us</a>
       <a href="blogs.html">Blogs</a>
-    </div>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
         <i class='bx bx-sun' id="theme-icon"></i>
       </button>
-      <a href="https://wa.me/919061362656" target="_blank" class="btn-primary hidden-mobile">
-        <i class='bx bxl-whatsapp'></i> Help
-      </a>
     </div>
+    <button class="theme-toggle mobile-theme-toggle" id="mobile-theme-toggle-btn" aria-label="Toggle theme">
+      <i class='bx bx-sun' id="mobile-theme-icon-btn"></i>
+    </button>
     <i class='bx bx-menu menu-toggle' id="mobile-menu-open"></i>
   </nav>
 
@@ -1307,17 +1214,7 @@
       <a href="careers.html">Jobs</a>
       <a href="aboutus.html" class="active">About Us</a>
       <a href="blogs.html">Blogs</a>
-      <div class="mobile-menu-actions"
-        style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; align-items: center;">
-        <button class="theme-toggle" id="mobile-theme-toggle-inside" aria-label="Toggle theme"
-          style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--glass-border); background: var(--glass-bg); color: var(--brand-yellow); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
-          <i class='bx bx-sun' id="mobile-theme-icon-inside"></i>
-        </button>
-        <a href="https://wa.me/919061362656" target="_blank" class="btn-primary"
-          style="width: 100%; text-align: center;">
-          <i class='bx bxl-whatsapp'></i> Help
-        </a>
-      </div>
+      <a href="careers.html#post-vacancy" style="color: var(--brand-yellow); margin-top: 1rem;">Post Vacancy</a>
     </div>
   </div>
 
@@ -1362,7 +1259,7 @@
     <!-- Vision Card -->
     <div class="info-card reveal" style="border-right-color: transparent;">
       <h2>Our Vision</h2>
-      <p>To be the defining standard for workforce reliability empowering individuals with clear pathways and
+      <p>To be the defining standard for workforce reliability&mdash;empowering individuals with clear pathways and
         giving organizations the infrastructure to scale with absolute confidence.
       </p>
     </div>
@@ -1374,10 +1271,12 @@
     <ul class="content-list">
       <li><i class='bx bx-check-shield'></i> Workforce solutions across operational and professional roles</li>
       <li><i class='bx bx-briefcase-alt-2'></i> <strong>Workwalaa Hire</strong> &rarr; <span
-          style="color: var(--text-muted); font-size: 0.95rem;">for structured recruitment and talent solutions.</span>
+          style="color: var(--text-muted); font-size: 0.95rem;">for structured recruitment and talent solutions. <em
+            style="color: #aaa;">(e.g., sourcing specialized professionals rapidly and at scale)</em></span>
       </li>
       <li><i class='bx bx-hive'></i> <strong>Workwalaa Assist</strong> &rarr; <span
-          style="color: var(--text-muted); font-size: 0.95rem;">for coordinated on-ground workforce operations.</span>
+          style="color: var(--text-muted); font-size: 0.95rem;">for coordinated on-ground workforce operations. <em
+            style="color: #aaa;">(e.g., deploying and managing field teams with high fulfillment)</em></span>
       </li>
       <li><i class='bx bx-bar-chart-alt-2'></i> Workforce verification, benchmarking, and quality frameworks</li>
       <li><i class='bx bx-line-chart'></i> Continuous workforce engagement and performance support</li>
@@ -1479,8 +1378,8 @@
       <!-- Leader 1 -->
       <div class="leader-card">
         <div class="leader-image-placeholder">
-          <img src="assets/nihal_founder.png" alt="Mohammed Nihal Mundoli"
-            style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=600"
+            alt="Mohammed Nihal Mundoli" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="leader-info comet-box">
           <div class="comet-border"></div>
@@ -1700,35 +1599,30 @@
   <script>
     // Theme toggler logic
     document.addEventListener('DOMContentLoaded', () => {
-      const savedTheme = localStorage.getItem('workwalaa_theme');
-      if (savedTheme === 'light') {
+      if (document.documentElement.classList.contains('light-theme')) {
         document.body.classList.add('light-theme');
-        document.documentElement.classList.add('light-theme');
       }
 
       const themeToggleBtn = document.getElementById('theme-toggle');
       const themeIcon = document.getElementById('theme-icon');
-      const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle-inside');
-      const mobileThemeIcon = document.getElementById('mobile-theme-icon-inside');
 
-      function toggleTheme() {
-        document.body.classList.toggle('light-theme');
-        const isLight = document.body.classList.contains('light-theme');
-        document.documentElement.classList.toggle('light-theme', isLight);
+      if (themeToggleBtn && themeIcon) {
+        if (document.body.classList.contains('light-theme')) {
+          themeIcon.classList.replace('bx-sun', 'bx-moon');
+        }
 
-        const newIcon = isLight ? 'bx-moon' : 'bx-sun';
-        if (themeIcon) themeIcon.className = `bx ${newIcon}`;
-        if (mobileThemeIcon) mobileThemeIcon.className = `bx ${newIcon}`;
+        themeToggleBtn.addEventListener('click', () => {
+          document.body.classList.toggle('light-theme');
+          document.documentElement.classList.toggle('light-theme');
 
-        localStorage.setItem('workwalaa_theme', isLight ? 'light' : 'dark');
-      }
-
-      if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
-      if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', toggleTheme);
-
-      if (savedTheme === 'light') {
-        if (themeIcon) themeIcon.className = 'bx bx-moon';
-        if (mobileThemeIcon) mobileThemeIcon.className = 'bx bx-moon';
+          if (document.body.classList.contains('light-theme')) {
+            localStorage.setItem('workwalaa_theme', 'light');
+            themeIcon.classList.replace('bx-sun', 'bx-moon');
+          } else {
+            localStorage.setItem('workwalaa_theme', 'dark');
+            themeIcon.classList.replace('bx-moon', 'bx-sun');
+          }
+        });
       }
 
       // Mobile Menu Logic
@@ -1747,6 +1641,7 @@
           document.body.style.overflow = '';
         });
 
+        // Close menu when clicking a link
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
           link.addEventListener('click', () => {
@@ -1756,8 +1651,8 @@
         });
       }
     });
-  </script>
 
+  </script>
 </body>
 
 </html>
