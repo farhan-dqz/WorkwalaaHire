@@ -91,6 +91,7 @@
     .nav-links {
       display: flex;
       gap: 2.5rem;
+      align-items: center;
     }
 
     .nav-links a {
@@ -98,7 +99,25 @@
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
       transition: var(--transition-smooth);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brand-yellow);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
     }
 
     .nav-links a:hover,
@@ -106,12 +125,10 @@
       color: var(--text-main);
     }
 
-    .nav-links a.active {
-      border-bottom: 2px solid var(--brand-yellow);
-      padding-bottom: 4px;
-    }
-
     .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       background: var(--brand-yellow);
       color: var(--text-dark);
       padding: 0.8rem 2rem;
@@ -120,13 +137,42 @@
       text-decoration: none;
       font-family: 'Outfit', sans-serif;
       transition: var(--transition-smooth);
+      box-shadow: 0 5px 20px var(--brand-yellow-glow);
       border: none;
       cursor: pointer;
     }
 
     .btn-primary:hover {
+      background: var(--brand-yellow-hvr);
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px var(--brand-yellow-glow);
+      box-shadow: 0 10px 30px rgba(242, 202, 0, 0.4);
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(242, 202, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    .theme-toggle i {
+      font-size: 1.3rem;
+      color: var(--brand-yellow);
+      transition: var(--transition-smooth);
     }
 
     /* Page Header */
@@ -962,18 +1008,73 @@
       <a href="careers.html" class="active">Jobs</a>
       <a href="aboutus.html">About Us</a>
       <a href="blogs.html">Blogs</a>
-      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" style="margin-left: 0;">
         <i class='bx bx-sun' id="theme-icon"></i>
-      </button>
-      <button class="theme-toggle mobile-theme-toggle" id="mobile-theme-toggle-btn" aria-label="Toggle theme">
-        <i class='bx bx-sun' id="mobile-theme-icon-btn"></i>
       </button>
     </div>
     <div class="nav-actions">
-      <a href="#contact" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.95rem;">Contact Us</a>
+      <a href="https://wa.me/919061362656" target="_blank" class="btn-primary header-btn"
+        style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">
+        <i class='bx bxl-whatsapp'></i> Help
+      </a>
     </div>
+    <!-- Mobile Buttons: Theme Toggle (Visible only on mobile alongside menu) -->
+    <button class="mobile-theme-toggle" id="mobile-theme-toggle-btn" aria-label="Toggle theme" style="display: none;">
+      <i class='bx bx-sun' id="mobile-theme-icon-btn"></i>
+    </button>
     <i class='bx bx-menu menu-toggle' id="mobile-menu-open"></i>
   </nav>
+
+  <style>
+    .mobile-theme-toggle {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 1200px) {
+      .menu-toggle {
+        display: flex !important;
+      }
+
+      .mobile-theme-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--glass-border);
+        background: transparent;
+        color: var(--brand-yellow);
+        padding: 0.5rem;
+        border-radius: 8px;
+        margin-right: 1rem;
+      }
+
+      .mobile-theme-toggle i {
+        font-size: 1.5rem;
+      }
+
+      .nav-actions .header-btn {
+        display: none !important;
+      }
+    }
+  </style>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <i class='bx bx-x mobile-menu-close' id="mobile-menu-close"></i>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="careers.html" class="active">Jobs</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="https://wa.me/919061362656" target="_blank"
+        style="color: var(--brand-yellow); margin-top: 1rem;">Help</a>
+      <a href="careers.html#post-vacancy" class="post-vacancy-link"
+        style="color: var(--brand-yellow); margin-top: 1rem;">Post Vacancy</a>
+    </div>
+  </div>
 
   <!-- HEADER -->
   <header class="page-header">
@@ -1671,25 +1772,37 @@
       }
 
       const themeToggleBtn = document.getElementById('theme-toggle');
+      const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle-btn');
       const themeIcon = document.getElementById('theme-icon');
+      const mobileThemeIcon = document.getElementById('mobile-theme-icon-btn');
 
+
+      // Function to toggle theme
       if (themeToggleBtn && themeIcon) {
         if (document.body.classList.contains('light-theme')) {
           themeIcon.classList.replace('bx-sun', 'bx-moon');
+          if (mobileThemeIcon) mobileThemeIcon.classList.replace('bx-sun', 'bx-moon');
         }
 
-        themeToggleBtn.addEventListener('click', () => {
+        const toggleTheme = () => {
           document.body.classList.toggle('light-theme');
           document.documentElement.classList.toggle('light-theme');
 
           if (document.body.classList.contains('light-theme')) {
             localStorage.setItem('workwalaa_theme', 'light');
             themeIcon.classList.replace('bx-sun', 'bx-moon');
+            if (mobileThemeIcon) mobileThemeIcon.classList.replace('bx-sun', 'bx-moon');
           } else {
             localStorage.setItem('workwalaa_theme', 'dark');
             themeIcon.classList.replace('bx-moon', 'bx-sun');
+            if (mobileThemeIcon) mobileThemeIcon.classList.replace('bx-moon', 'bx-sun');
           }
-        });
+        };
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        if (mobileThemeToggleBtn) {
+          mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+        }
       }
     });
   </script>

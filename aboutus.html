@@ -85,6 +85,7 @@
     .nav-links {
       display: flex;
       gap: 2.5rem;
+      align-items: center;
     }
 
     .nav-links a {
@@ -92,6 +93,25 @@
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brand-yellow);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
     }
 
     .nav-links a:hover,
@@ -99,9 +119,54 @@
       color: var(--text-main);
     }
 
-    .nav-links a.active {
-      border-bottom: 2px solid var(--brand-yellow);
-      padding-bottom: 4px;
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brand-yellow);
+      color: var(--text-dark);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      font-family: 'Outfit', sans-serif;
+      transition: var(--transition-smooth);
+      box-shadow: 0 5px 20px var(--brand-yellow-glow);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-yellow-hvr);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(242, 202, 0, 0.4);
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(242, 202, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    .theme-toggle i {
+      font-size: 1.3rem;
+      color: var(--brand-yellow);
+      transition: var(--transition-smooth);
     }
 
     /* Mobile Menu Toggle */
@@ -635,7 +700,7 @@
 
     .leader-image-placeholder {
       width: 100%;
-      height: 300px;
+      height: 450px;
       background: linear-gradient(135deg, #111 0%, #000 100%);
       display: flex;
       justify-content: center;
@@ -1196,15 +1261,60 @@
       <a href="careers.html">Jobs</a>
       <a href="aboutus.html" class="active">About Us</a>
       <a href="blogs.html">Blogs</a>
-      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" style="margin-left: 0;">
         <i class='bx bx-sun' id="theme-icon"></i>
       </button>
     </div>
-    <button class="theme-toggle mobile-theme-toggle" id="mobile-theme-toggle-btn" aria-label="Toggle theme">
+
+    <div class="nav-actions">
+      <a href="https://wa.me/919061362656" target="_blank" class="btn-primary header-btn"
+        style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">
+        <i class='bx bxl-whatsapp'></i> Help
+      </a>
+    </div>
+
+    <!-- Mobile Buttons: Theme Toggle (Visible only on mobile alongside menu) -->
+    <button class="mobile-theme-toggle" id="mobile-theme-toggle-btn" aria-label="Toggle theme" style="display: none;">
       <i class='bx bx-sun' id="mobile-theme-icon-btn"></i>
     </button>
     <i class='bx bx-menu menu-toggle' id="mobile-menu-open"></i>
   </nav>
+
+  <style>
+    .mobile-theme-toggle {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 1200px) {
+      .menu-toggle {
+        display: flex !important;
+      }
+
+      .mobile-theme-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--glass-border);
+        background: transparent;
+        color: var(--brand-yellow);
+        padding: 0.5rem;
+        border-radius: 8px;
+        margin-right: 1rem;
+      }
+
+      .mobile-theme-toggle i {
+        font-size: 1.5rem;
+      }
+
+      .nav-actions .header-btn {
+        display: none !important;
+      }
+    }
+  </style>
 
   <!-- MOBILE MENU OVERLAY -->
   <div class="mobile-menu-overlay" id="mobileMenu">
@@ -1214,7 +1324,9 @@
       <a href="careers.html">Jobs</a>
       <a href="aboutus.html" class="active">About Us</a>
       <a href="blogs.html">Blogs</a>
-      <a href="careers.html#post-vacancy" style="color: var(--brand-yellow); margin-top: 1rem;">Post Vacancy</a>
+      <a href="https://wa.me/919061362656" target="_blank"
+        style="color: var(--brand-yellow); margin-top: 1rem;">Help</a>
+      <a href="careers.html#post-vacancy" class="post-vacancy-link">Post Vacancy</a>
     </div>
   </div>
 
@@ -1378,28 +1490,28 @@
       <!-- Leader 1 -->
       <div class="leader-card">
         <div class="leader-image-placeholder">
-          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=600"
-            alt="Mohammed Nihal Mundoli" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="assets/images/founder_new_v2.jpg" alt="Mohammed Nihal Mundoli"
+            style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
         </div>
         <div class="leader-info comet-box">
           <div class="comet-border"></div>
           <h3>Mohammed Nihal Mundoli</h3>
           <h4>Founder & CEO</h4>
-          <p>Mohammed Nihal Mundoli founded Workwalaa with a vision to bring structure, trust, and reliability into
-            workforce ecosystems. Driven by a strong belief that opportunity should be accessible and dignified for
-            everyone, he focuses on building systems that solve real ground-level challenges through innovation,
-            transparency, and execution excellence.</p>
+          <p>Mohammed Nihal Mundoli serves as Founder and Chief Executive Officer of Workwalaa, leading the company’s
+            overall strategy and direction. He focuses on building structured workforce systems that improve hiring
+            processes and strengthen coordination between businesses and field teams.</p>
           <br>
-          <p>Known for his hands-on leadership, problem-solving mindset, and commitment to creating long-term impact, he
-            continues to shape Workwalaa into a platform that empowers businesses and workers alike.</p>
+          <p>He plays a key role in designing frameworks, identifying operational gaps, and ensuring that the company
+            scales with clarity and consistency. His focus is on aligning vision with execution while maintaining
+            discipline and long term stability across the organization.</p>
         </div>
       </div>
 
       <!-- Leader 2 -->
       <div class="leader-card">
         <div class="leader-image-placeholder">
-          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600"
-            alt="Farhan K" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="assets/images/farhan_k.jpg" alt="Farhan K"
+            style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
         </div>
         <div class="leader-info comet-box">
           <div class="comet-border"></div>

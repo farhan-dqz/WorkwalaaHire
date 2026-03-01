@@ -120,7 +120,25 @@
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
             transition: var(--transition-smooth);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-yellow);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         .nav-links a:hover,
@@ -128,9 +146,54 @@
             color: var(--text-main);
         }
 
-        .nav-links a.active {
-            border-bottom: 2px solid var(--brand-yellow);
-            padding-bottom: 4px;
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--brand-yellow);
+            color: var(--text-dark);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            transition: var(--transition-smooth);
+            box-shadow: 0 5px 20px var(--brand-yellow-glow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-yellow-hvr);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(242, 202, 0, 0.4);
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(242, 202, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle i {
+            font-size: 1.3rem;
+            color: var(--brand-yellow);
+            transition: var(--transition-smooth);
         }
 
         .menu-toggle {
@@ -797,7 +860,7 @@
 
     <div class="ambient-glow"></div>
 
-    <!-- Navigation -->
+    <!-- Header/Nav -->
     <nav>
         <a href="index.html" class="logo-container">
             <span class="logo-text">Workwalaa</span>
@@ -807,15 +870,59 @@
             <a href="careers.html">Jobs</a>
             <a href="aboutus.html">About Us</a>
             <a href="blogs.html" class="active">Blogs</a>
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" style="margin-left: 0;">
                 <i class='bx bx-sun' id="theme-icon"></i>
             </button>
         </div>
-        <button class="theme-toggle mobile-theme-toggle" id="mobile-theme-toggle-btn" aria-label="Toggle theme">
+        <div class="nav-actions">
+            <a href="https://wa.me/919061362656" target="_blank" class="btn-primary header-btn"
+                style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">
+                <i class='bx bxl-whatsapp'></i> Help
+            </a>
+        </div>
+        <!-- Mobile Buttons: Theme Toggle (Visible only on mobile alongside menu) -->
+        <button class="mobile-theme-toggle" id="mobile-theme-toggle-btn" aria-label="Toggle theme"
+            style="display: none;">
             <i class='bx bx-sun' id="mobile-theme-icon-btn"></i>
         </button>
-        <i class='bx bx-menu menu-toggle'></i>
+        <i class='bx bx-menu menu-toggle' id="mobile-menu-open"></i>
     </nav>
+
+    <style>
+        .mobile-theme-toggle {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        @media (max-width: 1200px) {
+            .menu-toggle {
+                display: flex !important;
+            }
+
+            .mobile-theme-toggle {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid var(--glass-border);
+                background: transparent;
+                color: var(--brand-yellow);
+                padding: 0.5rem;
+                border-radius: 8px;
+                margin-right: 1rem;
+            }
+
+            .mobile-theme-toggle i {
+                font-size: 1.5rem;
+            }
+
+            .nav-actions .header-btn {
+                display: none !important;
+            }
+        }
+    </style>
 
     <!-- Hero -->
     <header class="blogs-hero">
