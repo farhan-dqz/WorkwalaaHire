@@ -103,7 +103,7 @@
       }
     }
 
-    /* Navigation - Glassy */
+    /* Navigation - Match main site styling */
     nav {
       position: fixed;
       top: 0;
@@ -112,17 +112,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 100;
-      background: rgba(5, 5, 5, 0.4);
-      backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur);
-      border-bottom: 1px solid var(--glass-border);
+      z-index: 1000;
       transition: var(--transition-smooth);
+      background: transparent;
     }
 
     nav.scrolled {
       padding: 1rem 5%;
-      background: rgba(5, 5, 5, 0.8);
+      background: rgba(3, 3, 3, 0.85);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--glass-border);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     }
 
@@ -141,11 +141,9 @@
 
     .logo-text {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      background: linear-gradient(90deg, #fff, var(--brand-yellow));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #fff;
       letter-spacing: -0.5px;
     }
 
@@ -156,32 +154,21 @@
     }
 
     .nav-links a {
-      color: var(--text-main);
+      color: var(--text-muted);
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 500;
       transition: var(--transition-smooth);
-      position: relative;
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -6px;
-      left: 0;
-      background: var(--brand-yellow);
-      transition: var(--transition-smooth);
-      box-shadow: 0 0 10px var(--brand-yellow-glow);
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-main);
     }
 
-    .nav-links a:hover {
-      color: var(--brand-yellow);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
+    .nav-links a.active {
+      border-bottom: 2px solid var(--brand-yellow);
+      padding-bottom: 4px;
     }
 
     .actions-nav button {
@@ -596,7 +583,7 @@
     }
 
     /* Responsive Defaults */
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
 
       .nav-links,
       .actions-nav {

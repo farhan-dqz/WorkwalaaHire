@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <title>About Us - Workwalaa</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -893,6 +893,11 @@
         grid-template-columns: 1fr;
       }
 
+      .leader-image-placeholder {
+        height: 350px;
+        /* Adjusted to prevent excessive cropping on mobile narrow screens */
+      }
+
       .content-list li {
         white-space: normal;
         /* Allow wrap on mobile */
@@ -1383,12 +1388,10 @@
     <ul class="content-list">
       <li><i class='bx bx-check-shield'></i> Workforce solutions across operational and professional roles</li>
       <li><i class='bx bx-briefcase-alt-2'></i> <strong>Workwalaa Hire</strong> &rarr; <span
-          style="color: var(--text-muted); font-size: 0.95rem;">for structured recruitment and talent solutions. <em
-            style="color: #aaa;">(e.g., sourcing specialized professionals rapidly and at scale)</em></span>
+          style="color: var(--text-muted); font-size: 0.95rem;">for structured recruitment and talent solutions.</span>
       </li>
       <li><i class='bx bx-hive'></i> <strong>Workwalaa Assist</strong> &rarr; <span
-          style="color: var(--text-muted); font-size: 0.95rem;">for coordinated on-ground workforce operations. <em
-            style="color: #aaa;">(e.g., deploying and managing field teams with high fulfillment)</em></span>
+          style="color: var(--text-muted); font-size: 0.95rem;">for coordinated on-ground workforce operations.</span>
       </li>
       <li><i class='bx bx-bar-chart-alt-2'></i> Workforce verification, benchmarking, and quality frameworks</li>
       <li><i class='bx bx-line-chart'></i> Continuous workforce engagement and performance support</li>

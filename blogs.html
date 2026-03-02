@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Blogs - Workwalaa</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -732,27 +732,48 @@
         }
 
         @media (max-width: 900px) {
+            .blog-modal {
+                overflow-y: auto;
+                padding: 0;
+                align-items: flex-start;
+            }
+
+            .blog-modal-content {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                min-height: 100vh;
+                max-height: none;
+                border-radius: 0;
+            }
+
             .blog-modal.advanced-design .blog-modal-content {
                 flex-direction: column;
-                max-width: 90%;
+                max-width: 100%;
             }
 
             .blog-modal.advanced-design .modal-visual-panel {
-                flex: 0 0 200px;
-                border-radius: 20px 20px 0 0;
-                transform: translateY(-30px);
+                flex: none;
+                height: 250px;
+                border-radius: 0;
+                transform: translateY(0);
             }
 
             .blog-modal.advanced-design .modal-text-panel {
-                border-radius: 0 0 20px 20px;
-                border-left: 1px solid var(--glass-border);
-                border-top: none;
-                transform: translateY(30px);
+                border-radius: 0;
+                border: none;
+                transform: translateY(0);
+                flex: 1;
             }
 
-            .modal-visual-panel::after {
-                border-radius: 20px 20px 0 0;
-                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+            .blog-modal-body {
+                overflow-y: visible;
+                padding: 0 1.5rem 2.5rem;
+            }
+
+            .blog-modal-close {
+                top: 1rem;
+                right: 1rem;
             }
         }
 
@@ -898,6 +919,10 @@
         }
 
         @media (max-width: 1200px) {
+            .nav-links {
+                display: none !important;
+            }
+
             .menu-toggle {
                 display: flex !important;
             }
