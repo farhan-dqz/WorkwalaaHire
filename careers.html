@@ -480,6 +480,11 @@
       .nav-links {
         display: none;
       }
+
+      .jobs-grid {
+        min-height: 1200px;
+        /* Pre-allocate space for approx 5 job cards */
+      }
     }
 
     /* =========================================
@@ -760,6 +765,16 @@
     body.light-theme footer {
       background: #fdfdfd;
       border-top: 1px solid var(--glass-border);
+    }
+
+    .mobile-contact-link {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .mobile-contact-link:hover {
+      color: var(--brand-yellow);
     }
 
     /* =========================================
@@ -1145,121 +1160,124 @@
         display: none !important;
       }
     }
-  </style>
 
-  /* Mobile Menu Dropdown */
-  .mobile-menu-overlay {
-  position: fixed;
-  top: 80px; /* Below navbar */
-  right: 5%;
-  width: 250px;
-  height: auto; /* Changed from 100vh */
-  background: rgba(10, 10, 10, 0.85);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  z-index: 2000;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  transform: translateY(-20px); /* Initial state for dropdown effect */
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  }
+    /* Mobile Menu Dropdown */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 80px;
+      /* Below navbar */
+      right: 5%;
+      width: 250px;
+      height: auto;
+      /* Changed from 100vh */
+      background: rgba(10, 10, 10, 0.85);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      transform: translateY(-20px);
+      /* Initial state for dropdown effect */
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
 
-  .mobile-menu-overlay.active {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-  }
+    .mobile-menu-overlay.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-  .mobile-menu-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.8rem;
-  color: var(--brand-yellow);
-  cursor: pointer;
-  transition: var(--transition-smooth);
-  }
+    .mobile-menu-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.8rem;
+      color: var(--brand-yellow);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
 
-  .mobile-menu-close:hover {
-  transform: rotate(90deg);
-  }
+    .mobile-menu-close:hover {
+      transform: rotate(90deg);
+    }
 
-  .mobile-nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  text-align: left;
-  width: 100%;
-  align-items: flex-start;
-  margin-top: 1rem; /* Space below close btn */
-  }
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: left;
+      width: 100%;
+      align-items: flex-start;
+      margin-top: 1rem;
+      /* Space below close btn */
+    }
 
-  .mobile-nav-links a {
-  color: #fff;
-  font-size: 1.2rem;
-  font-family: 'Outfit', sans-serif;
-  text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition-smooth);
-  transform: translateY(10px);
-  opacity: 0;
-  padding: 0.5rem 0;
-  display: inline-block;
-  width: 100%;
-  }
+    .mobile-nav-links a {
+      color: #fff;
+      font-size: 1.2rem;
+      font-family: 'Outfit', sans-serif;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      transform: translateY(10px);
+      opacity: 0;
+      padding: 0.5rem 0;
+      display: inline-block;
+      width: 100%;
+    }
 
-  .mobile-menu-overlay.active .mobile-nav-links a {
-  transform: translateY(0);
-  opacity: 1;
-  }
+    .mobile-menu-overlay.active .mobile-nav-links a {
+      transform: translateY(0);
+      opacity: 1;
+    }
 
-  .mobile-menu-overlay a[href="blogs.html"] {
-  color: #fff;
-  font-size: 1.2rem;
-  font-family: 'Outfit', sans-serif;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.5rem 0;
-  transition: var(--transition-smooth);
-  transform: translateY(10px);
-  opacity: 0;
-  display: inline-block;
-  width: 100%;
-  }
+    .mobile-menu-overlay a[href="blogs.html"] {
+      color: #fff;
+      font-size: 1.2rem;
+      font-family: 'Outfit', sans-serif;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      transition: var(--transition-smooth);
+      transform: translateY(10px);
+      opacity: 0;
+      display: inline-block;
+      width: 100%;
+    }
 
-  .mobile-menu-overlay.active a[href="blogs.html"] {
-  transform: translateY(0);
-  opacity: 1;
-  animation-delay: 0.15s;
-  }
+    .mobile-menu-overlay.active a[href="blogs.html"] {
+      transform: translateY(0);
+      opacity: 1;
+      animation-delay: 0.15s;
+    }
 
-  .mobile-menu-overlay a[href*="post-vacancy"] {
-  color: var(--brand-yellow) !important;
-  font-size: 1.2rem;
-  font-family: 'Outfit', sans-serif;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.5rem 0;
-  transition: var(--transition-smooth);
-  transform: translateY(10px);
-  opacity: 0;
-  display: inline-block;
-  width: 100%;
-  }
+    .mobile-menu-overlay a[href*="post-vacancy"] {
+      color: var(--brand-yellow) !important;
+      font-size: 1.2rem;
+      font-family: 'Outfit', sans-serif;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      transition: var(--transition-smooth);
+      transform: translateY(10px);
+      opacity: 0;
+      display: inline-block;
+      width: 100%;
+    }
 
-  .mobile-menu-overlay.active a[href*="post-vacancy"] {
-  transform: translateY(0);
-  opacity: 1;
-  animation-delay: 0.2s;
-  }
+    .mobile-menu-overlay.active a[href*="post-vacancy"] {
+      transform: translateY(0);
+      opacity: 1;
+      animation-delay: 0.2s;
+    }
   </style>
 
   <!-- MOBILE MENU OVERLAY -->
@@ -1584,9 +1602,14 @@
         </div>
         <div class="footer-col" style="display:flex; gap:10px; flex-direction: column;">
           <h4>Contact</h4>
-          <span style="color: var(--text-muted);"><i class='bx bxl-whatsapp'></i> 8921483992</span>
-          <span style="color: var(--text-muted);"><i class='bx bx-envelope'></i> info@workwalaa.com</span>
-          <span style="color: var(--text-muted);"><i class='bx bx-map'></i> Kerala, India</span>
+          <span style="display: flex; align-items: center; gap: 8px; color: var(--text-muted);"><i
+              class='bx bxl-whatsapp'></i> <a href="https://wa.me/918921483992"
+              class="mobile-contact-link">8921483992</a></span>
+          <span style="display: flex; align-items: center; gap: 8px; color: var(--text-muted);"><i
+              class='bx bx-envelope'></i> <a href="mailto:info@workwalaa.com"
+              style="color: inherit; text-decoration: none;">info@workwalaa.com</a></span>
+          <span style="display: flex; align-items: center; gap: 8px; color: var(--text-muted);"><i
+              class='bx bx-map'></i> Kerala, India</span>
         </div>
       </div>
     </div>
@@ -1644,9 +1667,8 @@
 
     let selectedJob = null;
     let currentDisplayedJobs = [];
-    let showAllJobs = false;
 
-    function renderJobs(jobs, limit = null) {
+    function renderJobs(jobs) {
       const grid = document.getElementById('jobs-grid');
       const noMsg = document.getElementById('no-jobs-msg');
       currentDisplayedJobs = jobs; // store for the "View All" button
@@ -1670,10 +1692,7 @@
         });
       }, { threshold: 0.1 });
 
-      // Apply limit if specified
-      const jobsToRender = limit ? jobs.slice(0, limit) : jobs;
-
-      jobsToRender.forEach((job, index) => {
+      jobs.forEach((job, index) => {
         const iconClass = getJobIcon(job.title);
         const card = document.createElement('div');
         card.className = 'job-card';
@@ -1713,27 +1732,6 @@
         grid.appendChild(card);
         observer.observe(card);
       });
-
-      // Inject "View All Jobs" button on Mobile if there are more jobs than the limit
-      if (limit && jobsToRender.length < jobs.length) {
-        const viewAllContainer = document.createElement('div');
-        viewAllContainer.style.gridColumn = '1 / -1';
-        viewAllContainer.style.textAlign = 'center';
-        viewAllContainer.style.marginTop = '2rem';
-
-        const viewAllBtn = document.createElement('button');
-        viewAllBtn.className = 'btn-primary';
-        viewAllBtn.innerText = 'View All Jobs';
-        viewAllBtn.style.padding = '0.8rem 2rem';
-        viewAllBtn.style.fontSize = '1rem';
-        viewAllBtn.onclick = () => {
-          showAllJobs = true;
-          renderJobs(currentDisplayedJobs);
-        };
-
-        viewAllContainer.appendChild(viewAllBtn);
-        grid.appendChild(viewAllContainer);
-      }
     }
 
     function toggleJobDetails(btn, event) {
@@ -1776,16 +1774,7 @@
         return matchSearch && matchCategory && matchLoc && matchType;
       });
 
-      // Reset the showAllJobs flag on new search/filter
-      showAllJobs = false;
-
-      // Determine initial limit for mobile
-      let renderLimit = null;
-      if (window.innerWidth <= 768 && !showAllJobs) {
-        renderLimit = 5; // Show only 5 jobs initially on mobile
-      }
-
-      renderJobs(filtered, renderLimit);
+      renderJobs(filtered);
     }
 
     document.getElementById('job-search-input').addEventListener('input', filterJobs);

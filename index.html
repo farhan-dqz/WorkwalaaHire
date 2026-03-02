@@ -185,7 +185,7 @@
     /* Mobile Menu Toggle */
     .menu-toggle {
       display: none;
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: var(--brand-yellow);
       cursor: pointer;
       transition: var(--transition-smooth);
@@ -1662,6 +1662,16 @@
       font-size: 0.85rem;
     }
 
+    .mobile-contact-link {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .mobile-contact-link:hover {
+      color: var(--brand-yellow);
+    }
+
     .contact-section {
       padding: 6rem 5%;
       background: var(--bg-surface);
@@ -1710,6 +1720,16 @@
     .contact-detail-text p {
       color: var(--text-muted);
       margin: 0;
+    }
+
+    .contact-detail-text a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-detail-text a:hover {
+      color: var(--brand-yellow);
     }
 
     .contact-form {
@@ -3248,19 +3268,50 @@
         if (successOverlay) {
           successOverlay.classList.add('active');
 
-          // Optionally, auto-close the whole dropdown after a few seconds
           setTimeout(() => {
+            successOverlay.classList.remove('active');
             wishlistContainer.classList.remove('active');
-            setTimeout(() => {
-              wishlistForm.style.opacity = '1';
-              wishlistForm.style.pointerEvents = 'auto';
-              successOverlay.classList.remove('active');
-              wishlistEmail.value = '';
-            }, 500); // Wait for dropdown menu to hide before resetting
-          }, 2500);
+            wishlistForm.style.pointerEvents = 'auto'; // allow resubmit later
+            wishlistEmail.value = '';
+          }, 3000);
         }
       });
     }
+
+    // Auto-playing Testimonials Slider for Mobile
+    document.addEventListener('DOMContentLoaded', () => {
+      const testimonialsGrid = document.querySelector('.testimonials-grid');
+      let isMobile = window.innerWidth <= 768;
+
+      window.addEventListener('resize', () => {
+        isMobile = window.innerWidth <= 768;
+      });
+
+      if (testimonialsGrid) {
+        let scrollInterval;
+        const autoScroll = () => {
+          if (!isMobile) return;
+
+          const cardWidth = testimonialsGrid.querySelector('.testimonial-card').offsetWidth + 16; // 1rem gap = 16px
+          const maxScroll = testimonialsGrid.scrollWidth - testimonialsGrid.clientWidth;
+
+          if (testimonialsGrid.scrollLeft >= maxScroll - 10) { // -10 for pixel rounding buffer
+            testimonialsGrid.scrollTo({ left: 0, behavior: 'smooth' }); // Loop back to start
+          } else {
+            testimonialsGrid.scrollBy({ left: cardWidth, behavior: 'smooth' });
+          }
+        };
+
+        // Scroll every 3 seconds
+        scrollInterval = setInterval(autoScroll, 3000);
+
+        // Pause on touch
+        testimonialsGrid.addEventListener('touchstart', () => clearInterval(scrollInterval));
+        testimonialsGrid.addEventListener('touchend', () => {
+          scrollInterval = setInterval(autoScroll, 3000);
+        });
+      }
+    });
 
     // 3D Interactive Backgrounds (Vanta.js)
     // Runs after the page has loaded
