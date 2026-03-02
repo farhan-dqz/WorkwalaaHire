@@ -339,6 +339,12 @@
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 2rem;
       align-items: start;
+      /* Pre-allocate space to prevent jumping when jobs load */
+      min-height: 1500px;
+    }
+
+    .jobs-grid.loaded {
+      min-height: auto;
     }
 
     .job-card {
@@ -1167,15 +1173,15 @@
       top: 80px;
       /* Below navbar */
       right: 5%;
-      width: 250px;
+      width: 180px;
       height: auto;
       /* Changed from 100vh */
-      background: rgba(10, 10, 10, 0.85);
+      background: rgba(20, 20, 20, 0.5);
       border: 1px solid var(--glass-border);
       border-radius: 16px;
-      padding: 2rem 1.5rem;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      padding: 1.5rem 1rem;
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       z-index: 2000;
       display: flex;
       flex-direction: column;
@@ -1222,7 +1228,7 @@
 
     .mobile-nav-links a {
       color: #fff;
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       font-family: 'Outfit', sans-serif;
       text-decoration: none;
       font-weight: 600;
@@ -1241,7 +1247,7 @@
 
     .mobile-menu-overlay a[href="blogs.html"] {
       color: #fff;
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       font-family: 'Outfit', sans-serif;
       text-decoration: none;
       font-weight: 600;
@@ -1260,8 +1266,8 @@
     }
 
     .mobile-menu-overlay a[href*="post-vacancy"] {
-      color: var(--brand-yellow) !important;
-      font-size: 1.2rem;
+      color: #fff !important;
+      font-size: 1.05rem;
       font-family: 'Outfit', sans-serif;
       text-decoration: none;
       font-weight: 600;
@@ -1288,10 +1294,8 @@
       <a href="careers.html" class="active">Jobs</a>
       <a href="aboutus.html">About Us</a>
       <a href="blogs.html">Blogs</a>
-      <a href="https://wa.me/919061362656" target="_blank"
-        style="color: var(--brand-yellow); margin-top: 1rem;">Help</a>
-      <a href="careers.html#post-vacancy" class="post-vacancy-link"
-        style="color: var(--brand-yellow); margin-top: 1rem;">Post Vacancy</a>
+      <a href="https://wa.me/919061362656" target="_blank" style="margin-top: 1rem;">Help</a>
+      <a href="careers.html#post-vacancy" class="post-vacancy-link" style="margin-top: 1rem;">Post Vacancy</a>
     </div>
   </div>
 
@@ -1847,6 +1851,12 @@
           postedDate: job.postedDate || '',
           status: job.status || 'closed',
         })) : [];
+
+        // Remove the pre-allocated min height once content is available
+        const jobsGrid = document.getElementById('jobs-grid');
+        if (jobsGrid) {
+          jobsGrid.classList.add('loaded');
+        }
 
         populateFilters();
         filterJobs();

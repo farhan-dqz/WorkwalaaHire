@@ -946,6 +946,10 @@
             .nav-actions .header-btn {
                 display: none !important;
             }
+
+            .blogs-hero {
+                padding-top: 100px;
+            }
         }
 
         /* Mobile Contact Link */
@@ -959,28 +963,30 @@
             color: var(--brand-yellow);
         }
 
-        position: fixed;
-        top: 80px;
-        /* Below navbar */
-        right: 5%;
-        width: 250px;
-        height: auto;
-        background: rgba(10, 10, 10, 0.85);
-        border: 1px solid var(--glass-border);
-        border-radius: 16px;
-        padding: 2rem 1.5rem;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        z-index: 2000;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        transform: translateY(-20px);
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        /* Mobile Menu Dropdown */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 80px;
+            /* Below navbar */
+            right: 5%;
+            width: 180px;
+            height: auto;
+            background: rgba(20, 20, 20, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            transform: translateY(-20px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .mobile-menu-overlay.active {
@@ -1016,7 +1022,7 @@
 
         .mobile-nav-links a {
             color: #fff;
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             font-family: 'Outfit', sans-serif;
             text-decoration: none;
             font-weight: 600;
@@ -1050,10 +1056,8 @@
             <a href="careers.html">Jobs</a>
             <a href="aboutus.html">About Us</a>
             <a href="blogs.html" class="active">Blogs</a>
-            <a href="https://wa.me/919061362656" target="_blank"
-                style="color: var(--brand-yellow); margin-top: 1rem;">Help</a>
-            <a href="careers.html#post-vacancy" class="post-vacancy-link"
-                style="color: var(--brand-yellow); margin-top: 1rem;">Post Vacancy</a>
+            <a href="https://wa.me/919061362656" target="_blank" style="margin-top: 1rem;">Help</a>
+            <a href="careers.html#post-vacancy" class="post-vacancy-link" style="margin-top: 1rem;">Post Vacancy</a>
         </div>
     </div>
 
@@ -1486,31 +1490,32 @@
             const themeIcon = document.getElementById('theme-icon');
             const mobileThemeIcon = document.getElementById('mobile-theme-icon-btn');
 
-            if (themeToggleBtn && themeIcon) {
+            if (document.body.classList.contains('light-theme')) {
+                if (themeIcon) themeIcon.classList.replace('bx-sun', 'bx-moon');
+                if (mobileThemeIcon) mobileThemeIcon.classList.replace('bx-sun', 'bx-moon');
+            }
+
+            const toggleTheme = () => {
+                document.body.classList.toggle('light-theme');
+                document.documentElement.classList.toggle('light-theme');
+
                 if (document.body.classList.contains('light-theme')) {
-                    themeIcon.classList.replace('bx-sun', 'bx-moon');
+                    localStorage.setItem('workwalaa_theme', 'light');
+                    if (themeIcon) themeIcon.classList.replace('bx-sun', 'bx-moon');
                     if (mobileThemeIcon) mobileThemeIcon.classList.replace('bx-sun', 'bx-moon');
+                } else {
+                    localStorage.setItem('workwalaa_theme', 'dark');
+                    if (themeIcon) themeIcon.classList.replace('bx-moon', 'bx-sun');
+                    if (mobileThemeIcon) mobileThemeIcon.classList.replace('bx-moon', 'bx-sun');
                 }
+            };
 
-                const toggleTheme = () => {
-                    document.body.classList.toggle('light-theme');
-                    document.documentElement.classList.toggle('light-theme');
-
-                    if (document.body.classList.contains('light-theme')) {
-                        localStorage.setItem('workwalaa_theme', 'light');
-                        themeIcon.classList.replace('bx-sun', 'bx-moon');
-                        if (mobileThemeIcon) mobileThemeIcon.classList.replace('bx-sun', 'bx-moon');
-                    } else {
-                        localStorage.setItem('workwalaa_theme', 'dark');
-                        themeIcon.classList.replace('bx-moon', 'bx-sun');
-                        if (mobileThemeIcon) mobileThemeIcon.classList.replace('bx-moon', 'bx-sun');
-                    }
-                };
-
+            if (themeToggleBtn) {
                 themeToggleBtn.addEventListener('click', toggleTheme);
-                if (mobileThemeToggleBtn) {
-                    mobileThemeToggleBtn.addEventListener('click', toggleTheme);
-                }
+            }
+
+            if (mobileThemeToggleBtn) {
+                mobileThemeToggleBtn.addEventListener('click', toggleTheme);
             }
         });
 
