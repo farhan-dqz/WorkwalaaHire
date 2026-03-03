@@ -483,7 +483,16 @@
                 flex-direction: column;
             }
         }
-    </style>
+    
+    .light-theme .mobile-nav-links a.post-vacancy-link { color: #1a1a1a !important; }
+    body.light-theme .mobile-nav-links a.post-vacancy-link { color: #1a1a1a !important; }
+    .light-theme .mobile-menu-overlay a[href*="post-vacancy"] { color: #1a1a1a !important; }
+    body.light-theme .mobile-menu-overlay a[href*="post-vacancy"] { color: #1a1a1a !important; }
+  
+    .mobile-theme-toggle i { color: var(--brand-yellow) !important; text-shadow: 0 0 5px rgba(0,0,0,0.5); }
+    .light-theme .mobile-theme-toggle i { color: #000 !important; text-shadow: none; }
+    .mobile-theme-toggle { z-index: 2005; }
+  </style>
     <style>
         /* =========================================
        THEME OVERRIDES & LIGHT MODE POLISH
@@ -1258,6 +1267,7 @@
             }
 
             const themeToggleBtn = document.getElementById('theme-toggle');
+      const desktopThemeToggleBtn = document.querySelector('.navbar .theme-toggle');
             const themeIcon = document.getElementById('theme-icon');
 
             if (themeToggleBtn && themeIcon) {
@@ -1511,7 +1521,12 @@
             };
 
             if (themeToggleBtn) {
-                themeToggleBtn.addEventListener('click', toggleTheme);
+                if(themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+
+      if (desktopThemeToggleBtn && !themeToggleBtn) {
+          desktopThemeToggleBtn.addEventListener('click', toggleTheme);
+      }
+      
             }
 
             if (mobileThemeToggleBtn) {

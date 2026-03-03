@@ -637,6 +637,15 @@
     body.light-theme .job-details-panel {
       background: rgba(0, 0, 0, 0.03);
     }
+  
+    .light-theme .mobile-nav-links a.post-vacancy-link { color: #1a1a1a !important; }
+    body.light-theme .mobile-nav-links a.post-vacancy-link { color: #1a1a1a !important; }
+    .light-theme .mobile-menu-overlay a[href*="post-vacancy"] { color: #1a1a1a !important; }
+    body.light-theme .mobile-menu-overlay a[href*="post-vacancy"] { color: #1a1a1a !important; }
+  
+    .mobile-theme-toggle i { color: var(--brand-yellow) !important; text-shadow: 0 0 5px rgba(0,0,0,0.5); }
+    .light-theme .mobile-theme-toggle i { color: #000 !important; text-shadow: none; }
+    .mobile-theme-toggle { z-index: 2005; }
   </style>
   <style>
     /* =========================================
@@ -2056,6 +2065,16 @@
           mobileMenu.classList.remove('active');
           document.body.style.overflow = '';
         });
+      // Close menu when clicking outside
+      document.addEventListener('click', (event) => {
+        if (mobileMenu && mobileMenu.classList.contains('active') && 
+            !mobileMenu.contains(event.target) && 
+            mobileMenuOpen && !mobileMenuOpen.contains(event.target)) {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
       }
     });
 
