@@ -2338,18 +2338,45 @@
         right: calc(5% + 60px);
       }
     }
-  
-    .light-theme .mobile-nav-links a.post-vacancy-link { color: #1a1a1a !important; }
-    body.light-theme .mobile-nav-links a.post-vacancy-link { color: #1a1a1a !important; }
-    .light-theme .mobile-menu-overlay a[href*="post-vacancy"] { color: #1a1a1a !important; }
-    body.light-theme .mobile-menu-overlay a[href*="post-vacancy"] { color: #1a1a1a !important; }
-  
-    .mobile-theme-toggle i { color: var(--brand-yellow) !important; text-shadow: 0 0 5px rgba(0,0,0,0.5); }
-    .light-theme .mobile-theme-toggle i { color: #000 !important; text-shadow: none; }
-    .mobile-theme-toggle { z-index: 2005; }
-  
-    .contact-detail-item i { margin-top: 3px; align-self: flex-start; }
-    .contact-detail-item { align-items: flex-start !important; }
+
+    .light-theme .mobile-nav-links a.post-vacancy-link {
+      color: #1a1a1a !important;
+    }
+
+    body.light-theme .mobile-nav-links a.post-vacancy-link {
+      color: #1a1a1a !important;
+    }
+
+    .light-theme .mobile-menu-overlay a[href*="post-vacancy"] {
+      color: #1a1a1a !important;
+    }
+
+    body.light-theme .mobile-menu-overlay a[href*="post-vacancy"] {
+      color: #1a1a1a !important;
+    }
+
+    .mobile-theme-toggle i {
+      color: var(--brand-yellow) !important;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .light-theme .mobile-theme-toggle i {
+      color: #000 !important;
+      text-shadow: none;
+    }
+
+    .mobile-theme-toggle {
+      z-index: 2005;
+    }
+
+    .contact-detail-item i {
+      margin-top: 3px;
+      align-self: flex-start;
+    }
+
+    .contact-detail-item {
+      align-items: flex-start !important;
+    }
   </style>
   <style>
     /* =========================================
@@ -2577,6 +2604,15 @@
     if (savedTheme === 'light') {
       document.documentElement.classList.add('light-theme');
     }
+  </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW7850WSWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZW7850WSWV');
   </script>
 </head>
 
@@ -3224,9 +3260,9 @@
       });
       // Close menu when clicking outside
       document.addEventListener('click', (event) => {
-        if (mobileMenu && mobileMenu.classList.contains('active') && 
-            !mobileMenu.contains(event.target) && 
-            mobileMenuOpen && !mobileMenuOpen.contains(event.target)) {
+        if (mobileMenu && mobileMenu.classList.contains('active') &&
+          !mobileMenu.contains(event.target) &&
+          mobileMenuOpen && !mobileMenuOpen.contains(event.target)) {
           mobileMenu.classList.remove('active');
           document.body.style.overflow = '';
         }
