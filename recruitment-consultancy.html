@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recruitment Consultancy | Workwalaa Staffing Agency</title>
+
+  <meta name="description" content="Workwalaa recruitment consultancy offers comprehensive staffing solutions for businesses. Professional recruitment agency connecting employers with qualified talent across India." />
+
+  <meta name="keywords" content="recruitment consultancy, staffing agency, recruitment agency, employment consultancy, recruitment partner, staffing solutions" />
+
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://workwalaa.com/recruitment-consultancy.html" />
+
+  <!-- Open Graph & Social Metadata -->
+  <meta property="og:title" content="Recruitment Consultancy | Workwalaa Staffing Agency" />
+  <meta property="og:description" content="Workwalaa recruitment consultancy offers comprehensive staffing solutions for businesses. Professional recruitment agency connecting employers with qualified talent across India." />
+  <meta property="og:url" content="https://workwalaa.com/recruitment-consultancy.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Boxicons for modern icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "EmploymentAgency",
+   "name": "Workwalaa",
+   "url": "https://workwalaa.com/recruitment-consultancy.html",
+   "description": "Workwalaa recruitment consultancy offers comprehensive staffing solutions for businesses. Professional recruitment agency connecting employers with qualified talent across India.",
+   "areaServed": "India"
+  }
+  </script>
+
+  <style>
+    /* Same styling as main site */
+    :root {
+      --bg-base: #030303;
+      --bg-surface: #0a0a0a;
+      --bg-elevated: #111111;
+      --brand-yellow: #f2ca00;
+      --brand-yellow-glow: rgba(242, 202, 0, 0.3);
+      --brand-yellow-hvr: #e5bf00;
+      --glass-bg: rgba(255, 255, 255, 0.02);
+      --glass-border: rgba(255, 255, 255, 0.05);
+      --glass-blur: blur(20px);
+      --text-main: #ffffff;
+      --text-muted: #999999;
+      --text-dark: #000000;
+      --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --border-radius-lg: 24px;
+      --border-radius-md: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-header {
+      background: rgba(3, 3, 3, 0.85);
+      backdrop-filter: var(--glass-blur);
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .back-link {
+      color: var(--brand-yellow);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+    }
+
+    .back-link:hover {
+      color: var(--brand-yellow-hvr);
+    }
+
+    .hero-section {
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--brand-yellow), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius-md);
+      padding: 2rem;
+      backdrop-filter: var(--glass-blur);
+      transition: var(--transition-smooth);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--brand-yellow);
+      box-shadow: 0 10px 30px rgba(242, 202, 0, 0.1);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--brand-yellow);
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .feature-description {
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .cta-section {
+      padding: 80px 0;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(242, 202, 0, 0.1), transparent);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--brand-yellow);
+      color: var(--text-dark);
+      padding: 1rem 2.5rem;
+      border-radius: var(--border-radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: var(--transition-smooth);
+      margin: 0 1rem;
+    }
+
+    .cta-button:hover {
+      background: var(--brand-yellow-hvr);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(242, 202, 0, 0.3);
+    }
+
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--brand-yellow);
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: var(--transition-smooth);
+    }
+
+    .footer-links a:hover {
+      color: var(--brand-yellow-hvr);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav-header">
+    <div class="container">
+      <div class="nav-content">
+        <a href="https://workwalaa.com" class="logo-link">
+          <span class="logo-text">Workwalaa</span>
+        </a>
+        <a href="https://workwalaa.com" class="back-link">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">Recruitment Consultancy Services</h1>
+        <p class="hero-subtitle">Workwalaa is a leading recruitment consultancy providing comprehensive staffing solutions for businesses across India. Connect with qualified talent and streamline your hiring process with our expert recruitment services.</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2 class="section-title">Why Choose Workwalaa Recruitment Consultancy</h2>
+        <p class="section-subtitle">We deliver exceptional recruitment results through our industry expertise, extensive network, and personalized approach to staffing.</p>
+        
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-award'></i>
+            </div>
+            <h3 class="feature-title">Industry Expertise</h3>
+            <p class="feature-description">Deep understanding of various industries enables us to identify candidates with the right skills and cultural fit for your organization.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-network-chart'></i>
+            </div>
+            <h3 class="feature-title">Extensive Network</h3>
+            <p class="feature-description">Access to a vast database of pre-screened candidates across multiple sectors and experience levels.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-trending-up'></i>
+            </div>
+            <h3 class="feature-title">Proven Track Record</h3>
+            <p class="feature-description">Successful placement of thousands of candidates with leading companies, maintaining high satisfaction rates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2 class="section-title">Our Recruitment Consultancy Services</h2>
+        <p class="section-subtitle">Comprehensive staffing solutions tailored to meet your specific business requirements and industry needs.</p>
+        
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-user-plus'></i>
+            </div>
+            <h3 class="feature-title">Permanent Recruitment</h3>
+            <p class="feature-description">Find long-term employees who align with your company culture and contribute to sustained organizational growth.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-time'></i>
+            </div>
+            <h3 class="feature-title">Temporary Staffing</h3>
+            <p class="feature-description">Flexible temporary staffing solutions for seasonal demands, project-based work, and covering employee absences.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-contract'></i>
+            </div>
+            <h3 class="feature-title">Contract-to-Hire</h3>
+            <p class="feature-description">Evaluate candidates on the job before making permanent hiring decisions, reducing recruitment risks.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-search-alt'></i>
+            </div>
+            <h3 class="feature-title">Executive Search</h3>
+            <p class="feature-description">Specialized recruitment for senior-level positions and leadership roles requiring specific expertise and experience.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-group'></i>
+            </div>
+            <h3 class="feature-title">Volume Hiring</h3>
+            <p class="feature-description">Scale your workforce quickly with our bulk recruitment services, ideal for large-scale hiring projects.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-target-lock'></i>
+            </div>
+            <h3 class="feature-title">Specialized Recruitment</h3>
+            <p class="feature-description">Targeted recruitment for niche roles requiring specific technical skills, certifications, or industry knowledge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2 class="section-title">Our Recruitment Process</h2>
+        <p class="section-subtitle">A systematic approach to ensure quality matches and successful placements for both employers and candidates.</p>
+        
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-clipboard'></i>
+            </div>
+            <h3 class="feature-title">Requirement Analysis</h3>
+            <p class="feature-description">Detailed consultation to understand your specific needs, job requirements, and organizational culture.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-search'></i>
+            </div>
+            <h3 class="feature-title">Candidate Sourcing</h3>
+            <p class="feature-description">Multi-channel sourcing strategy including database search, referrals, job postings, and direct headhunting.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-filter'></i>
+            </div>
+            <h3 class="feature-title">Screening & Shortlisting</h3>
+            <p class="feature-description">Rigorous screening process including resume evaluation, preliminary interviews, and skill assessments.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-check-shield'></i>
+            </div>
+            <h3 class="feature-title">Background Verification</h3>
+            <p class="feature-description">Comprehensive background checks including employment history, education verification, and reference checks.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-calendar'></i>
+            </div>
+            <h3 class="feature-title">Interview Coordination</h3>
+            <p class="feature-description">End-to-end interview management from scheduling to feedback collection and offer negotiation.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-handshake'></i>
+            </div>
+            <h3 class="feature-title">Onboarding Support</h3>
+            <p class="feature-description">Assistance with the onboarding process to ensure smooth integration of new hires into your organization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2 class="section-title">Industries We Serve</h2>
+        <p class="section-subtitle">Specialized recruitment expertise across multiple sectors with deep understanding of industry-specific requirements.</p>
+        
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-code'></i>
+            </div>
+            <h3 class="feature-title">IT & Technology</h3>
+            <p class="feature-description">Software developers, IT consultants, data scientists, and technology specialists for tech companies.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-building'></i>
+            </div>
+            <h3 class="feature-title">Construction & Engineering</h3>
+            <p class="feature-description">Engineers, architects, project managers, and skilled workers for construction and infrastructure projects.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-cog'></i>
+            </div>
+            <h3 class="feature-title">Manufacturing</h3>
+            <p class="feature-description">Production staff, quality control experts, maintenance technicians, and manufacturing engineers.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-cart'></i>
+            </div>
+            <h3 class="feature-title">Retail & FMCG</h3>
+            <p class="feature-description">Sales professionals, store managers, supply chain experts, and retail operations staff.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-heart'></i>
+            </div>
+            <h3 class="feature-title">Healthcare & Pharma</h3>
+            <p class="feature-description">Medical professionals, pharmaceutical experts, healthcare administrators, and research staff.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class='bx bx-bank'></i>
+            </div>
+            <h3 class="feature-title">Banking & Finance</h3>
+            <p class="feature-description">Financial analysts, banking professionals, accountants, and investment specialists.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="section-title">Partner with Workwalaa Recruitment Consultancy</h2>
+        <p class="section-subtitle">Experience the difference of working with a recruitment agency that understands your business needs and delivers quality talent.</p>
+        <div style="margin-top: 2rem;">
+          <a href="https://workwalaa.com" class="cta-button">Get Started</a>
+          <a href="tel:+919876543210" class="cta-button">Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://workwalaa.com">Home</a>
+        <a href="https://workwalaa.com/hire-workers.html">Hire Workers</a>
+        <a href="https://workwalaa.com/hiring-partner.html">Hiring Partner</a>
+        <a href="https://workwalaa.com/job-consultancy.html">Job Consultancy</a>
+      </div>
+      <p>&copy; 2026 Workwalaa. All rights reserved. | Leading Recruitment Consultancy in India</p>
+    </div>
+  </footer>
+</body>
+
+</html>
