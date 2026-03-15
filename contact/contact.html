@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <title>Contact Workwalaa | Get in Touch</title>
+
+  <meta name="description" content="Contact Workwalaa for hiring solutions and job opportunities. Reach out via phone, email, or our contact form. We'll respond shortly with no spam or pressure." />
+
+  <meta name="keywords" content="contact workwalaa, workwalaa contact, hiring partner contact, job consultancy contact, recruitment contact" />
+
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://workwalaa.com/contact/" />
+
+  <!-- Open Graph & Social Metadata -->
+  <meta property="og:title" content="Contact Workwalaa | Get in Touch" />
+  <meta property="og:description" content="Contact Workwalaa for hiring solutions and job opportunities. Reach out via phone, email, or our contact form." />
+  <meta property="og:url" content="https://workwalaa.com/contact/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Boxicons for modern icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- Favicon for browser tab -->
+  <link rel="icon" href="../assets/workwalaa.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/workwalaa.png">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "ContactPage",
+   "name": "Workwalaa Contact",
+   "url": "https://workwalaa.com/contact/",
+   "description": "Contact Workwalaa for hiring solutions and job opportunities. Reach out via phone, email, or our contact form."
+  }
+  </script>
+
+  <style>
+    /* =========================================
+       CONTACT SECTION STYLES 
+       ========================================= */
+    :root {
+      /* Deep Dark Theme Colors */
+      --bg-base: #030303;
+      --bg-surface: #0a0a0a;
+      --bg-elevated: #111111;
+
+      /* Vibrant Brand Yellow */
+      --brand-yellow: #f2ca00;
+      --brand-yellow-glow: rgba(242, 202, 0, 0.3);
+      --brand-yellow-hvr: #e5bf00;
+
+      /* Glassmorphism */
+      --glass-bg: rgba(255, 255, 255, 0.02);
+      --glass-border: rgba(255, 255, 255, 0.05);
+      --glass-blur: blur(20px);
+
+      /* Text Colors */
+      --text-main: #ffffff;
+      --text-muted: #999999;
+      --text-dark: #000000;
+
+      /* Utilities */
+      --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --border-radius-lg: 24px;
+      --border-radius-md: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .brand-font {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Selection Color */
+    ::selection {
+      background: var(--brand-yellow);
+      color: #000;
+    }
+
+    /* =========================================
+       NAVIGATION 
+       ========================================= */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: var(--transition-smooth);
+      background: transparent;
+    }
+
+    nav.scrolled {
+      padding: 1rem 5%;
+      background: rgba(3, 3, 3, 0.85);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      height: 40px;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+    }
+
+    .logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brand-yellow);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-main);
+    }
+
+    /* Hidden Mobile Class */
+    .hidden-mobile {
+      display: none;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: var(--brand-yellow);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .menu-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    /* Mobile Menu Dropdown */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 80px;
+      /* Below navbar */
+      right: 5%;
+      width: 250px;
+      height: auto;
+      background: rgba(10, 10, 10, 0.85);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      transform: translateY(-20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .mobile-menu-overlay.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.8rem;
+      color: var(--brand-yellow);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-menu-close:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: left;
+      width: 100%;
+      align-items: flex-start;
+      margin-top: 1rem;
+      /* Space below close btn */
+    }
+
+    .mobile-nav-links a {
+      color: #fff;
+      font-size: 1.05rem;
+      font-family: 'Outfit', sans-serif;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      transform: translateY(10px);
+      opacity: 0;
+      padding: 0.5rem 0;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .mobile-menu-overlay.active .mobile-nav-links a {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active {
+      color: #ccc;
+    }
+
+    /* =========================================
+       BUTTONS 
+       ========================================= */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brand-yellow);
+      color: var(--text-dark);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      box-shadow: 0 5px 20px var(--brand-yellow-glow);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-yellow-hvr);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(242, 202, 0, 0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--glass-bg);
+      color: var(--text-main);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--glass-blur);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    /* =========================================
+       CONTACT SECTION 
+       ========================================= */
+    .contact-section {
+      padding: 6rem 5%;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--glass-border);
+      min-height: 100vh;
+      flex: 1;
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 4rem;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-detail-item i {
+      font-size: 2rem;
+      color: var(--brand-yellow);
+    }
+
+    .contact-detail-text h4 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 3px;
+    }
+
+    .contact-detail-text p {
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .contact-detail-text a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-detail-text a:hover {
+      color: var(--brand-yellow);
+    }
+
+    .contact-form {
+      flex: 1.5;
+      background: var(--bg-elevated);
+      padding: 3rem;
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--glass-border);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 1rem;
+      background: var(--bg-base);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      color: #fff;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--brand-yellow);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    /* Contact Form Success Overlay */
+    .contact-form {
+      position: relative;
+      /* Ensure overlay positions correctly over the form */
+      overflow: hidden;
+    }
+
+    .contact-success-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-elevated);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease-in-out;
+      z-index: 10;
+      border-radius: var(--border-radius-lg);
+    }
+
+    .contact-success-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .contact-success-overlay .success-content {
+      text-align: center;
+      transform: translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .contact-success-overlay.active .success-content {
+      transform: translateY(0);
+    }
+
+    /* Network Connect Animation */
+    .network-connecting-content {
+      text-align: center;
+      transition: opacity 0.4s ease;
+    }
+
+    .network-loader {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+    }
+
+    .net-node {
+      position: absolute;
+      background: var(--brand-yellow);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--brand-yellow);
+      z-index: 3;
+    }
+
+    .center-node {
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse-node 1.5s infinite alternate;
+    }
+
+    .ext-node {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      box-shadow: 0 0 8px #fff;
+    }
+
+    .node-a {
+      top: 10%;
+      left: 15%;
+    }
+
+    .node-b {
+      top: 20%;
+      right: 10%;
+    }
+
+    .node-c {
+      bottom: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .net-line {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.2);
+      transform-origin: center;
+      z-index: 0;
+    }
+
+    .line-a {
+      width: 2px;
+      height: 45px;
+      top: 15%;
+      left: 32%;
+      transform: rotate(-45deg);
+    }
+
+    .line-b {
+      width: 2px;
+      height: 45px;
+      top: 25%;
+      right: 28%;
+      transform: rotate(55deg);
+    }
+
+    .line-c {
+      width: 2px;
+      height: 40px;
+      bottom: 20%;
+      left: calc(50% - 1px);
+    }
+
+    .net-packet {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--brand-yellow);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      z-index: 2;
+      box-shadow: 0 0 8px var(--brand-yellow);
+    }
+
+    .packet-a {
+      animation: send-a 1.5s infinite 0s;
+    }
+
+    .packet-b {
+      animation: send-b 1.5s infinite 0.5s;
+    }
+
+    .packet-c {
+      animation: send-c 1.5s infinite 1s;
+    }
+
+    @keyframes pulse-node {
+      0% {
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 0 20px var(--brand-yellow);
+      }
+    }
+
+    @keyframes send-a {
+      0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translate(-35px, -40px);
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes send-b {
+      0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translate(35px, -30px);
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes send-c {
+      0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translate(0, 35px);
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 5%;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav.scrolled {
+        padding: 1rem 5%;
+      }
+
+      .logo-container {
+        flex: 1;
+      }
+
+      .nav-links {
+        display: none !important;
+      }
+
+      .menu-toggle {
+        display: flex !important;
+      }
+
+      .nav-actions {
+        display: none !important;
+      }
+
+      .contact-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 3rem;
+      }
+
+      .contact-info {
+        order: 1;
+        text-align: center !important;
+      }
+
+      .contact-form {
+        order: 2;
+        text-align: center !important;
+      }
+
+      .contact-details {
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-detail-item {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <a href="../index.html" class="logo-container">
+      <span class="logo-text">Workwalaa</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../careers.html">Jobs</a>
+      <a href="../aboutus.html">About Us</a>
+      <a href="../blogs.html">Blogs</a>
+      <a href="./contact.html" class="active">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <a href="https://wa.me/919061362656" target="_blank" class="btn-primary header-btn"
+        style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">
+        <i class='bx bxl-whatsapp'></i> Help
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <i class='bx bx-menu menu-toggle' id="mobile-menu-open"></i>
+  </nav>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Contact <span>Workwalaa</span></h2>
+        <p>We'll respond shortly. No spam. No pressure.</p>
+
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <i class='bx bxl-whatsapp'></i>
+            <div class="contact-detail-text">
+              <h4>Phone</h4>
+              <p>90613 62656</p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <i class='bx bx-envelope'></i>
+            <div class="contact-detail-text">
+              <h4>Email</h4>
+              <p><a href="mailto:info@workwalaa.com"
+                  style="color: inherit; text-decoration: none;">info@workwalaa.com</a></p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <i class='bx bx-map'></i>
+            <div class="contact-detail-text">
+              <h4>Location</h4>
+              <p>Kerala, India</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form id="mainContactForm" onsubmit="handleContactSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>I am a...</label>
+              <select name="type" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="job_seeker">Job Seeker</option>
+                <option value="employer">Employer</option>
+                <option value="founder_investor">Founder / Investor</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="Enter your full name" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="Enter your phone number" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="Enter your email address" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Your Message</label>
+            <textarea name="message" rows="4" placeholder="How can we help you?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;"
+            id="contactSubmitBtn">Send Message</button>
+        </form>
+
+        <!-- Dynamic Success Message Overlay for Contact Form -->
+        <div class="contact-success-overlay" id="contactSuccessOverlay">
+
+          <!-- Network Connecting Animation -->
+          <div class="network-connecting-content" id="networkConnectingContent">
+            <div class="network-loader">
+              <div class="net-node center-node"></div>
+              <div class="net-node ext-node node-a"></div>
+              <div class="net-node ext-node node-b"></div>
+              <div class="net-node ext-node node-c"></div>
+              <div class="net-line line-a"></div>
+              <div class="net-line line-b"></div>
+              <div class="net-line line-c"></div>
+              <div class="net-packet packet-a"></div>
+              <div class="net-packet packet-b"></div>
+              <div class="net-packet packet-c"></div>
+            </div>
+            <h3 style="color: #fff; font-size: 1.2rem; margin-top: 1.5rem;">Connecting to Network...</h3>
+            <p style="color: var(--brand-yellow); font-size: 0.9rem; margin-top: 0.5rem; letter-spacing: 1px;">
+              ENCRYPTING & ROUTING</p>
+          </div>
+
+          <!-- Success State -->
+          <div class="success-content" id="contactSuccessContent" style="display: none;">
+            <i class='bx bx-check-circle success-check'
+              style="font-size: 4rem; color: var(--brand-yellow); margin-bottom: 1rem;"></i>
+            <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem;">Message Delivered</h3>
+            <p style="color: var(--text-muted);">Thank you for reaching out. We will connect with you shortly.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Logic
+    const mobileMenuOpen = document.getElementById('mobile-menu-open');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.createElement('div');
+    mobileMenu.className = 'mobile-menu-overlay';
+    mobileMenu.innerHTML = `
+      <i class='bx bx-x mobile-menu-close' id="mobile-menu-close"></i>
+      <div class="mobile-nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../careers.html">Jobs</a>
+        <a href="../aboutus.html">About Us</a>
+        <a href="../blogs.html">Blogs</a>
+        <a href="./contact.html" class="active">Contact</a>
+        <a href="https://wa.me/919061362656" target="_blank"
+          style="color: var(--brand-yellow); margin-top: 1rem;">Help</a>
+        <a href="../careers.html#post-vacancy" class="post-vacancy-link">Post Vacancy</a>
+      </div>
+    `;
+    mobileMenu.style.cssText = `
+      position: fixed;
+      top: 80px;
+      right: 5%;
+      width: 250px;
+      height: auto;
+      background: rgba(10, 10, 10, 0.85);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 2000;
+      display: none;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      transform: translateY(-20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    `;
+
+    document.body.appendChild(mobileMenu);
+
+    if (mobileMenuOpen && mobileMenuClose) {
+      mobileMenuOpen.addEventListener('click', () => {
+        mobileMenu.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+
+      mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (event) => {
+        if (mobileMenu.style.display === 'flex' &&
+          !mobileMenu.contains(event.target) &&
+          mobileMenuOpen && !mobileMenuOpen.contains(event.target)) {
+          mobileMenu.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Close menu when clicking a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.style.display = 'none';
+          document.body.style.overflow = '';
+        });
+      });
+    }
+
+    // Contact Form Submission Handler (Connected to Google Apps Script)
+    function handleContactSubmit(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const form = document.getElementById('mainContactForm');
+      const btn = document.getElementById('contactSubmitBtn');
+      const overlay = document.getElementById('contactSuccessOverlay');
+      const networkConnecting = document.getElementById('networkConnectingContent');
+      const contactSuccess = document.getElementById('contactSuccessContent');
+
+      // The Google Apps Script Web App URL
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbza0FOVEnp3O5RwBJpsCqOfLEWlIVUkpaqLONbjh11H44p09270g4AcnqEuTeqzACYwCQ/exec';
+
+      // 1. Loading State for button & UI
+      btn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Sending...";
+      btn.style.opacity = '0.8';
+      btn.style.pointerEvents = 'none';
+
+      // Reset overlay to show loading animation
+      networkConnecting.style.display = 'block';
+      contactSuccess.style.display = 'none';
+      overlay.classList.add('active');
+
+      // 2. Prepare FormData from the form inputs
+      const formData = new FormData(form);
+
+      // 3. Send data to Google Apps Script
+      fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => {
+          // Assume success if the fetch promise resolves
+          networkConnecting.style.display = 'none';
+          contactSuccess.style.display = 'block';
+
+          // Reset the form in the background
+          form.reset();
+
+          // Stage 2: Auto-close overlay after 3 seconds of success
+          setTimeout(() => {
+            overlay.classList.remove('active');
+
+            // Reset button back to normal state
+            btn.innerHTML = "Send Message";
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+          }, 3000);
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+
+          // Very basic error handling if fetch completely fails
+          overlay.classList.remove('active');
+          btn.innerHTML = "Send Failed - Try Again";
+          btn.style.opacity = '1';
+          btn.style.pointerEvents = 'auto';
+          alert("Sorry, there was an error sending your message. Please try again or contact us directly on WhatsApp.");
+        });
+    }
+  </script>
+</body>
+</html>

@@ -3331,6 +3331,9 @@
     const wishlistForm = document.getElementById('wishlistForm');
     const successOverlay = document.getElementById('successOverlay');
 
+    // The Google Apps Script Web App URL for Wishlist
+    const wishlistScriptURL = 'https://script.google.com/macros/s/AKfycbza0FOVEnp3O5RwBJpsCqOfLEWlIVUkpaqLONbjh11H44p09270g4AcnqEuTeqzACYwCQ/exec';
+
     if (btnWishlist && wishlistContainer) {
       btnWishlist.addEventListener('click', () => {
         // Reset state if opened again
@@ -3346,22 +3349,57 @@
     }
 
     if (wishlistForm) {
-      wishlistForm.addEventListener('submit', (e) => {
+      wishlistForm.addEventListener('submit', async (e) => {
         e.preventDefault(); // Prevent page reload
 
-        // Hide form inputs and trigger satisfying success UI
-        wishlistForm.style.opacity = '0';
-        wishlistForm.style.pointerEvents = 'none';
+        // Get form data
+        const formData = new FormData(wishlistForm);
+        
+        // Update button state to loading
+        const submitBtn = wishlistForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Joining...';
+        submitBtn.disabled = true;
 
-        if (successOverlay) {
-          successOverlay.classList.add('active');
+        try {
+          // Send data to Google Apps Script
+          const response = await fetch(wishlistScriptURL, {
+            method: 'POST',
+            body: formData
+          });
 
-          setTimeout(() => {
-            successOverlay.classList.remove('active');
-            wishlistContainer.classList.remove('active');
-            wishlistForm.style.pointerEvents = 'auto'; // allow resubmit later
-            wishlistEmail.value = '';
-          }, 3000);
+          if (response.ok) {
+            // Hide form inputs and trigger satisfying success UI
+            wishlistForm.style.opacity = '0';
+            wishlistForm.style.pointerEvents = 'none';
+
+            if (successOverlay) {
+              successOverlay.classList.add('active');
+
+              setTimeout(() => {
+                successOverlay.classList.remove('active');
+                wishlistContainer.classList.remove('active');
+                wishlistForm.style.pointerEvents = 'auto'; // allow resubmit later
+                wishlistEmail.value = '';
+                
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                wishlistForm.style.opacity = '1';
+              }, 3000);
+            }
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (error) {
+          console.error('Wishlist submission error:', error);
+          
+          // Reset button state on error
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+          
+          // Show error message
+          alert('Sorry, there was an error joining the waitlist. Please try again.');
         }
       });
     }
@@ -3370,6 +3408,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const testimonialsGrid = document.querySelector('.testimonials-grid');
       let isMobile = window.innerWidth <= 768;
+      let isPaused = false;
 
       window.addEventListener('resize', () => {
         isMobile = window.innerWidth <= 768;
@@ -3378,11 +3417,12 @@
       if (testimonialsGrid) {
         let scrollInterval;
         const autoScroll = () => {
-          if (!isMobile) return;
+          if (!isMobile || isPaused) return;
 
           const cardWidth = testimonialsGrid.querySelector('.testimonial-card').offsetWidth + 16; // 1rem gap = 16px
           const maxScroll = testimonialsGrid.scrollWidth - testimonialsGrid.clientWidth;
 
+          // Smooth continuous scrolling from right to left
           if (testimonialsGrid.scrollLeft >= maxScroll - 10) { // -10 for pixel rounding buffer
             testimonialsGrid.scrollTo({ left: 0, behavior: 'smooth' }); // Loop back to start
           } else {
@@ -3390,14 +3430,50 @@
           }
         };
 
-        // Scroll every 3 seconds
-        scrollInterval = setInterval(autoScroll, 3000);
+        // Start auto-scroll with smooth continuous movement
+        const startAutoScroll = () => {
+          if (isMobile && !isPaused) {
+            scrollInterval = setInterval(autoScroll, 4000); // Scroll every 4 seconds for smooth movement
+          }
+        };
 
-        // Pause on touch
-        testimonialsGrid.addEventListener('touchstart', () => clearInterval(scrollInterval));
-        testimonialsGrid.addEventListener('touchend', () => {
-          scrollInterval = setInterval(autoScroll, 3000);
+        // Handle touch events - pause on touch
+        testimonialsGrid.addEventListener('touchstart', () => {
+          if (isMobile) {
+            isPaused = true;
+            clearInterval(scrollInterval);
+          }
         });
+
+        testimonialsGrid.addEventListener('touchend', () => {
+          if (isMobile) {
+            // Resume after 2 seconds of no touch
+            setTimeout(() => {
+              isPaused = false;
+              startAutoScroll();
+            }, 2000);
+          }
+        });
+
+        // Handle mouse events for desktop testing (optional)
+        testimonialsGrid.addEventListener('mouseenter', () => {
+          if (isMobile) {
+            isPaused = true;
+            clearInterval(scrollInterval);
+          }
+        });
+
+        testimonialsGrid.addEventListener('mouseleave', () => {
+          if (isMobile) {
+            setTimeout(() => {
+              isPaused = false;
+              startAutoScroll();
+            }, 2000);
+          }
+        });
+
+        // Initialize auto-scroll
+        startAutoScroll();
       }
     });
 
@@ -3438,7 +3514,7 @@
       const contactSuccess = document.getElementById('contactSuccessContent');
 
       // The Google Apps Script Web App URL provided by the user
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbxt9Wk1Jyzj0eVE1PD-IhLGFvLoyQnvUS8kRjti8NS_jsNerMb7MEVpZ8TISrJxd_0HiQ/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbza0FOVEnp3O5RwBJpsCqOfLEWlIVUkpaqLONbjh11H44p09270g4AcnqEuTeqzACYwCQ/exec';
 
       // 1. Loading State for button & UI
       btn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Sending...";
