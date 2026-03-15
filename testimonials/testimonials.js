@@ -56,33 +56,45 @@ function initTestimonialsSlider() {
   if (!testimonialsGrid) return;
 
   let isMobile = window.innerWidth <= 768;
-  let scrollInterval;
   let isPaused = false;
+  let scrollPosition = 0;
+  let animationFrame = null;
 
   const autoScroll = () => {
     if (!isMobile || isPaused) return;
 
-    const cardWidth = testimonialsGrid.querySelector('.testimonial-card').offsetWidth + 16; // 1rem gap = 16px
+    // Get the first card width
+    const firstCard = testimonialsGrid.querySelector('.testimonial-card');
+    if (!firstCard) return;
+    
+    const cardWidth = firstCard.offsetWidth + 32; // card width + gap (2rem = 32px)
     const maxScroll = testimonialsGrid.scrollWidth - testimonialsGrid.clientWidth;
 
-    // Smooth continuous scrolling from right to left
-    if (testimonialsGrid.scrollLeft >= maxScroll - 10) { // -10 for pixel rounding buffer
-      testimonialsGrid.scrollTo({ left: 0, behavior: 'smooth' }); // Loop back to start
-    } else {
-      testimonialsGrid.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    // Continuous scrolling
+    scrollPosition += 1; // Scroll 1px per frame for smooth movement
+
+    // Reset to start when reaching the end
+    if (scrollPosition >= maxScroll) {
+      scrollPosition = 0;
     }
+
+    testimonialsGrid.scrollLeft = scrollPosition;
+    animationFrame = requestAnimationFrame(autoScroll);
   };
 
-  // Start auto-scroll with smooth continuous movement
+  // Start auto-scroll
   const startAutoScroll = () => {
     if (isMobile && !isPaused) {
-      scrollInterval = setInterval(autoScroll, 4000); // Scroll every 4 seconds for smooth movement
+      animationFrame = requestAnimationFrame(autoScroll);
     }
   };
 
   // Stop auto-scroll
   const stopAutoScroll = () => {
-    clearInterval(scrollInterval);
+    if (animationFrame) {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = null;
+    }
   };
 
   // Handle window resize
@@ -90,7 +102,8 @@ function initTestimonialsSlider() {
     isMobile = window.innerWidth <= 768;
     if (!isMobile) {
       stopAutoScroll();
-      testimonialsGrid.scrollTo({ left: 0, behavior: 'smooth' }); // Reset position on desktop
+      testimonialsGrid.scrollLeft = 0;
+      scrollPosition = 0;
       isPaused = false;
     } else {
       startAutoScroll();
@@ -107,15 +120,13 @@ function initTestimonialsSlider() {
 
   const handleTouchEnd = () => {
     if (isMobile) {
-      // Resume after 2 seconds of no touch
-      setTimeout(() => {
-        isPaused = false;
-        startAutoScroll();
-      }, 2000);
+      // Resume immediately after touch ends
+      isPaused = false;
+      startAutoScroll();
     }
   };
 
-  // Handle mouse events for desktop testing (optional)
+  // Handle mouse events for desktop testing
   const handleMouseEnter = () => {
     if (isMobile) {
       isPaused = true;
@@ -125,10 +136,8 @@ function initTestimonialsSlider() {
 
   const handleMouseLeave = () => {
     if (isMobile) {
-      setTimeout(() => {
-        isPaused = false;
-        startAutoScroll();
-      }, 2000);
+      isPaused = false;
+      startAutoScroll();
     }
   };
 
@@ -141,7 +150,11 @@ function initTestimonialsSlider() {
 
   // Initialize
   handleResize();
-  startAutoScroll();
+  
+  // Force start auto-scroll if mobile
+  if (isMobile) {
+    startAutoScroll();
+  }
 }
 
 // Initialize all functionality when DOM is loaded
