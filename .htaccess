@@ -4,11 +4,38 @@
 # Enable URL rewriting
 RewriteEngine On
 
-# Redirect old root paths to organized folder structure
-RewriteRule ^careers\.html$ pages/careers.html [L,R=301]
-RewriteRule ^aboutus\.html$ pages/aboutus.html [L,R=301]
-RewriteRule ^blogs\.html$ pages/blogs.html [L,R=301]
-RewriteRule ^interview-prep\.html$ pages/interview-prep.html [L,R=301]
+# Fix folder-relative navigation
+# When a user is on /hiring/... and clicks href="careers.html", the browser requests /hiring/careers.html.
+# These redirects route such requests back to the correct root pages.
+RewriteRule ^hiring/index\.html$ /index.html [L,R=301]
+RewriteRule ^hiring/careers\.html$ /careers.html [L,R=301]
+RewriteRule ^hiring/aboutus\.html$ /aboutus.html [L,R=301]
+RewriteRule ^hiring/blogs\.html$ /blogs.html [L,R=301]
+RewriteRule ^hiring/interview-prep\.html$ /interview-prep.html [L,R=301]
+
+RewriteRule ^consultancy/index\.html$ /index.html [L,R=301]
+RewriteRule ^consultancy/careers\.html$ /careers.html [L,R=301]
+RewriteRule ^consultancy/aboutus\.html$ /aboutus.html [L,R=301]
+RewriteRule ^consultancy/blogs\.html$ /blogs.html [L,R=301]
+RewriteRule ^consultancy/interview-prep\.html$ /interview-prep.html [L,R=301]
+
+RewriteRule ^assist/index\.html$ /index.html [L,R=301]
+RewriteRule ^assist/careers\.html$ /careers.html [L,R=301]
+RewriteRule ^assist/aboutus\.html$ /aboutus.html [L,R=301]
+RewriteRule ^assist/blogs\.html$ /blogs.html [L,R=301]
+RewriteRule ^assist/interview-prep\.html$ /interview-prep.html [L,R=301]
+
+RewriteRule ^contact/index\.html$ /index.html [L,R=301]
+RewriteRule ^contact/careers\.html$ /careers.html [L,R=301]
+RewriteRule ^contact/aboutus\.html$ /aboutus.html [L,R=301]
+RewriteRule ^contact/blogs\.html$ /blogs.html [L,R=301]
+RewriteRule ^contact/interview-prep\.html$ /interview-prep.html [L,R=301]
+
+RewriteRule ^testimonials/index\.html$ /index.html [L,R=301]
+RewriteRule ^testimonials/careers\.html$ /careers.html [L,R=301]
+RewriteRule ^testimonials/aboutus\.html$ /aboutus.html [L,R=301]
+RewriteRule ^testimonials/blogs\.html$ /blogs.html [L,R=301]
+RewriteRule ^testimonials/interview-prep\.html$ /interview-prep.html [L,R=301]
 
 # Redirect hiring pages
 RewriteRule ^hire-employees\.html$ hiring/hire-employees.html [L,R=301]
