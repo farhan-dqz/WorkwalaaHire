@@ -95,6 +95,11 @@ nav.scrolled {
   text-decoration: none;
 }
 
+.logo-container img {
+  height: 40px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
+
 .logo-text {
   font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
