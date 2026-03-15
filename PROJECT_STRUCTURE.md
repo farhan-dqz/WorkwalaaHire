@@ -35,9 +35,16 @@ Core informational pages:
 #### ⚙️ `services/` - Service Components
 Service-oriented pages and components (currently prepared for future use)
 
-#### 📦 `misc/` - Miscellaneous Files
+#### �️ `dev/` - Development Files
+Development utilities, scripts, and experimental files:
+- apply_fixes.js - JavaScript fixes and patches
+- find_dashes.py - Python utility for content validation
+- Untitled-1.html - Development template
+
+#### �📦 `misc/` - Miscellaneous Files
 Supporting and reference files:
 - original_index.html - Original homepage backup
+- original_index.txt - Original homepage content backup
 - privacy-policy.html - Legal compliance
 - terms-of-service.html - Legal compliance
 - prototype.html - Development experiments
