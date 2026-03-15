@@ -70,10 +70,10 @@ function initTestimonialsSlider() {
     const cardWidth = firstCard.offsetWidth + 32; // card width + gap (2rem = 32px)
     const maxScroll = testimonialsGrid.scrollWidth - testimonialsGrid.clientWidth;
 
-    // Continuous scrolling
-    scrollPosition += 1; // Scroll 1px per frame for smooth movement
+    // Very slow continuous scrolling - 0.5px per frame for bus-like movement
+    scrollPosition += 0.5;
 
-    // Reset to start when reaching the end
+    // Reset to start when reaching the end - seamless loop
     if (scrollPosition >= maxScroll) {
       scrollPosition = 0;
     }
@@ -110,7 +110,7 @@ function initTestimonialsSlider() {
     }
   };
 
-  // Handle touch events - pause on touch
+  // Handle touch events - pause ONLY while touching
   const handleTouchStart = () => {
     if (isMobile) {
       isPaused = true;
@@ -120,7 +120,7 @@ function initTestimonialsSlider() {
 
   const handleTouchEnd = () => {
     if (isMobile) {
-      // Resume immediately after touch ends
+      // Resume immediately when touch ends - no delays
       isPaused = false;
       startAutoScroll();
     }
@@ -148,7 +148,7 @@ function initTestimonialsSlider() {
   testimonialsGrid.addEventListener('mouseenter', handleMouseEnter);
   testimonialsGrid.addEventListener('mouseleave', handleMouseLeave);
 
-  // Initialize
+  // Initialize - start immediately on mobile
   handleResize();
   
   // Force start auto-scroll if mobile
