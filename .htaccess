@@ -1,0 +1,81 @@
+# Workwalaa - URL Rewrites and Redirects
+# Handle organized folder structure with proper redirects
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect old root paths to organized folder structure
+RewriteRule ^careers\.html$ pages/careers.html [L,R=301]
+RewriteRule ^aboutus\.html$ pages/aboutus.html [L,R=301]
+RewriteRule ^blogs\.html$ pages/blogs.html [L,R=301]
+RewriteRule ^interview-prep\.html$ pages/interview-prep.html [L,R=301]
+
+# Redirect hiring pages
+RewriteRule ^hire-employees\.html$ hiring/hire-employees.html [L,R=301]
+RewriteRule ^hire-workers-in-kerala\.html$ hiring/hire-workers-in-kerala.html [L,R=301]
+RewriteRule ^hire-workers-in-kochi\.html$ hiring/hire-workers-in-kochi.html [L,R=301]
+RewriteRule ^hire-workers\.html$ hiring/hire-workers.html [L,R=301]
+RewriteRule ^hiring-company\.html$ hiring/hiring-company.html [L,R=301]
+RewriteRule ^hiring-partner-in-delhi\.html$ hiring/hiring-partner-in-delhi.html [L,R=301]
+RewriteRule ^hiring-partner\.html$ hiring/hiring-partner.html [L,R=301]
+RewriteRule ^recruitment-partner\.html$ hiring/recruitment-partner.html [L,R=301]
+RewriteRule ^staffing-agency-in-pune\.html$ hiring/staffing-agency-in-pune.html [L,R=301]
+RewriteRule ^staffing-partner\.html$ hiring/staffing-partner.html [L,R=301]
+RewriteRule ^worker-hiring-platform\.html$ hiring/worker-hiring-platform.html [L,R=301]
+
+# Redirect consultancy pages
+RewriteRule ^job-consultancy\.html$ consultancy/job-consultancy.html [L,R=301]
+RewriteRule ^job-consultancy-in-malappuram\.html$ consultancy/job-consultancy-in-malappuram.html [L,R=301]
+RewriteRule ^recruitment-consultancy\.html$ consultancy/recruitment-consultancy.html [L,R=301]
+RewriteRule ^recruitment-consultancy-in-chennai\.html$ consultancy/recruitment-consultancy-in-chennai.html [L,R=301]
+
+# Redirect legal pages
+RewriteRule ^privacy-policy\.html$ misc/privacy-policy.html [L,R=301]
+RewriteRule ^terms-of-service\.html$ misc/terms-of-service.html [L,R=301]
+
+# Handle trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ $1.html [L,R=301]
+
+# Redirect old root files that might still be accessed
+RewriteRule ^original_index\.html$ misc/original_index.html [L,R=301]
+RewriteRule ^prototype\.html$ misc/prototype.html [L,R=301]
+
+# Ensure clean URLs (remove .html extension if desired)
+# Uncomment the following lines if you want to remove .html from URLs
+# RewriteRule ^(.+)\.html$ $1 [L,R=301]
+
+# Error handling
+ErrorDocument 404 /404.html
+
+# Set proper MIME types
+<FilesMatch "\.(html|htm)$">
+    ForceType text/html
+</FilesMatch>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval'"
+</IfModule>
+
+# Performance optimization
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg "access plus 1 month"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+    SetOutputFilter DEFLATE
+</IfModule>
