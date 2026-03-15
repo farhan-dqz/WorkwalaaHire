@@ -3316,16 +3316,17 @@
         mobileMenu.classList.remove('active');
         document.body.style.overflow = '';
       });
+
       // Close menu when clicking outside
       document.addEventListener('click', (event) => {
         if (mobileMenu && mobileMenu.classList.contains('active') &&
           !mobileMenu.contains(event.target) &&
-          mobileMenuOpen && !mobileMenuOpen.contains(event.target)) {
+          !mobileMenuClose.contains(event.target) &&
+          !mobileMenuOpen.contains(event.target)) {
           mobileMenu.classList.remove('active');
           document.body.style.overflow = '';
         }
       });
-
 
       // Close menu when clicking a link
       const mobileLinks = mobileMenu.querySelectorAll('a');
@@ -3336,6 +3337,17 @@
         });
       });
     }
+
+    // Close menu when clicking outside (additional safety)
+    document.addEventListener('click', (event) => {
+      if (mobileMenu && mobileMenu.classList.contains('active') &&
+          !mobileMenu.contains(event.target) &&
+          !mobileMenuClose.contains(event.target) &&
+          !mobileMenuOpen.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
 
     // Simple Typewriter / Word Rotate Effect
     const words = ["Worth.", "Talent.", "Purpose.", "Growth."];
