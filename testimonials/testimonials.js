@@ -50,66 +50,73 @@ function initNavbar() {
   }
 }
 
-// Auto-playing Testimonials Slider for Mobile
+// Bidirectional Infinite Carousel for Mobile
 function initTestimonialsSlider() {
   const testimonialsGrid = document.querySelector('.testimonials-grid');
   if (!testimonialsGrid) return;
 
   let isMobile = window.innerWidth <= 768;
   let isPaused = false;
-  let scrollPosition = 0;
+  let direction = 1; // 1 for right, -1 for left
   let animationFrame = null;
+  let scrollPosition = 0;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+  // Duplicate cards for infinite effect (only once)
   if (!testimonialsGrid.dataset.duplicated) {
     testimonialsGrid.insertAdjacentHTML('beforeend', testimonialsGrid.innerHTML);
     testimonialsGrid.dataset.duplicated = 'true';
   }
 
-  const autoScroll = () => {
-    if (!isMobile || isPaused || prefersReducedMotion.matches) return;
+  function autoScroll() {
+    if (!isMobile || isPaused || prefersReducedMotion.matches) {
+      animationFrame = requestAnimationFrame(autoScroll);
+      return;
+    }
 
-    scrollPosition += 0.5;
+    // Continuous movement
+    scrollPosition += direction * 0.4;
     testimonialsGrid.scrollLeft = scrollPosition;
 
-    const halfScrollWidth = testimonialsGrid.scrollWidth / 2;
-    if (scrollPosition >= halfScrollWidth) {
+    const maxScroll = testimonialsGrid.scrollWidth - testimonialsGrid.clientWidth;
+    if (scrollPosition >= maxScroll) {
+      scrollPosition = maxScroll;
+      direction = -1;
+    } else if (scrollPosition <= 0) {
       scrollPosition = 0;
-      testimonialsGrid.scrollLeft = 0;
+      direction = 1;
     }
 
     animationFrame = requestAnimationFrame(autoScroll);
-  };
+  }
 
-  // Start auto-scroll
-  const startAutoScroll = () => {
+  function startAutoScroll() {
     if (isMobile && !isPaused && !prefersReducedMotion.matches && !animationFrame) {
       animationFrame = requestAnimationFrame(autoScroll);
     }
-  };
+  }
 
-  // Stop auto-scroll
-  const stopAutoScroll = () => {
+  function stopAutoScroll() {
     if (animationFrame) {
       cancelAnimationFrame(animationFrame);
       animationFrame = null;
     }
-  };
+  }
 
-  // Handle window resize
-  const handleResize = () => {
+  function handleResize() {
     isMobile = window.innerWidth <= 768;
     if (!isMobile) {
       stopAutoScroll();
       testimonialsGrid.scrollLeft = 0;
       scrollPosition = 0;
+      direction = 1;
       isPaused = false;
     } else {
       startAutoScroll();
     }
-  };
+  }
 
-  const handleReducedMotionChange = () => {
+  function handleReducedMotionChange() {
     if (prefersReducedMotion.matches) {
       stopAutoScroll();
       testimonialsGrid.scrollLeft = 0;
@@ -117,40 +124,32 @@ function initTestimonialsSlider() {
     } else {
       handleResize();
     }
-  };
+  }
 
-  // Handle touch events - pause ONLY while touching
-  const handleTouchStart = () => {
+  function handleTouchStart() {
     if (isMobile) {
       isPaused = true;
-      stopAutoScroll();
     }
-  };
+  }
 
-  const handleTouchEnd = () => {
+  function handleTouchEnd() {
     if (isMobile) {
-      // Resume immediately when touch ends - no delays
       isPaused = false;
-      startAutoScroll();
     }
-  };
+  }
 
-  // Handle mouse events for desktop testing
-  const handleMouseEnter = () => {
+  function handleMouseEnter() {
     if (isMobile) {
       isPaused = true;
-      stopAutoScroll();
     }
-  };
+  }
 
-  const handleMouseLeave = () => {
+  function handleMouseLeave() {
     if (isMobile) {
       isPaused = false;
-      startAutoScroll();
     }
-  };
+  }
 
-  // Add event listeners
   window.addEventListener('resize', handleResize);
   prefersReducedMotion.addEventListener?.('change', handleReducedMotionChange);
   testimonialsGrid.addEventListener('touchstart', handleTouchStart);
@@ -158,13 +157,7 @@ function initTestimonialsSlider() {
   testimonialsGrid.addEventListener('mouseenter', handleMouseEnter);
   testimonialsGrid.addEventListener('mouseleave', handleMouseLeave);
 
-  // Initialize - start immediately on mobile
   handleResize();
-  
-  // Force start auto-scroll if mobile
-  if (isMobile) {
-    startAutoScroll();
-  }
 }
 
 // Initialize all functionality when DOM is loaded
