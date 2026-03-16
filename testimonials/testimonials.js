@@ -59,32 +59,31 @@ function initTestimonialsSlider() {
   let isPaused = false;
   let scrollPosition = 0;
   let animationFrame = null;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (!testimonialsGrid.dataset.duplicated) {
+    testimonialsGrid.insertAdjacentHTML('beforeend', testimonialsGrid.innerHTML);
+    testimonialsGrid.dataset.duplicated = 'true';
+  }
 
   const autoScroll = () => {
-    if (!isMobile || isPaused) return;
+    if (!isMobile || isPaused || prefersReducedMotion.matches) return;
 
-    // Get the first card width
-    const firstCard = testimonialsGrid.querySelector('.testimonial-card');
-    if (!firstCard) return;
-    
-    const cardWidth = firstCard.offsetWidth + 32; // card width + gap (2rem = 32px)
-    const maxScroll = testimonialsGrid.scrollWidth - testimonialsGrid.clientWidth;
-
-    // Very slow continuous scrolling - 0.5px per frame for bus-like movement
     scrollPosition += 0.5;
+    testimonialsGrid.scrollLeft = scrollPosition;
 
-    // Reset to start when reaching the end - seamless loop
-    if (scrollPosition >= maxScroll) {
+    const halfScrollWidth = testimonialsGrid.scrollWidth / 2;
+    if (scrollPosition >= halfScrollWidth) {
       scrollPosition = 0;
+      testimonialsGrid.scrollLeft = 0;
     }
 
-    testimonialsGrid.scrollLeft = scrollPosition;
     animationFrame = requestAnimationFrame(autoScroll);
   };
 
   // Start auto-scroll
   const startAutoScroll = () => {
-    if (isMobile && !isPaused) {
+    if (isMobile && !isPaused && !prefersReducedMotion.matches && !animationFrame) {
       animationFrame = requestAnimationFrame(autoScroll);
     }
   };
@@ -107,6 +106,16 @@ function initTestimonialsSlider() {
       isPaused = false;
     } else {
       startAutoScroll();
+    }
+  };
+
+  const handleReducedMotionChange = () => {
+    if (prefersReducedMotion.matches) {
+      stopAutoScroll();
+      testimonialsGrid.scrollLeft = 0;
+      scrollPosition = 0;
+    } else {
+      handleResize();
     }
   };
 
@@ -143,6 +152,7 @@ function initTestimonialsSlider() {
 
   // Add event listeners
   window.addEventListener('resize', handleResize);
+  prefersReducedMotion.addEventListener?.('change', handleReducedMotionChange);
   testimonialsGrid.addEventListener('touchstart', handleTouchStart);
   testimonialsGrid.addEventListener('touchend', handleTouchEnd);
   testimonialsGrid.addEventListener('mouseenter', handleMouseEnter);

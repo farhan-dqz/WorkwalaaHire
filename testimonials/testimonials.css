@@ -318,6 +318,32 @@ nav.scrolled {
 
 /* Mobile specific testimonials grid */
 @media (max-width: 768px) {
+  .testimonials-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonials-section::before,
+  .testimonials-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .testimonials-section::before {
+    left: 0;
+    background: linear-gradient(to right, #030303, transparent);
+  }
+
+  .testimonials-section::after {
+    right: 0;
+    background: linear-gradient(to left, #030303, transparent);
+  }
+
   .testimonials-grid {
     display: flex;
     grid-template-columns: none;
@@ -548,7 +574,6 @@ footer {
   }
 
   .testimonials-grid {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
