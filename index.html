@@ -4,7 +4,7 @@
 <head>
   <!-- Basic Meta Tags -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Workwalaa – Hiring Partner | Worker Hire | Job Consultancy | Recruitment Consultancy Platform</title>
 
   <meta name="description" content="Workwalaa is a hiring partner platform connecting companies with workers. Hire employees quickly or find jobs through our trusted job consultancy and recruitment consultancy services." />
@@ -12,8 +12,6 @@
   <meta name="keywords" content="workwala, workerwala, jobwala, hiring company, hiring partner, worker hire, recruitment consultancy, job consultancy, staffing agency, employment consultancy, hire workers, recruitment partner" />
 
   <meta name="robots" content="index, follow" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="canonical" href="https://workwalaa.com/" />
 
@@ -1820,6 +1818,7 @@
       border-radius: 8px;
       color: #fff;
       font-family: inherit;
+      font-size: 16px;
     }
 
     .form-group input:focus,
@@ -2511,12 +2510,14 @@
     .modal-input {
       width: 100%;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 0.75rem;
-      padding: 0.75rem 1rem 0.75rem 3rem;
-      color: #fff;
-      transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 0.8rem 1.2rem;
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      outline: none;
+      transition: var(--transition-smooth);
     }
 
     body.light-theme .modal-input {
