@@ -349,7 +349,6 @@ nav.scrolled {
     grid-template-columns: none;
     gap: 2rem;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     scrollbar-width: none; /* Hide scrollbar for Firefox */
     -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
     -webkit-overflow-scrolling: touch;
@@ -363,7 +362,6 @@ nav.scrolled {
     flex: 0 0 auto;
     width: calc(100vw - 6rem); /* Full width minus padding */
     max-width: 350px;
-    scroll-snap-align: start;
   }
 }
 
