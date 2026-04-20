@@ -55,18 +55,39 @@ function initTestimonialsSlider() {
   const testimonialsGrid = document.querySelector('.testimonials-grid');
   if (!testimonialsGrid) return;
 
-  let isHovered = false;
-  let isTouching = false;
+  let isPausedUser = false;
+  let pauseTimeout;
   let animationId;
   let isInitialized = false;
+
+  function pauseScroll() {
+    isPausedUser = true;
+    clearTimeout(pauseTimeout);
+  }
+
+  function resumeScrollAfterDelay() {
+    clearTimeout(pauseTimeout);
+    pauseTimeout = setTimeout(() => {
+      isPausedUser = false;
+    }, 6000); // 6 seconds pause
+  }
 
   function checkMobile() {
     if (window.innerWidth <= 768) {
       if (!isInitialized) {
         // Clone items for infinite scroll
         const items = Array.from(testimonialsGrid.children);
+        
+        // Save original count so we know what essentially constitutes "one loop"
         if (!testimonialsGrid.dataset.originalCount) {
              testimonialsGrid.dataset.originalCount = items.length;
+             
+             // Append clones (Double cloning is safer if content isn't extremely wide)
+             items.forEach(item => {
+               const clone = item.cloneNode(true);
+               clone.classList.add('clone');
+               testimonialsGrid.appendChild(clone);
+             });
              items.forEach(item => {
                const clone = item.cloneNode(true);
                clone.classList.add('clone');
@@ -74,14 +95,34 @@ function initTestimonialsSlider() {
              });
         }
         
-        testimonialsGrid.scrollLeft = 0; // Start at beginning
+        // Try to start at zero
+        testimonialsGrid.scrollLeft = 0; 
 
         const scrollStep = () => {
-          if (!isHovered && !isTouching) {
-            testimonialsGrid.scrollLeft += 1; // Adjust speed here
-            // If scrolled halfway (the original content length), reset to 0 for infinite loop
-            if (testimonialsGrid.scrollLeft >= testimonialsGrid.scrollWidth / 2) {
-              testimonialsGrid.scrollLeft -= testimonialsGrid.scrollWidth / 2;
+          if (!isPausedUser) {
+            testimonialsGrid.scrollLeft += 1; // Speed of auto-scroll
+            
+            // Calculate exact width of one original set dynamically
+            // because images or fonts might shift layout after load
+            const currentItems = Array.from(testimonialsGrid.children);
+            const originalCount = parseInt(testimonialsGrid.dataset.originalCount);
+            if(currentItems.length >= originalCount) {
+                const firstItem = currentItems[0];
+                const lastOriginalItem = currentItems[originalCount - 1];
+                
+                // distance from left edge of first item to right edge of last original item
+                // plus the gap after it.
+                // It's safer to just accumulate widths + gap.
+                const gap = parseFloat(window.getComputedStyle(testimonialsGrid).gap) || 0;
+                let oneSetWidth = 0;
+                for (let i = 0; i < originalCount; i++) {
+                    oneSetWidth += currentItems[i].offsetWidth + gap;
+                }
+
+                // If scrolled past the first set perfectly, seamless warp back
+                if (testimonialsGrid.scrollLeft >= oneSetWidth) {
+                  testimonialsGrid.scrollLeft -= oneSetWidth;
+                }
             }
           }
           animationId = window.requestAnimationFrame(scrollStep);
@@ -90,6 +131,7 @@ function initTestimonialsSlider() {
         isInitialized = true;
       }
     } else {
+      // Desktop / Tablet mode cleaning
       if (isInitialized) {
         window.cancelAnimationFrame(animationId);
         // Remove clones to return to standard desktop grid
@@ -98,15 +140,24 @@ function initTestimonialsSlider() {
         testimonialsGrid.dataset.originalCount = "";
         testimonialsGrid.scrollLeft = 0;
         isInitialized = false;
+        clearTimeout(pauseTimeout);
       }
     }
   }
 
-  // Handle interaction pauses
-  testimonialsGrid.addEventListener('mouseenter', () => isHovered = true);
-  testimonialsGrid.addEventListener('mouseleave', () => isHovered = false);
-  testimonialsGrid.addEventListener('touchstart', () => isTouching = true, {passive: true});
-  testimonialsGrid.addEventListener('touchend', () => setTimeout(() => isTouching = false, 1500));
+  // Handle interaction pauses explicitly
+  testimonialsGrid.addEventListener('mouseenter', pauseScroll);
+  testimonialsGrid.addEventListener('mouseleave', resumeScrollAfterDelay);
+  testimonialsGrid.addEventListener('touchstart', pauseScroll, {passive: true});
+  testimonialsGrid.addEventListener('touchend', resumeScrollAfterDelay);
+  testimonialsGrid.addEventListener('scroll', () => {
+    // If the user manually scrolls, pause the auto-scrolling
+    // and resume after 6 seconds of no scrolling
+    if(!isPausedUser) { // Prevent trigger loop from auto-scroll own JS
+       // We can't strictly distinguish JS scroll from user scroll easily,
+       // but touching/mouse events already handle most intents.
+    }
+  }, {passive: true});
 
   checkMobile();
   window.addEventListener('resize', checkMobile);
